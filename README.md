@@ -29,19 +29,13 @@ _All code, server instances and pipelines are housed on AWS_
 * Login to the [AWS console](https://aws.amazon.com/console/) using your computer login info 
 * The current code repository for LnP is under CodeCommit
 
+
+
 ##### SSH key and config file setup {#LnPWebApp-SSHkeyandconfigfilesetup}
 
 _Follow this _[_AWS article_](/h ttp://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-ssh-unixes.html)_ to setup an ssh key and register it  _
 
 _Note_: you can add `UseKeychain yes` to the second line of the code above to avoid having to enter your password every time you commit changes to the repo.
-
-##### Other docs to get access to: {#LnPWebApp-Otherdocstogetaccessto:}
-
-* [NIC Slack](https://nic-inc.slack.com/): Houses all internal team chats and communication
-* Project Jupiter Onboarding documentation \(include link\)
-* Confleunce: Houses all documentation for the project 
-* [JIRA](https://jira.texas.local/): Houses all sprints and tasks are documented here
-* Tempo: Houses all timesheet entries for the project and where PTO requests are entered
 
 ##### Virtual Machine Setup {#LnPWebApp-VirtualMachineSetup}
 
@@ -64,6 +58,16 @@ Technologies used on the front-end:
 3. To start Webpack which bundles the react components and serves them to the browser run: `npm start` in a new terminal window
    1. To view go to `localhost:9191` 
 4. ##### To view the current state of the Lnp-MGMT page visit: [http://mgmt-dev.lnpweb.com/](http://mgmt-dev.lnpweb.com/) {#LnPWebApp-VirtualMachineSetup}
+
+#####  {#LnPWebApp-VirtualMachineSetup}
+
+##### Other docs to get access to: {#LnPWebApp-Otherdocstogetaccessto:}
+
+* [NIC Slack](https://nic-inc.slack.com/): Houses all internal team chats and communication
+* Project Jupiter Onboarding documentation \(include link\)
+* Confleunce: Houses all documentation for the project 
+* [JIRA](https://jira.texas.local/): Houses all sprints and tasks are documented here
+* Tempo: Houses all timesheet entries for the project and where PTO requests are entered
 
 
 
