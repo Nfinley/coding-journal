@@ -1,16 +1,4 @@
-#### Open he server \`mvn spring-boot:run\` {#LnPWebApp-I.OnboardingGuide(devenvironmentsetup)}
-
-####  {#LnPWebApp-I.OnboardingGuide(devenvironmentsetup)}
-
-####  {#LnPWebApp-I.OnboardingGuide(devenvironmentsetup)}
-
-####  {#LnPWebApp-I.OnboardingGuide(devenvironmentsetup)}
-
-####  {#LnPWebApp-I.OnboardingGuide(devenvironmentsetup)}
-
-####  {#LnPWebApp-I.OnboardingGuide(devenvironmentsetup)}
-
-#### oarding Guide  \(dev environment set up\) {#LnPWebApp-I.OnboardingGuide(devenvironmentsetup)}
+#### Onboarding Guide  \(dev environment set up\) {#LnPWebApp-I.OnboardingGuide(devenvironmentsetup)}
 
 _The following instructions will guide you through the dev environment set up to get the LnP website up and running on your local computer_
 
@@ -67,10 +55,15 @@ Technologies used on the front-end:
 2. The style framework used is [Material-UI](http://www.material-ui.com/#/)
 3. The server is Java and Springboot
 
-##### To view the LnP site locally {#LnPWebApp-VirtualMachineSetup}
+##### Run the LnP site locally {#LnPWebApp-VirtualMachineSetup}
 
 1. Pull the lnp-mgmt repo from AWS
-2. ##### To view the current state of the Lnp-MGMT page visit: [http://mgmt-dev.lnpweb.com/](http://mgmt-dev.lnpweb.com/) {#LnPWebApp-VirtualMachineSetup}
+2. To start the server open the terminal and type `mvn spring-boot:run`
+   1. This will also download all of the node packages
+   2. To view the server rendering go to `localhost:8181` 
+3. To start Webpack which bundles the react components and serves them to the browser run: `npm start` in a new terminal window
+   1. To view go to `localhost:9191` 
+4. ##### To view the current state of the Lnp-MGMT page visit: [http://mgmt-dev.lnpweb.com/](http://mgmt-dev.lnpweb.com/) {#LnPWebApp-VirtualMachineSetup}
 
 
 
