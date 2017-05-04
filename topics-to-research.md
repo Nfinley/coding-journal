@@ -4,7 +4,7 @@
 
 * Intellij Exploration
 * RESTFUL API
-* AWS Pipeline
+* AWS Pipeline - Beanstack
 * Headless browsers
 * Sans \(security consortium\)
 * GIAC \(Global Information Association Consoritum\)
@@ -16,6 +16,7 @@
 * SaSS
 * Babel pollyfill
 * Css Pseudo tags
+* Async Await and Kyle Simpson talk
 
 JS methods, .map, .filter, .reduce, .keys
 

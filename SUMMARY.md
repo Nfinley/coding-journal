@@ -4,5 +4,4 @@
 * [April](chapter1.md)
 * [May](may.md)
 * [Topics To Research](topics-to-research.md)
-* [Accomplishments](accomplishments.md)
 
