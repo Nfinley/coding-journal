@@ -17,6 +17,7 @@
 * Babel pollyfill
 * Css Pseudo tags
 * Async Await and Kyle Simpson talk
+* Servelss Stack : http://serverless-stack.com/
 
 JS methods, .map, .filter, .reduce, .keys
 
