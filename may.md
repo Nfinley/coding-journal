@@ -12,6 +12,9 @@ phoneValidation = /((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/.test(fieldValue)
 ```
 
 * [Jest](http://facebook.github.io/jest/) Testing
+* Redux[ training](https://www.gitbook.com/book/nfinley/react-notes/edit#/edit/master/chapter1.md?_k=so23lf)
+
+
 
 ### What I Liked
 
@@ -22,6 +25,8 @@ phoneValidation = /((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/.test(fieldValue)
 
 ### What I disliked
 
+### 
+
 ### Accomplishments
 
 * Built reusable components in React
@@ -30,6 +35,8 @@ phoneValidation = /((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/.test(fieldValue)
 
   * Using the Validity.valid method
   * Using Regex
+
+* Minor Jest Tests \(contact info component\)
 
 
 
