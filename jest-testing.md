@@ -6,7 +6,8 @@ Enzyme is a JS Testing utility for React that makes it easier to assert, manipul
 
 ###### Tools/Docs:
 
-* [Docs](https://facebook.github.io/jest/docs/) 
+* [Jest Docs](https://facebook.github.io/jest/docs/) 
+* [Enzyme Docs](http://airbnb.io/enzyme/index.html)
 
 
 
