@@ -2,7 +2,10 @@
 
 * [Introduction](README.md)
 * [April](chapter1.md)
-* [May](may.md)
+* [May Overview](may.md)
 * [Topics To Research](topics-to-research.md)
 * [Conference Talk Ideas](conference-talk-ideas.md)
+* [Regex](regex.md)
+* Jest Testing
+* [One-on-ones](one-on-ones.md)
 
