@@ -24,9 +24,9 @@ address = /^[A-Za-z0-9#/.\-,'\s]+$/gm . (this makes it so it accepts all letters
 only certain characters
 ```
 
-###### Stack Overflow post
+###### Stack Overflow post \(May 9th\)
 
-[Posted a question about cities to stack overflow](http://stackoverflow.com/questions/43872975/regular-expression-to-match-u-s-cities-allowing-certain-special-characters)
+[Posted a question about cities to stack overflow](http://stackoverflow.com/questions/43872975/regular-expression-to-match-u-s-cities-allowing-certain-special-characters): http://stackoverflow.com/questions/43872975/regular-expression-to-match-u-s-cities-allowing-certain-special-characters 
 
 
 
