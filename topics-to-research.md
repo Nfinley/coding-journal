@@ -17,7 +17,8 @@
 * Babel pollyfill
 * Css Pseudo tags
 * Async Await and Kyle Simpson talk
-* Servelss Stack : http://serverless-stack.com/
+* Servelss Stack : [http://serverless-stack.com/](http://serverless-stack.com/)
+* HTTP2 \(see Surma's talk on Javascript JAbber\)
 
 JS methods, .map, .filter, .reduce, .keys
 
