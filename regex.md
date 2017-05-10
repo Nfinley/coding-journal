@@ -1,4 +1,4 @@
-### Regex
+# Regex
 
 #### Regex expressions
 
@@ -23,21 +23,19 @@ let nameValidation = /[^\\w'a-z-A-Z\s\u{0080}-\u{017F}\u{1E00}-\u{1EFF}]+/u;
 * Phone Validation: 
 
 ```js
-let phoneValidation = /((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/
+let phoneValidation = /((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/;
 ```
 
 * Address Validation: This will allow any letters, digits and certain characters
 
 ```js
-let addressValidation = /^[A-Za-z0-9#/.\-,'\s]+$/gm
+let addressValidation = /^[A-Za-z0-9#/.\-,'\s]+$/gm;
 ```
 
-* City Validation:
+* City Validation: This will allow and letters, certain characters and spaces and is limited to 25 characters
 
-
-
-```
-
+```js
+let cityValidation = /^[a-zA-Z',.\s-]{1,25}$/g;
 ```
 
 ###### To Test each use the following method:
