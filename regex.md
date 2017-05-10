@@ -1,10 +1,8 @@
-### Regex 
-
-
+### Regex
 
 #### Regex expressions
 
-Regex is 
+Regex is
 
 ###### Tools:
 
@@ -19,14 +17,18 @@ Regex is
 1. For Names 
 
 ```
-
-
 nameValidation = /[^\\w'a-z-A-Z\s\u{0080}-\u{017F}\u{1E00}-\u{1EFF}]+/u
 
 phoneValidation = /((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/.test(fieldValue)
 address = /^[A-Za-z0-9#/.\-,'\s]+$/gm . (this makes it so it accepts all letters and numbers and 
 only certain characters
 ```
+
+###### Stack Overflow post
+
+[Posted a question about cities to stack overflow](http://stackoverflow.com/questions/43872975/regular-expression-to-match-u-s-cities-allowing-certain-special-characters)
+
+
 
 
 

@@ -10,8 +10,7 @@
 
 * Git commands for pulling, merging and branching
 
-* Posted on Stack Overflow: [http://stackoverflow.com/questions/43872975/regular-expression-to-match-u-s-cities-allowing-certain-special-characters](http://stackoverflow.com/questions/43872975/regular-expression-to-match-u-s-cities-allowing-certain-special-characters)
-
+* 
 * ### What I Liked
 * Went to a Kyle Simpson Talk \(insert notes on talk\)
 
