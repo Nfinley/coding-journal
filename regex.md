@@ -10,6 +10,8 @@ Regex is basically a sequence of characters that define a search pattern. See [W
 * Tuts [tutorial](https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149\ )
 * [Rexegg](http://www.rexegg.com/regex-quickstart.html)
 
+* [W3 Schools](https://www.w3schools.com/jsref/jsref_obj_regexp.asp)
+
 * Other regex [references](http://work.lauralemay.com/samples/perl.html)
 
 ###### Examples of written Regex:
