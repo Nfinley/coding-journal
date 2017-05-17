@@ -10,4 +10,5 @@
 * [One-on-ones](one-on-ones.md)
 * [Foundation Library](foundation-library.md)
 * [Javascript 30](javascript-30.md)
+* [You Don't Know JS: Scope & Closures](you-dont-know-js-scope-and-closures.md)
 
