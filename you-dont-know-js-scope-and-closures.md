@@ -24,7 +24,10 @@ Note: The JS compiler is vastly more complex than just these three steps but giv
 1. Compiler declares a variable in current scope\(if not already exists\)
 2. When executing Engine looks up the variable in Scope and assigns it if found
 
-
+#### LHS and RHS
+* LHS look-up is done when a variable appears on the lef-hand side of an assignment and
+RHS is done when a variable appears on the right-hand side
+* RHS means `retrieve his.her source`
 
 
 
