@@ -10,3 +10,4 @@
 2. Cory House Course on React on Pluralsight: [Link](https://app.pluralsight.com/paths/skills/react)
 3. React Egghead IO Course - Higher Order Components: [Link](https://egghead.io/lessons/react-write-a-higher-order-component-from-scratch)
 4. Async Await Egghead Course: [Link](https://egghead.io/courses/asynchronous-javascript-with-async-await)
+5. WebGL on Egghead: [Link](https://egghead.io/lessons/javascript-setting-up-webgl)
