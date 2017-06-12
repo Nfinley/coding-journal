@@ -12,3 +12,5 @@
 4. Async Await Egghead Course: [Link](https://egghead.io/courses/asynchronous-javascript-with-async-await)
 6. Flexbox on Laracasts: [Link](https://laracasts.com/series/learn-flexbox-through-examples)
 7. Building React with Idomatic Redux on Egghead: [Link](https://egghead.io/courses/building-react-applications-with-idiomatic-redux)
+8. CS 101 on Udacity with PYTHON: [Link](https://classroom.udacity.com/courses/cs101)
+9. AWS Partner Courses: [Link](https://www.aws.training/learningobject/curriculum?id=11276)
