@@ -8,6 +8,7 @@ _Documenting bugs and the solutions found_
 
 ##### 6/11/17
 
-1. Scenario:
-    * 
-
+###### Bug 1: 
+Writing Jest tests for a validation form js file. Trying to test a boolean value is changed when a certain classname exists on a form element
+* Error received: `TypeError: Cannot assign to read only property 'addressEmpty' of object '#<Object>'`
+* Fix: Currently didn't pursue a fix because the loop contained in the validation form wasn't accesbile to the test and it would take a while to mock it and would have to make the variables and loop publically accesible 
