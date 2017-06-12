@@ -14,3 +14,4 @@
 7. Building React with Idomatic Redux on Egghead: [Link](https://egghead.io/courses/building-react-applications-with-idiomatic-redux)
 8. CS 101 on Udacity with PYTHON: [Link](https://classroom.udacity.com/courses/cs101)
 9. AWS Partner Courses: [Link](https://www.aws.training/learningobject/curriculum?id=11276)
+10. Clean Code by Cory House: [Link](https://app.pluralsight.com/library/courses/writing-clean-code-humans/table-of-contents)
