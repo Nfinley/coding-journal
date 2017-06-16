@@ -9,6 +9,9 @@
     * String: method combines the text of one or more stings and returns a new string.
         * Syntax: `str.concat(string2[, string3, ..., stringN])`
         * [Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat)
+        
+* `Promise`: The javascript promise creates a promise and there are certain parameters you can use with this. For example `reject()` and `resolve()`
+
 
 #### HTML 
 

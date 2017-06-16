@@ -16,7 +16,7 @@ Writing Jest tests for a validation form js file. Trying to test a boolean value
 
 
 ##### 6/13/17
-###### Bug 2:
+###### Bug 2 - Jest Testing Issue:
 Using validation logic to validate certain form elements. While trying to abstract the logic from the component field was trying to create a thenable promise chain but since the validate form is an asynchornous action it didn't return a promise so couldn't continue in the promise chain
 * Error received: Something to the extent of `TypeError: Cannot read property 'then' of undefined`
  
@@ -36,5 +36,17 @@ Using validation logic to validate certain form elements. While trying to abstra
  }
 ````
  
+ ######Bug 3 - SetState Issue: 
+ React Error when trying to update state to a component which is no longer mounted. 
+ * Error: `Warning: setState(...): Can only update a mounted or mounting component. This usually means you called setState() on an unmounted component. This is a no-op. Please check the code for the blahblah component.`
+ 
+ * Fix: 
  
  
+ ###### Bug 4 - Component Update issue with setState: 
+ Trying to figure out how to update React component state before rest of actions of the onSubmit are called. 
+ [Article about setState and lifecycle events](http://reactkungfu.com/2016/03/dive-into-react-codebase-handling-state-changes/)
+ * Error: state changes are not reflected in state when onSubmit is called because the component hasn't finished its lifecycle to update state. 
+ * Fix: 
+ 
+ forceUpdate()
