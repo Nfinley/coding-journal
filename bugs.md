@@ -40,13 +40,28 @@ Using validation logic to validate certain form elements. While trying to abstra
  React Error when trying to update state to a component which is no longer mounted. 
  * Error: `Warning: setState(...): Can only update a mounted or mounting component. This usually means you called setState() on an unmounted component. This is a no-op. Please check the code for the blahblah component.`
  
- * Fix: 
- 
+ * Fix: When you are are a .thenable block a promise returns two parameters, 1. A response and 2. an error. See below for the code fix: 
+ ````
+ this.props.applicationAction.updateApplication(this.getPayload())
+                 .then(() => {
+                         this.props.history.push('/create-application/app-dates');
+                     }, (err) => this.setState({submissionError: err.message}) )
+                 .catch((err) => { console.error(err) });
+````
+ * See the second paramater `err` which fixed the problem
  
  ###### Bug 4 - Component Update issue with setState: 
  Trying to figure out how to update React component state before rest of actions of the onSubmit are called. 
  [Article about setState and lifecycle events](http://reactkungfu.com/2016/03/dive-into-react-codebase-handling-state-changes/)
  * Error: state changes are not reflected in state when onSubmit is called because the component hasn't finished its lifecycle to update state. 
- * Fix: 
+ * Fix: In order to pass to state to another function there are a few options. 
  
- forceUpdate()
+    * 
+ 
+ 
+ 
+ ##### 6/20/17
+ 
+ ###### Bug 5
+ Issue: Was trying to add a new property to redux, it was dispatching the action,  but it was not saving to redux state
+ * Fix: Forgot to add the reducer I created to the index.js reducer files to bind it to state. Once I added it, the parameter showed up in Redux state
