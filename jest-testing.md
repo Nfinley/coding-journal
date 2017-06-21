@@ -187,3 +187,53 @@ describe('Reducer Name', () => {
 });
 
 ````
+
+Another Example with comments: 
+
+````
+import identityTypeReducer from './identityTypeReducer';
+import * as actions from '../actions/identityTypeAction';
+
+
+
+describe('Identity Type Reducer', () =>{
+	it('Should have default state', () => {
+		const action = {type: 'UNSPECIFIED_ACTION', blah: 'blah'};
+		const newState = identityTypeReducer({}, action);
+		expect(newState).toEqual({});
+	});
+
+	it('Should handle CREATE_IDENTITY_TYPE_SUCCESS', () => {
+	        //need to set initial state
+		const initialType = {type: ''};
+		
+	        //then set the new structure of state
+		const newType = {type: 'ANONYMOUS'};
+
+	        //then set the action to call this action and pass new state
+		const action = actions.createIdentityTypeSuccess(newType);
+
+	        //then set new state to the reducer needed to handle this action and pass the action defined above
+		const newState  = identityTypeReducer(initialType, action);
+
+	        //then expect new state to equal new structure of state
+		expect(newState).toEqual(newType);
+	});
+
+	it('Should handle LOAD_IDENTITY_TYPE_SUCCESS', () => {
+		//mocking initial state of identityType
+		const initialType = {type: 'ENTITY'};
+
+		//setting action to the dispatch of load identity type and dispatch the state
+		const action = actions.loadIdentityTypeSuccess(initialType);
+
+		//setting newState through calling the reducer and passing the state and the action
+		const newState = identityTypeReducer(initialType, action);
+
+		//comparing the newstate of the app to the initial state and they should be equal
+		expect(newState).toEqual(initialType);
+
+	});
+
+});
+````
