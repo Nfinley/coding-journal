@@ -24,6 +24,7 @@ vs.
 
 
 ## Examples of Tests
+For more examples please see the Redux Testing [documentation](http://redux.js.org/docs/recipes/WritingTests.html) 
 
 ### Component Test example
 ````
