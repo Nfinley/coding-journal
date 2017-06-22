@@ -17,3 +17,4 @@
 9. AWS Partner Courses: [Link](https://www.aws.training/learningobject/curriculum?id=11276)
 10. Clean Code by Cory House: [Link](https://app.pluralsight.com/library/courses/writing-clean-code-humans/table-of-contents)
 11. React Native with Tyler : [Link](https://egghead.io/courses/react-native-fundamentals)
+12. Higher Order Components: [Link](https://egghead.io/courses/higher-order-components-with-functional-patterns-using-recompose)
