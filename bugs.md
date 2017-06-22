@@ -48,7 +48,7 @@ Using validation logic to validate certain form elements. While trying to abstra
                      }, (err) => this.setState({submissionError: err.message}) )
                  .catch((err) => { console.error(err) });
 ````
- * See the second paramater `err` which fixed the problem
+ * See the second paramater `err` which fixed the problem which was inpart due to the fact that the error was not bubbling up into the last catch block but instead only in the first then
  
  ###### Bug 4 - Component Update issue with setState: 
  Trying to figure out how to update React component state before rest of actions of the onSubmit are called. 
@@ -62,6 +62,25 @@ Using validation logic to validate certain form elements. While trying to abstra
  
  ##### 6/20/17
  
- ###### Bug 5
- Issue: Was trying to add a new property to redux, it was dispatching the action,  but it was not saving to redux state
- * Fix: Forgot to add the reducer I created to the index.js reducer files to bind it to state. Once I added it, the parameter showed up in Redux state
+ ###### Bug 5 - Reducer not setting state in Redux
+ * Issue: Was trying to add a new property to redux, it was dispatching the action,  but it was not saving to redux state
+    *  Fix: Forgot to add the reducer I created to the index.js reducer files to bind it to state. Once I added it, the parameter showed up in Redux state
+ 
+ 
+ ###### Bug 6 - Jest testing not calling the mock onClick function 
+ * Issue: While jest testing I was trying to mock an onClick function but I was adding it to the props within the test instead of getting it from the instance(). 
+ * Error: `expect(jest.fn()).toHaveBeenCalled()
+          Expected mock function to have been called.`
+    * Fix: I was trying to mock the object from props instead of mocking it on the instance itself. See the code below for the fix:          
+ 
+````
+ 	describe('Choose Profile Actions Test', () => {
+ 		wrapper.instance().onClick = jest.fn();
+ 		const mockOnClick = wrapper.instance().onClick;
+ 
+ 		it('Should call onClick event on Guest Card', () =>{
+ 			wrapper.find('#guest').simulate('click');
+ 			expect(mockOnClick).toHaveBeenCalled();
+ 		});
+ 	});
+````
