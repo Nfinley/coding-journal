@@ -93,3 +93,4 @@ Using validation logic to validate certain form elements. While trying to abstra
 		});
 	});
 ````
+* Can also use the JEST debugging they suggest in the [docs](https://facebook.github.io/jest/docs/troubleshooting.html)
