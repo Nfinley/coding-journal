@@ -72,7 +72,7 @@ Using validation logic to validate certain form elements. While trying to abstra
  * Error: `expect(jest.fn()).toHaveBeenCalled()
           Expected mock function to have been called.`
           
-    * Fix: I needed to spyOn the function as opposed to mock. Additionally, in order to trigger the call, the way I got it to work is to call the `forceUpdate()` method. [Docs](https://facebook.github.io/react/docs/react-component.html#forceupdate).
+    * Fix: I needed to spyOn the function as opposed to mock it. Additionally, in order to trigger the call, the way I got it to work is to call the `forceUpdate()` method. [Docs](https://facebook.github.io/react/docs/react-component.html#forceupdate).
      The forceUpdate() calls the component to re-render allowing it to call the spy. Usually one should try to avoid using this. See the code below for the fix:          
  
 ````
