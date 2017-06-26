@@ -68,19 +68,28 @@ Using validation logic to validate certain form elements. While trying to abstra
  
  
  ###### Bug 6 - Jest testing not calling the mock onClick function 
- * Issue: While jest testing I was trying to mock an onClick function but I was adding it to the props within the test instead of getting it from the instance(). 
+ * Issue: While jest testing I was trying to mock an onClick function but for some reason it would not call the mock function.  
  * Error: `expect(jest.fn()).toHaveBeenCalled()
           Expected mock function to have been called.`
-    * Fix: I was trying to mock the object from props instead of mocking it on the instance itself. See the code below for the fix:          
+          
+    * Fix: I needed to spyOn the function as opposed to mock. Additionally, in order to trigger the call, the way I got it to work is to call the `forceUpdate()` method. [Docs](https://facebook.github.io/react/docs/react-component.html#forceupdate).
+     The forceUpdate() calls the component to re-render allowing it to call the spy. Usually one should try to avoid using this. See the code below for the fix:          
  
 ````
- 	describe('Choose Profile Actions Test', () => {
- 		wrapper.instance().onClick = jest.fn();
- 		const mockOnClick = wrapper.instance().onClick;
- 
- 		it('Should call onClick event on Guest Card', () =>{
- 			wrapper.find('#guest').simulate('click');
- 			expect(mockOnClick).toHaveBeenCalled();
- 		});
- 	});
+	describe('Choose Profile Actions Test', () => {
+		it('Should call onClick event on Guest Card', () =>{
+			const handleClickMock = jest.spyOn(wrapper.instance(), 'handleClick');
+			wrapper.instance().forceUpdate();
+			wrapper.find('#guest').simulate('click', {currentTarget: {getAttribute:()=> "value"}});
+			expect(handleClickMock).toHaveBeenCalled();
+		});
+		it('Should call router push method', () => {
+			wrapper.setProps({identityTypeAction: {createIdentityTypeSuccess: () => Promise.resolve( { type: 'ENTITY' }) }});
+			const spyPropHistoryPush = jest.spyOn(wrapper.instance().props.history, 'push');
+			wrapper.find('#guest').simulate('click', {currentTarget: {getAttribute:()=> "value"}});
+			setTimeout(() => {
+				expect(spyPropHistoryPush).toHaveBeenCalledWith('/create-application/create');
+			}, 100);
+		});
+	});
 ````
