@@ -8,7 +8,7 @@ _Documenting bugs and the solutions found_
 
 ##### 6/11/17
 
-###### Bug 1: 
+###### Bug 1 - Validation issue: 
 Writing Jest tests for a validation form js file. Trying to test a boolean value is changed when a certain classname exists on a form element
 * Error received: `TypeError: Cannot assign to read only property 'addressEmpty' of object '#<Object>'`
 * Fix: Currently didn't pursue a fix because the loop contained in the validation form wasn't accesbile to the test and it would take a while to mock it and would have to make the variables and loop publically accesible 
@@ -59,7 +59,6 @@ Using validation logic to validate certain form elements. While trying to abstra
     * 
  
  
- 
  ##### 6/20/17
  
  ###### Bug 5 - Reducer not setting state in Redux
@@ -94,3 +93,22 @@ Using validation logic to validate certain form elements. While trying to abstra
 	});
 ````
 * Can also use the JEST debugging they suggest in the [docs](https://facebook.github.io/jest/docs/troubleshooting.html)
+
+###### Bug 7 - Jest Testing not mocking a function that is passed from props
+* Issue: While jest testing trying to test a function being passed in from a parent wrapper as prop but it is not being called
+* Error: `expect(jest.fn()).toHaveBeenCalled()
+    Expected mock function to have been called.`
+
+    * Fix: You need tou use Enzyme's mount instaed of shallow rendering so that it can be aware of functions coming from the parent wrapper
+    
+````
+	const mountWrapper = mount(<AfqPhoneEmail {...props}/>);
+	describe('AfqName Actions Test', () => {
+		it('Should call the handleState function from wrapper component when child component mounts', () => {
+			const handleState = jest.spyOn(mountWrapper.instance().props, 'handleState');
+			expect(handleState).toBeDefined();
+			expect(handleState).toHaveBeenCalled();
+
+		});
+	});
+````
