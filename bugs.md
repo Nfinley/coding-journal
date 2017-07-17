@@ -1,9 +1,11 @@
 #### DeBugging and fixes
 _Documenting bugs and the solutions found_
 
-#####Instructions 
-* Anytime an unexpected error is received, document the date, the scenario, the problem and once trouble shooting is completed, add a solution.
+_Also contains solutions for issues found_
 
+#####Instructions 
+* Bug: Anytime an unexpected error is received, document the date, the scenario, the problem and once trouble shooting is completed, add a solution.
+* Pattern: Anytime working through a pattern and find a better solution document it
 
 
 ##### 6/11/17
@@ -112,3 +114,49 @@ Using validation logic to validate certain form elements. While trying to abstra
 		});
 	});
 ````
+
+
+##### 7/14/17
+
+######Pattern 1 - Passing props from a parent component to grandchildren (USE React.CloneElement)
+* Issue: was creating a Checkbox group component and having issue figuring out how to pass all the props that the checkbox needs down through the group component and into the child of the group
+* Fix: Instead of trying manicure the Checkbox group to pass every single prop you pass in `children` as props and then map over it using `React.Children.map`
+and then you return    `React.cloneElement(child)`. See below for an example:
+
+````
+render() {
+        const {children, selectedOption, legend} = props;
+        const radioButtons = React.Children.map(children, (child) => {
+            return (
+                <li>
+                    {React.cloneElement(child,
+                        {
+                            id: child.props.id,
+                            label: child.props.label,
+                            checked: selectedOption === child.props.option,
+                            disabled: child.props.disabled,
+                            onChange: child.props.onChange,
+                        }
+                    )}
+                </li>
+            );
+        });
+
+       return (
+            <fieldset className=“usa-fieldset-inputs”>
+                <legend className=“usa-sr-only”>{legend}</legend>
+                <ul className=“usa-unstyled-list”>
+                    {radioButtons}
+                </ul>
+            </fieldset>
+        );
+    }
+````
+
+##### 7/17/17
+######Bug 8 - TypeError and exception error
+* Issue: Trying to pass down an array of objects from parent component to a child and when in the child  I get the data fine but 
+then when trying to map or do a forEach over it, three Jest tests fail 
+* Error:  `AFQ Name Component Test › encountered a declaration exception; TypeError: Cannot read property 'map' of undefined`
+                 
+    * Fix: It has something to do with the fact we are using mount (from Enzyme) in the tests. When I comment out that code the errors go away. I took it out of the parent component and the tests worked. 
