@@ -160,3 +160,11 @@ then when trying to map or do a forEach over it, three Jest tests fail
 * Error:  `AFQ Name Component Test › encountered a declaration exception; TypeError: Cannot read property 'map' of undefined`
                  
     * Fix: It has something to do with the fact we are using mount (from Enzyme) in the tests. When I comment out that code the errors go away. I took it out of the parent component and the tests worked. 
+    
+
+##### 7/18/17
+######Bug 9 - Troublshooting an API
+* Issue: Trying to send a payload to an API
+    * Fix: Check the network tab and retreive the payload and the url and put both in Postman and troubleshoot until you find the error
+    
+    
