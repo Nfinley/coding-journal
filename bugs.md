@@ -168,3 +168,49 @@ then when trying to map or do a forEach over it, three Jest tests fail
     * Fix: Check the network tab and retreive the payload and the url and put both in Postman and troubleshoot until you find the error
     
     
+    
+##### 7/24/17
+######Bug 10 - Testing a stateless component and getting a TypeError
+* Issue: When testing a stateless component that contains a .map method the test is failing because it cannot find a method. Might be because it doesn't have a component to reference
+* Error: 
+```
+SelectedOptions Test › encountered a declaration exception
+TypeError: options.map is not a function
+````
+   * Fix: To get this error to disappear you need to mock the wrapper container  and surround the stateless component when instantiating it
+   ````
+   const data = [
+   		{formId: 'Test', options: [{name: 'NAME', show: true}]},
+   		{formId: 'New Test', options: [{name: 'NAME 2', show: true}]}]
+   
+   	const wrapper = mount(<ConfigTable data={data}><SelectedOptions {...props}/></ConfigTable>);
+   
+````  
+
+
+###### 7/25/17
+###### Bug 11 - Checkboxes not working - <label> issue
+* Issue: The checkboxes on the page stopped working when in production. They worked locally but not live
+* Error: It turns out to be an HTML input error.  The label tag was not bound to the input tag. 
+````
+<div>
+				<input
+					id={id}
+					type="checkbox"
+					name={name}
+					value={value}
+					checked={isChecked}
+					disabled={disabled}
+					onChange={this.toggleCheckboxChange}/>
+				<label htmlFor={label} label={label}>
+					{showLabel ? label : null}
+				</label>
+			</div>
+````
+In the example above you notice that we are passing `{label}` to the `htmlFor` property instead of being bound
+So to solve the issue you need to make sure you bind the input with the label tag like so:
+````
+<label htmlFor={id}>
+    {showLabel ? label : ''}
+</label>
+````

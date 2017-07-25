@@ -12,6 +12,10 @@
         
 * `Promise`: The javascript promise creates a promise and there are certain parameters you can use with this. For example `reject()` and `resolve()`
 
+###### Argument vs. Parameters
+
+###### Let vs. Const
+
 
 #### HTML 
 
