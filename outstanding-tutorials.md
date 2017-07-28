@@ -18,3 +18,6 @@
 10. Clean Code by Cory House: [Link](https://app.pluralsight.com/library/courses/writing-clean-code-humans/table-of-contents)
 11. React Native with Tyler : [Link](https://egghead.io/courses/react-native-fundamentals)
 12. Higher Order Components: [Link](https://egghead.io/courses/higher-order-components-with-functional-patterns-using-recompose)
+13. Build a Mini Netflix: [Link](https://scotch.io/tutorials/build-a-mini-netflix-with-react-in-10-minutes)
+14. Code Splitting in React : [Link](https://brotzky.co/blog/code-splitting-react-router-webpack-2/)
+15. TODO list using React and Redux - Dan Abramov: [Link](https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storage)
