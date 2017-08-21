@@ -1,8 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* [April](chapter1.md)
-* [May Overview](may.md)
 * [Topics To Research](topics-to-research.md)
 * [Regex](regex.md)
 * [Jest/Enzyme Testing](jest-testing.md)
