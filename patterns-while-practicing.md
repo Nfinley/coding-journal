@@ -10,3 +10,4 @@ what _approaches_ you learned, that you can apply to future questions.
 1. Problem: Understood how to solve the problem, but identifying the JS function that would assist is in rounding numbers didn't come. 
     * Solution: use `parseInt()` and `%` (modulus)
     
+2. Problem:     
