@@ -6,17 +6,8 @@ the moments where I got stuck, the things I  had trouble
 figuring out and the things you got wrong at first. Basically, 
 what _approaches_ you learned, that you can apply to future questions.
 
-
 ----
-
-### Patterns
-
-##### 5/30/17
-* Problem: Understood how to solve the problem, but identifying the JS function that would assist is in rounding numbers didn't come. 
+1. Problem: Understood how to solve the problem, but identifying the JS function that would assist is in rounding numbers didn't come. 
     * Solution: use `parseInt()` and `%` (modulus)
-   
     
-##### 6/13/17
-    
-*  Problem: trying to check to see if a string was a palindrome and it was passing test cases
-      * Solution/Fix: I was using a single equals and assigning a variable instead of using double equals
+2. Problem:     

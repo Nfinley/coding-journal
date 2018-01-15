@@ -14,9 +14,14 @@ what _approaches_ you learned, that you can apply to future questions.
 ##### 5/30/17
 * Problem: Understood how to solve the problem, but identifying the JS function that would assist is in rounding numbers didn't come. 
     * Solution: use `parseInt()` and `%` (modulus)
+<<<<<<< HEAD
+    
+2. Problem:     
+=======
    
     
 ##### 6/13/17
     
 *  Problem: trying to check to see if a string was a palindrome and it was passing test cases
       * Solution/Fix: I was using a single equals and assigning a variable instead of using double equals
+>>>>>>> 161c550240228ef4aef38d7b3aa91e3d96a12769

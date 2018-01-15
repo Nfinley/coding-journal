@@ -17,8 +17,14 @@
 * Babel pollyfill
 * Css Pseudo tags
 * Async Await and Kyle Simpson talk
-* Servelss Stack : [http://serverless-stack.com/](http://serverless-stack.com/)
+* Serveless Stack : [http://serverless-stack.com/](http://serverless-stack.com/)
 * HTTP2 \(see Surma's talk on Javascript JAbber\)
+* Ajax Requests (https://blog.httpwatch.com/2009/08/07/ajax-caching-two-important-facts/)
+* X Path
+* Promises and callbacks (http://www.datchley.name/promise-patterns-anti-patterns/)
+* Binding functions and this 
+* Differences between Value and DefaultValue
+* REST API architecture 
 
 JS methods, .map, .filter, .reduce, .keys
 
