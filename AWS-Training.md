@@ -119,4 +119,84 @@
     * "If something in my system fails, it can repair itself"
     
 ### S3 (Simple Storage Service)    
+* [IMAGE OF S3](http://res.cloudinary.com/thefinleycode/image/upload/v1516467085/AWS-S3_cxogbc.png)
 * Definition: Is an online bulk storage service that you can access from almost any device
+* Can store any type of file
+
+#### Buckets: 
+* Bucket names must be unique across ALL of aws, they must be 3 to 63 characters in length, and contain lowercase 
+* Root level "Folders" are buckets
+* Any 'sub-foler' you create is refferred to as a folder
+* You can use S3 buckets to host static sites
+
+#### Storage Classes
+* A storage represents the classification assigned to each object
+* Availabile storage classes are: 
+    * Standard: 
+        i. Designed for all purpose
+        ii. Most expensive
+        iii 99.9999999999% durability
+        iv. 99.99% object availability
+    * Reduced Redundancy Storage (RRS):
+        i. Less expensive
+        ii. Designed for non-critical, reproducible objects
+        iii 99.99% durability
+        iv. 99.99% object availability
+    * Infrequent Access (S3-IA):
+        * Designed for objects you don't access frequently, but must be immediately available when accessed
+        * iii 99.99999999999% durability
+        * iv. 99.90% object availability
+        * Less expensive than RRS
+    * Glacier: 
+        * Cheapest
+        * Large bulk files, like medical records that they may keep for years per regulations
+        * Could take up to a few hours or a day to retreive
+        * iii 99.99999999999% durability
+* Each Storage class ha varying arttributes things like: 
+    * Storage cost
+    * Object availability
+    * Object durability
+    * Frequency of access
+* All objects assigned a storage class (Standard is default)     
+* If you want to change the class you must set the proper class on upload  or change in permissions
+* If you want to change to Glacier class you have to use object Lifecycles and may take up to 1-2 days to take effect
+
+
+#### Objects:
+* Files stored in a bucket are objects
+* Object Durability (Fault Tolerant): 
+    * Percent over a one year period that a file stored in S3 will NOT be lost
+    * For object durability of 99.99999999999% means there is a 0.0000000001% change of a file in S3 being lost in a year
+* Object Availability: 
+    * Percent over a one year time period that a file stored in S3 WILL be accessible
+    For object availability of 99.99% that means there is a 0.01% change you won't be able to access a file store in S3 in a year
+    
+#### Object Lifecycle:
+* Set of rules that automate the migration of an objects storage class to a different storage class
+* Using a lifecycle policy you can automate the process of changing the files storage class to mee usage needs and keep costs low
+* Lifecycle policies can be applied to entire bucket, specific object or folder
+* You can always delete a lifecycle policy or manually change the storage class
+    
+#### S3 Permissions
+* Allow you to have control over who can view, access, and use specific buckets and objects
+* On bucket level you can control `List = who can see the bucket name`, `Upload/Delete`, `View Permissions`, `Edit Permissions`
+* On file level for each file you can control `Open/Download`, `View Permissions`, and `Edit Permissions` 
+* Bucket level permission are generally used for 'internal' access control
+* You ca share specific objects (via a link) with anyone in the world.
+
+#### S3 Versioning
+* Versioning is feature that keeps track of and stores all old/new versions of an object
+* It is either ON/OFF
+* Once ON you can only suspend
+* Versioning can only be set on the bucket level and applies to all objects in the bucket 
+
+
+#### Regions: 
+* You must select a region when you create a bucket, meaning any data you upload to the S3 bucket located in data center in that region
+* Select region closes to you
+
+#### Pricing: 
+* Charged per GB used
+* [Price](https://aws.amazon.com/s3/pricing/) per GB varies on region and storage class
+
+### Elastic Cloud Compute (EC2)
