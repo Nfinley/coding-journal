@@ -9,6 +9,8 @@ _Also contains solutions for issues found_
 
 
 ##### 6/11/17
+######If need to use Inspector in node use this: `node --inspect --debug-brk node_modules/.bin/jest --runInBand`
+
 
 ###### Bug 1 - Validation issue: 
 Writing Jest tests for a validation form js file. Trying to test a boolean value is changed when a certain classname exists on a form element
@@ -116,42 +118,7 @@ Using validation logic to validate certain form elements. While trying to abstra
 ````
 
 
-##### 7/14/17
 
-######Pattern 1 - Passing props from a parent component to grandchildren (USE React.CloneElement)
-* Issue: was creating a Checkbox group component and having issue figuring out how to pass all the props that the checkbox needs down through the group component and into the child of the group
-* Fix: Instead of trying manicure the Checkbox group to pass every single prop you pass in `children` as props and then map over it using `React.Children.map`
-and then you return    `React.cloneElement(child)`. See below for an example:
-
-````
-render() {
-        const {children, selectedOption, legend} = props;
-        const radioButtons = React.Children.map(children, (child) => {
-            return (
-                <li>
-                    {React.cloneElement(child,
-                        {
-                            id: child.props.id,
-                            label: child.props.label,
-                            checked: selectedOption === child.props.option,
-                            disabled: child.props.disabled,
-                            onChange: child.props.onChange,
-                        }
-                    )}
-                </li>
-            );
-        });
-
-       return (
-            <fieldset className=“usa-fieldset-inputs”>
-                <legend className=“usa-sr-only”>{legend}</legend>
-                <ul className=“usa-unstyled-list”>
-                    {radioButtons}
-                </ul>
-            </fieldset>
-        );
-    }
-````
 
 ##### 7/17/17
 ######Bug 8 - TypeError and exception error
@@ -214,3 +181,13 @@ So to solve the issue you need to make sure you bind the input with the label ta
     {showLabel ? label : ''}
 </label>
 ````
+
+
+
+
+##### 1/8/2018
+ ###### Bug 12 - Using Fetch API, Can't get cookie in header
+ * Issue: While sending an api request to our backend I wasn't able to get or retrieve the appropriate cookie header. Everytime the back would just keep reseting the cookie
+ * Fix: To solve the issue I added the following header to each call where there was a cookie involved: 
+ ` credentials: 'same-origin'`
+ 
