@@ -25,6 +25,8 @@
 * Binding functions and this 
 * Differences between Value and DefaultValue
 * REST API architecture 
+* Terrafrom (use Amazon as test environment)
+* Gzipping, code splitting and performance
 
 JS methods, .map, .filter, .reduce, .keys
 
