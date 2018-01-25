@@ -50,6 +50,8 @@
 ###### FLoating points 
    * Allows you to store values containing fractional portion
    * There are 32 bit and 64 bit floating point type
+   * Float = 32- bit
+   * Double = 64-bit
    
 ###### Character and Boolean (true/false)
    * Different than strings
@@ -57,4 +59,25 @@
    * `boolean iLoveJava = true;`
    
    
-   
+##### Primitive Types are stored by value
+##### Arithmetic Operators
+   * Basic Operators: `+ - / %`
+   * Prefix/Postfix: ++ increments by 1, -- decrements by 1
+        * As prefix applies operation before returning value
+        * As postfix applies operation after returning the value
+   * Compound
+        * Combines an operation and assignment
+        * Applies result of right side to left side and stores that result in variable on left side
+
+* Order of precendence: Postfix, prefix, Multiplicative, and then Additive
+
+##### Type Conversion
+* Implicit Type Conversion: They automatically convert by compiler
+    * Widening conversions are automatic: IE: 32-bit to 64-bit
+    * Mixed integer sizes choose largest integer in equation
+* Explicit  Type Conversion: Conversions performed explicitily in code with cast operators: 
+    ````
+        long lVal = 50;
+        int iVal = (int) lVal;
+    ````
+    
