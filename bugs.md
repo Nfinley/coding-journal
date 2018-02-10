@@ -191,3 +191,22 @@ So to solve the issue you need to make sure you bind the input with the label ta
  * Fix: To solve the issue I added the following header to each call where there was a cookie involved: 
  ` credentials: 'same-origin'`
  
+##### 1/26/2018 
+###### Bug 13 - Using Jest - When testing a function that is not dispatching anything
+* Instead of using `store.dispatch` all you need to do is export the function in the other file and then test it directly like: functionName();
+
+
+##### 2/8/2018
+###### Bug 14 - Using Jest  - When testing an onChange function 
+* Issue: when callind the function in jest like handleInputChageSpy(); getting the following error: 
+` TypeError: Cannot read property 'target' of undefined`
+* Fix:  Just passed a mocked event object to the function 
+ ```
+     const event = {
+         target: {
+             value: 1,
+             name: 'Test Name'
+         }
+     }
+     handleChangeSpy(event);
+ ```

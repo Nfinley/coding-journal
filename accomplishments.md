@@ -32,3 +32,5 @@
 * Spear-headed the login and authentication flow for team IO
 * Led and facilitated two sprint planning PI meetings
 * Constantly team support for code base to due to deep knowledge of the code base
+* Worked on app performance enhancements through Webpack, Added webpack analyzer, lodashplugin, eslint rules, and separated  webbpack configs to common, prod and dev
+
