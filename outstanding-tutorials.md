@@ -22,3 +22,4 @@
 14. Code Splitting in React : [Link](https://brotzky.co/blog/code-splitting-react-router-webpack-2/)
 15. TODO list using React and Redux - Dan Abramov: [Link](https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storage)
 16. Javascript PRomises for dummies -Scotch.io : [Link](https://scotch.io/tutorials/javascript-promises-for-dummies)
+17. Creating Reusable React Components - Pluralsight: [Link](https://app.pluralsight.com/library/courses/react-creating-reusable-components/table-of-contents)

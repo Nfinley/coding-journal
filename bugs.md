@@ -210,3 +210,30 @@ So to solve the issue you need to make sure you bind the input with the label ta
      }
      handleChangeSpy(event);
  ```
+ 
+ ##### 2/24/2018
+ ###### Bug 15 - Using Jest - testing an .catch block with error
+ * Issue: Cross-contaimination within the tests
+ * Fix: Return your function call and use a catch block. See code below: 
+ ````
+ it('Should throw error when searchCertificates results in error', () => {
+                  const onSearchSpy3 = jest.spyOn(wrapper.instance(), 'onSearchSubmit');
+                  const event = {
+                      target: {
+                          value: 1,
+                          name: 'Test Name'
+                      },
+                      preventDefault: jest.fn()
+                  };
+                  wrapper.setProps({
+                      searchAction: {
+                          searchCertificates: jest.fn(() => Promise.reject('fail')),
+                          displayCertificate: jest.fn(() => Promise.resolve()),
+  
+                      },
+                  });
+                  onSearchSpy3(event);
+                  return wrapper.instance().props.searchAction.searchCertificates().catch(e => expect(e).toMatch('fail'));
+              });
+ ````
+ 

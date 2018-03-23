@@ -12,6 +12,9 @@
 * AFQ Mailing
 * AFQ Additional Addresses
 * All AFQ Preview files 
+* (MY FAV): CertificateOptions, action and reducer
+* Certificate OPtions test 
+
 
 ##### Big Refactor files 
 * All AFQ Id Type - name, contact, demo, etc. 
