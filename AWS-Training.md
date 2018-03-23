@@ -392,7 +392,7 @@ BASICS:
 7. Bastion Host with Nat Gateway
 8. S3 storage classes (Standard, RRS, Infrequent ACCESS, and Glacier)
 9.  Gateway-Cached and Gateway-Stored volumes (Storage transit serivces)
-
+10. SQS and decoupled architecture
 
 ### IAM
 ####STS
@@ -631,4 +631,73 @@ All you need to provide is throughput capacity
 * Used to create decoupled application environments
 * Used to send messages between servers and are retrieved through polling
 * Two types of Polling: Long (1-20 seconds) which reduces number of API calls, returns all possible messages
-and Short whicj samples a subset of servers and return message from just those servers.
+and Short which samples a subset of servers and return message from just those servers.
+* Is highly available and redundant
+* Two Types of Queue: Standard (delivery of message at least once but not guarantee order) and FIFO: where order is critical
+* Decoupled architecture: Components are not connected - if one fails the rest of the system can continue processing (fault tolerant/highly available)
+
+### SWF (simple work flow)
+* Coordinates and manages the execution of activities that can be run async across multiple computing devices
+* Components: 
+    * Wokflow: steps required, referred to a **decider**
+    * Activities: A single step in the workflow: 
+    * Task: 
+        * Activity: Tells worker to perform a function
+        * Decision Task: Tells decider the state of work flow execution
+   * Worker: Responsible for receiving a task and taking action on it. Can be a person or an EC2 instance
+
+### API Gateway
+* Front-door for application allowing access to data/logic/functionality from your back-end services
+* Fully-managed service that allows you to create and manage your own APIs for your application
+* Build RESTful APIs
+* Deploy APIS to a "Stage"
+* Version control all API versions
+* Create and manage API keys for acces and meter usage through CloudWatch Logs
+* Set throttling rules based on number of request per second (over the limit HTTP 429 response)
+* Security using signature v.4 to sign and authorize aPI calls
+* API Gateway can call other public api endpoints
+
+* Benefits: 
+    * DDos protection via CloudFront (gives benefit of lower latency and less traffic on servers)
+    * SDK generation for iOS, Android and JS
+    * Supports Swagger (API dev tool)
+    * API Gateway Cache for redundant calls
+    
+### Cloud Watch
+* Primary monitoring service
+
+* EC2 Monitoring
+    1. System Status Checks: 
+        * Loss of network, software issues on physical host, hardware issues on host
+        * SOLVE: Generally starting and restarting instance
+    2. Instance Status Checks: 
+        * Failed system status checks, misconfigured networking or startup config, incompatible kernel
+        * SOLVE: Generally a reboot or solving file system config
+        
+* Default will monitor metrics that can be viewed at the host level (not software level)         
+    * CPU utilization
+    * CPU credit balance
+
+* OS level metrics require third party script
+       * memory utilization/used/ and memory available
+       * disk swap utilization
+       
+
+### CloudTrail
+* API Logging service that logs **ALL** calls made to AWS
+* AWS is just one big API - CloudTrail can log every action in your account
+
+### VPC Flow Log
+* Allows you to collect information about the IP traffic going to and from network interfaces
+* Not a real-time stream about 10-15minutes
+* They can be created on VPC, Subnet or Network Interface
+* can set log capture to All, rejected or accepted
+* Consist of network traffic for a specific **5-Tuple** 
+* 5-Tuple set of five different values that comprise a TCP/IP connection
+    * 1 source IP address, 2 source port number, 3 destination IP addresss, 4 destination port number and 5 protool
+    
+
+* Benefits: 
+    * Troubleshoot why traffic not reaching an Ec2
+    * Added security layer by allowing you to monitor the traffic that reaches EC2
+    
