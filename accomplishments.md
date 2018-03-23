@@ -34,3 +34,28 @@
 * Constantly team support for code base to due to deep knowledge of the code base
 * Worked on app performance enhancements through Webpack, Added webpack analyzer, lodashplugin, eslint rules, and separated  webbpack configs to common, prod and dev
 
+* Design and architeture meetings: 
+Note sent to Saud: 
+````
+    I have been talking with Kabir about future milestones and one of my goals is to become a lead developer. As such I wanted to ask you your advice on things that I can do to increase my technical skills and work towards a lead dev. Additionally, any feedback or criticism you have about me or my code would be greatly appreciated.  
+    
+    To start down that path, Kabir has suggested I take the lead on facilitating and spear heading bi-weekly/weekly front-end design/architecture meetings. I wanted to run the idea past you and get your thoughts. See below for my thoughts: 
+    
+    Front-End Design Meeting Proposal:
+    1.	Set up weekly/bi-weekly 30min-1hr meetings where we focus on one piece of the codebase and discuss redesign to make it more DRY, re-usable and modularized.  We would examine all areas in our application where we could share code (cross-UX team) via modules, design more elegant components, standardize functions and modules, and create a more performant/optimized application. 
+    2.	Each time we meet there would be at least one volunteer (determined before-hand) to start discussion with a potential redesign idea (they would come with a written out example of their re-design
+    3.	To ensure we do not affect sprint work, the action items for these meetings would be to size a potential refactor, document the new potential design on confluence, and create a technical debt story in the backlog.
+     
+    The benefits of these meetings are four-fold: 
+    1.	These meetings will encourage cross-team collaboration
+    2.	They aim to help all of us become better programmers because we can learn from each other
+    3.	Improve the code quality and scalability of our overall app
+    4.	Ultimately we would start building up architecture/design standards for our codebase documented on confluence.
+
+````
+
+* Became the Team expert on Jest tests (team would seek my advice)
+
+
+* On 2/21/2018 Moved to Contituent App, became well versed in the entire application structure
+

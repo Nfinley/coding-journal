@@ -215,4 +215,31 @@ So to solve the issue you need to make sure you bind the input with the label ta
  ##### Bug 13 - Getting a weird loading error on Showcase app after clicking Login button: 
  `Refused to load the font 'data:font/woff;base64,d09GRgABAAAAAKD5ABIAAAABjrQAAAAAAACfoAAAAVkAAAKCAAAAAAAAAABHUE9TAACLrAAAE6UAAGmo3w+nD0dTVUIAAJ9UAAAASgAAAFjau94BTFRTSAAAi3wAAAAvAAABSW5js1FPUy8yAAAB7AAAAFoAAABgq5xp3FZETVgAAIXAAAADdwAABeBvDHaKY21hcAAAAkgAAAE7AAADVCy12qZjdnQgAACJSAAAADgAAAA4BiEDumZwZ20AAImAAAABAgAAAXMGWZw3Z2FzcAAAiTgAAAAQAAAAEAAaAAlnbHlmAAANvAAAeAEAAQTc9heJHWhlYWQAAAG0AAAANgAAADb6hXFDaGhlYQAAA4QAAAAhAAAAJAdUBBdobXR4AAADqAAAArsAAAUUhLg2g2xvY2EAAAswAAACjAAAAowhImIQbWF4cAAAAZQAAAAgAAAAIANdBGZuYW1lAAAGZAAAAXwAAAM9wTILRnBvc...A5FjDNAcRSYJqJgY2Bh9ERSPswOgFJf6AoI4MnAIqpB3EAAHjafZLda8IwFMXf+1dc8rTBTKqDMaStjIEvwzHQsefY3GowH12Stvrfr/FrimyQh0DOPef8LskmW62gReelNTkZ0pQAmtIKaVY5+VxMB89kUiSZxsAFD/xaWmSNkd8NSgFS5KS0mupdZU3wVHO38VJb462htbNbqfnA2JYPvK0CdbhqFHe0qzYyjGj11owIK7IWjbAODNeYk9luGq0INE7lZB1CPWas67pzRp/H4pRAXzpZh75XkQXcBlA81kdDisVaeugPhy9cxjGonNVw9KYwbZQCaSrrNI8GwJe2CRDiWJSPkz+C9zd2icluMFmSsdinyNhVRyVLNB7/BWsldkfdRPXbHT49phG2tPXOydU63KC+nl7grryHWd8M5sdqDzBKhymFlx52L/Hg0KNrUdBzxUtnxwVGtpuQjwMjvPeMMO8ZD8s9D4CtrqN//S9M2ek/FckP9vfjlA==' because it violates the following Content Security Policy directive: "default-src 'self'". Note that 'font-src' was not explicitly set, so 'default-src' is used as a fallback.`
  
- * It seems like it is putting the state in the url
+ * It seems like it is putting the state in the url ```
+ 
+ ##### 2/24/2018
+ ###### Bug 15 - Using Jest - testing an .catch block with error
+ * Issue: Cross-contaimination within the tests
+ * Fix: Return your function call and use a catch block. See code below: 
+ ````
+ it('Should throw error when searchCertificates results in error', () => {
+                  const onSearchSpy3 = jest.spyOn(wrapper.instance(), 'onSearchSubmit');
+                  const event = {
+                      target: {
+                          value: 1,
+                          name: 'Test Name'
+                      },
+                      preventDefault: jest.fn()
+                  };
+                  wrapper.setProps({
+                      searchAction: {
+                          searchCertificates: jest.fn(() => Promise.reject('fail')),
+                          displayCertificate: jest.fn(() => Promise.resolve()),
+  
+                      },
+                  });
+                  onSearchSpy3(event);
+                  return wrapper.instance().props.searchAction.searchCertificates().catch(e => expect(e).toMatch('fail'));
+              });
+ ````
+ 
