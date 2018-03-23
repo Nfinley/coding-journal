@@ -191,7 +191,27 @@ So to solve the issue you need to make sure you bind the input with the label ta
  * Fix: To solve the issue I added the following header to each call where there was a cookie involved: 
  ` credentials: 'same-origin'`
  
- #### 2/2/2018
+##### 1/26/2018 
+###### Bug 13 - Using Jest - When testing a function that is not dispatching anything
+* Instead of using `store.dispatch` all you need to do is export the function in the other file and then test it directly like: functionName();
+
+
+##### 2/8/2018
+###### Bug 14 - Using Jest  - When testing an onChange function 
+* Issue: when callind the function in jest like handleInputChageSpy(); getting the following error: 
+` TypeError: Cannot read property 'target' of undefined`
+* Fix:  Just passed a mocked event object to the function 
+ ```
+     const event = {
+         target: {
+             value: 1,
+             name: 'Test Name'
+         }
+     }
+     handleChangeSpy(event);
+ ``` 
+
+#### 2/2/2018
  ##### Bug 13 - Getting a weird loading error on Showcase app after clicking Login button: 
  `Refused to load the font 'data:font/woff;base64,d09GRgABAAAAAKD5ABIAAAABjrQAAAAAAACfoAAAAVkAAAKCAAAAAAAAAABHUE9TAACLrAAAE6UAAGmo3w+nD0dTVUIAAJ9UAAAASgAAAFjau94BTFRTSAAAi3wAAAAvAAABSW5js1FPUy8yAAAB7AAAAFoAAABgq5xp3FZETVgAAIXAAAADdwAABeBvDHaKY21hcAAAAkgAAAE7AAADVCy12qZjdnQgAACJSAAAADgAAAA4BiEDumZwZ20AAImAAAABAgAAAXMGWZw3Z2FzcAAAiTgAAAAQAAAAEAAaAAlnbHlmAAANvAAAeAEAAQTc9heJHWhlYWQAAAG0AAAANgAAADb6hXFDaGhlYQAAA4QAAAAhAAAAJAdUBBdobXR4AAADqAAAArsAAAUUhLg2g2xvY2EAAAswAAACjAAAAowhImIQbWF4cAAAAZQAAAAgAAAAIANdBGZuYW1lAAAGZAAAAXwAAAM9wTILRnBvc...A5FjDNAcRSYJqJgY2Bh9ERSPswOgFJf6AoI4MnAIqpB3EAAHjafZLda8IwFMXf+1dc8rTBTKqDMaStjIEvwzHQsefY3GowH12Stvrfr/FrimyQh0DOPef8LskmW62gReelNTkZ0pQAmtIKaVY5+VxMB89kUiSZxsAFD/xaWmSNkd8NSgFS5KS0mupdZU3wVHO38VJb462htbNbqfnA2JYPvK0CdbhqFHe0qzYyjGj11owIK7IWjbAODNeYk9luGq0INE7lZB1CPWas67pzRp/H4pRAXzpZh75XkQXcBlA81kdDisVaeugPhy9cxjGonNVw9KYwbZQCaSrrNI8GwJe2CRDiWJSPkz+C9zd2icluMFmSsdinyNhVRyVLNB7/BWsldkfdRPXbHT49phG2tPXOydU63KC+nl7grryHWd8M5sdqDzBKhymFlx52L/Hg0KNrUdBzxUtnxwVGtpuQjwMjvPeMMO8ZD8s9D4CtrqN//S9M2ek/FckP9vfjlA==' because it violates the following Content Security Policy directive: "default-src 'self'". Note that 'font-src' was not explicitly set, so 'default-src' is used as a fallback.`
  
