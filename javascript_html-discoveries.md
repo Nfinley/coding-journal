@@ -12,6 +12,22 @@
         
 * `Promise`: The javascript promise creates a promise and there are certain parameters you can use with this. For example `reject()` and `resolve()`
 
+* `Debounce`: It improves performance by limiting the number of expensive calculations, API calls, and DOM updates. Can use in React. 
+    *  By debouncing, we prevent the setState() which serves to significantly reduce the number of times we force React to reconcile and append the list to the DOM.
+    *  Common scenarios for a debounce are `resize`, `scroll`, and `keyup/keydown` events. In addition, you should consider wrapping any interaction that triggers excessive calculations or API calls with a debounce.
+    *  [Link 1](https://levelup.gitconnected.com/debounce-react-and-redux-code-for-improved-performance-4b8d3c19e305)
+    *  [Link 2](https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086)
+
+* New React fucntion called `static getDerivedStateFromProps(nextProps, prevState)`
+    * [Link](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops)
+    * It is used in place of componentWillReceiveProps()
+    * It is a static function so it doesn't have access to `this`
+    * Also calling `this.setState() generally does not trigger this function
+
+
+
+
+
 ###### Argument vs. Parameters
 
 ###### Let vs. Const
