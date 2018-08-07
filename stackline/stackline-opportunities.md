@@ -1,5 +1,9 @@
 # Notes on potential opportunities for Stackline
 
+
+### Bugs while refactoring
+* Sort by Week does not seem to be working correctly as it shows essentially the same view as YTD (period of 'year' is in the api call)
+
 ### Short-Term Fixes (as you edit files)
 
 * Use Descructured {Component} in React files 
@@ -27,7 +31,11 @@
 * Package Auto-Suggest not being used on ATLAS only Auto-Complete from Material-UI is. Consider removing
 
 
-### Tasks Completed
+### RAJ Requests
+* Have some sort of state management so we don't make unecessary API calls and it loads quicker
+* Integrate JARVIS as a chatbot
+
+### Tasks Completed/Accomplishments
 
 * Added Webpack analyzer to dev in `test-branch` and pushed to master(https://www.npmjs.com/package/webpack-bundle-analyzer)
 * Updated Honest Kitchen image on S3 bucket (chrome extension may have a glitch)
@@ -40,6 +48,22 @@
 * Lodash use only use what we need
 * SEE JIRA
 * Created a new Docker Image with node, yarn and aws cli
+
+### REFACTOR OF APP STARTED May 7th
+* Header refactored
+* Nav bar refactored (may 24)
+
+
+#### Accomplishments
+* Employee #34
+* Built a Docker image based off of crawler image in dockerhub and added python and aws cli to it. Using it as the image for the website codebuild projects
+* Created a Terraform file representing the codepipeline for the front ent
+* Created multiple code pipelines for beacon and atlas deployment
+* Set up CI/CD for the website using CloudFront, S3, CodePipeline and Terraform
+* Point person for web dev roles, and updated Web dev assessment, created a grading rubric, FAQs and codified what are test acheives and what we are looking for in a candidate
+* Refactoring on entire application implementing React and Redux standard patterns to make it more scalable (with Raj help) started May 7th officially
+* 
+
 
 ### Requests from Morgan
 

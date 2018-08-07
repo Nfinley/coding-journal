@@ -24,7 +24,13 @@
     * It is a static function so it doesn't have access to `this`
     * Also calling `this.setState() generally does not trigger this function
 
-
+* `!!MyVarbariableExists`: The use of the double exclamation mark converts a value to a boolean and ensures a boolean type
+    ````
+    "foo"      =    "foo"
+    !"foo"     =    false
+    !!"foo"    =    true
+    ````
+* Using an arrow function like: `handleChange = () => {}` Arrow functions adopt the `this` binding of the enclosing scope (in other words, they don’t change the meaning of this), so things just work automatically.
 
 
 
