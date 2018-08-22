@@ -331,7 +331,7 @@ import updateWeekRange from "../../store/modules/week-range/operations";
 
 - Issue: I had two arrays one that was flat lik `[2018, 2017]` and one that was nested like `[{weekId: 2018}, {weekId:2019}]` and the goal was to create a new object inside the second array if it didn't exist. The issue was I was trying to figure out how to map over the first and then the second and if it didn't exist in the second, add it to the array. However, this method would have added the date to the second array multiple times.
 
-- The fix, I looped through the second array and pull out the weekIds. Then I looped over the first array and if it doesn't exist in the second array I push it to the second array. Lesson is don't compare different array types. Put them in the format needed then compare.
+- The fix, I looped through the second array and pull out the weekIds. Then I looped over the first array and if it doesn't exist in the second array I push it to the second array. Lesson is don't compare different array types (nested). Put them in the format needed then compare.
 
 ```
 function fillMissingWeeks(metrics_by_group, currentWeekIds, groupByField) {
@@ -351,3 +351,13 @@ function fillMissingWeeks(metrics_by_group, currentWeekIds, groupByField) {
   });
 }
 ```
+
+###### 8/17/2018
+
+###### BUG/Issue 20 - React pages load slowly
+
+- Issue: When loading a page that has a chart and then a product image table below (Two components), the first chart renders very slow.
+
+-Reason why: There is a container that renders both chart and table and in this container it makes a fetchCall but also the child component that is the table is also making a call. So when the first call finishes in the parent container, it partially loads and then hesitates when the child container fetch call finishes and then it reloads
+
+-Solution: Extract the fetch call from the child component (table) and put it in the same container that is making the other calls to then load the main container only after all the calls have finished
