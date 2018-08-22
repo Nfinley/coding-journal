@@ -369,5 +369,5 @@ function fillMissingWeeks(metrics_by_group, currentWeekIds, groupByField) {
 - Issue on initial load of a page redux populates an object with two arrays, then in an unrelated function when it gets called that is merging the two together to form one object it overrides Redux globally. This is the variable that caused this:
   `const mergedSegments = _cloneDeep(_merge(segments.mySegments, segments.teamSegments);`
 
-\_ Solution: Because the variable above was not actually cloning the arrays properly it was mutating the original arrays. Below is the variable updated to ensure they are not mutated
-`const mergedSegments = _merge(_cloneDeep(segments.mySegments), _cloneDeep(segments.teamSegments));`
+- Solution: Because the variable above was not actually cloning the arrays properly it was mutating the original arrays. Below is the variable updated to ensure they are not mutated
+  `const mergedSegments = _merge(_cloneDeep(segments.mySegments), _cloneDeep(segments.teamSegments));`
