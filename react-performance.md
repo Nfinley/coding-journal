@@ -27,6 +27,7 @@ Findings
 #### Code-Splitting
 Based on this research, I think the next step to reduce bundle size further and increase performance, would be incorporate code splitting into our application. Below are a few articles on how to include this in our project: 
 
+* Sean Larkin web video shows quick and easy ways to code split
 * https://tylermcginnis.com/react-router-code-splitting/
 * https://serverless-stack.com/chapters/code-splitting-in-create-react-app.htm
 * https://github.com/thejameskyle/react-loadable
