@@ -1,5 +1,5 @@
 ## Java Basics
-* Pluralsight course]()
+* [Pluralsight course]()
 
 ##### What is Java? 
 * It is a Programming Language
