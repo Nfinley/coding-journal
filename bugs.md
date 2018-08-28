@@ -362,6 +362,8 @@ function fillMissingWeeks(metrics_by_group, currentWeekIds, groupByField) {
 
 -Solution: Extract the fetch call from the child component (table) and put it in the same container that is making the other calls to then load the main container only after all the calls have finished
 
+- BETTER SOLUTION: Implement `shouldComponentUpdate` in the child component to only render if certain nextProps change
+
 ###### 8/22/2018
 
 ###### BUG/Issue 21 - Redux state mutated by setting wrong variable
