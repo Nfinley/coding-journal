@@ -386,8 +386,11 @@ function fillMissingWeeks(metrics_by_group, currentWeekIds, groupByField) {
 
 ###### BUG/Issue 23 - Weboack doesn't load due to plubin error
 
- - Issue: Webpack throws an error 
+ - Issue: Webpack throws an error `Babel .default is not valid Plugin property at Object.keys.forEach.key`. I was importing a plugin like so:  `plugins: [require('@babel/plugin-proposal-class-properties')]`
 
- - Solution: Import plugins as 
+ - Solution: Instead import plugins as such: 
+ `plugins: ['@babel/plugin-proposal-class-properties']`  
+or  
+`plugins: [require('@babel/plugin-proposal-class-properties').default]`
 
  [Stackoverflow post](https://stackoverflow.com/questions/52109671/babel-default-is-not-a-valid-plugin-property-at-object-keys-foreach-key)
