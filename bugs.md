@@ -381,3 +381,13 @@ function fillMissingWeeks(metrics_by_group, currentWeekIds, groupByField) {
 - Issue was I was trying to merge to two arrays using lodash \_merge but \_merge actually merges arrays or objects with no opinion or knowledge about how you want the result to look. I was actually trying to contact two arrays and join them together.
 
 - Solution: Instead of using `const mergedSegments = _merge(_cloneDeep(segments.mySegments), _cloneDeep(segments.teamSegments));` which does in fact merge the arrays, to concat I used `const mergedSegments = [..._cloneDeep(segments.mySegments), ..._cloneDeep(segments.teamSegments)];`
+
+###### 8/31/2018
+
+###### BUG/Issue 23 - Weboack doesn't load due to plubin error
+
+ - Issue: Webpack throws an error 
+
+ - Solution: Import plugins as 
+
+ [Stackoverflow post](https://stackoverflow.com/questions/52109671/babel-default-is-not-a-valid-plugin-property-at-object-keys-foreach-key)
