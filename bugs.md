@@ -373,3 +373,11 @@ function fillMissingWeeks(metrics_by_group, currentWeekIds, groupByField) {
 
 - Solution: Because the variable above was not actually cloning the arrays properly it was mutating the original arrays. Below is the variable updated to ensure they are not mutated
   `const mergedSegments = _merge(_cloneDeep(segments.mySegments), _cloneDeep(segments.teamSegments));`
+
+###### 8/28/2018
+
+###### BUG/Issue 22 - Lodash \_merge doesn't work if you want to merely concat arrays
+
+- Issue was I was trying to merge to two arrays using lodash \_merge but \_merge actually merges arrays or objects with no opinion or knowledge about how you want the result to look. I was actually trying to contact two arrays and join them together.
+
+- Solution: Instead of using `const mergedSegments = _merge(_cloneDeep(segments.mySegments), _cloneDeep(segments.teamSegments));` which does in fact merge the arrays, to concat I used `const mergedSegments = [..._cloneDeep(segments.mySegments), ..._cloneDeep(segments.teamSegments)];`
