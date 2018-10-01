@@ -381,3 +381,50 @@ function fillMissingWeeks(metrics_by_group, currentWeekIds, groupByField) {
 - Issue was I was trying to merge to two arrays using lodash \_merge but \_merge actually merges arrays or objects with no opinion or knowledge about how you want the result to look. I was actually trying to contact two arrays and join them together.
 
 - Solution: Instead of using `const mergedSegments = _merge(_cloneDeep(segments.mySegments), _cloneDeep(segments.teamSegments));` which does in fact merge the arrays, to concat I used `const mergedSegments = [..._cloneDeep(segments.mySegments), ..._cloneDeep(segments.teamSegments)];`
+
+###### 9/4/2018
+
+###### BUG/Issue 23 - When refactoring duplicate code into a function that contains a dispatched function it does not return appropriately
+
+- Issue
+
+- Solution:
+
+Refactored Code:
+
+```
+  componentDidMount() {
+    this.routeUrlPathRequest();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { location } = nextProps;
+    const { pathname } = location;
+    if (!_isEqual(pathname, this.props.location.pathname)) {
+      return this.routeUrlPathRequest();
+    }
+    return null;
+  }
+
+  routeUrlPathRequest = () => {
+    const { fetchUserData, fetchUserTeam, location } = this.props;
+    const { pathname } = location;
+    if (
+      pathname.includes('security') ||
+      pathname.includes('content') ||
+      pathname.includes('products') ||
+      pathname.includes('reviews')
+    )
+      return null;
+    if (pathname === '/account/team') {
+      return fetchUserTeam(apiEndpointSelector(pathname, 'post'));
+    }
+    return fetchUserData(apiEndpointSelector(pathname, 'get'));
+  };
+```
+
+OLD CODE:
+
+```
+
+```
