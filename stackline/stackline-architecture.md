@@ -1,7 +1,5 @@
 # Stackline Proposed Project Architecture for UI Codebase
 
-42
-
 ### Helpful Dev Tools Being Leveraged
 
 - [Redux Logger](https://github.com/evgenyrodionov/redux-logger)
@@ -36,45 +34,50 @@
 - See proposed folder structure below:
 
 ```
-├── build                    # Contains build scripts, babel config, jest configs and webpack config
-├── coverage                    # Contains jest coverage reports
+├── build                   # Contains build scripts, babel config, jest configs and webpack config
+├── coverage                # Contains jest coverage reports
 ├── dist                    # All build-related code
-├── public                   # Static public assets (not imported anywhere in source code)
-├── server                   # Express application that provides webpack middleware (development only)
-│   └── server.js              # Server application entry point used for development only
-├── src                      # Application source code
-│   ├── index.html           # Main HTML page container for app
-│   ├── main.js              # Entry point for the app
-│   ├── normalize.js         # Browser normalization and polyfills
-│   ├── components           # Global Reusable Components  (Organized by Feature right underneath, common folder houses functions and layouts-layouts)
-│   │   ├── App              # Main folder that houses the main App jsx file for the application (Uppercase folder names for Components)
-│   │   │   ├── App.jsx      # Main jsx file
-│   │   │   ├── App.scss     # Scss file that only applies to the App file
-│   │   │   └── index.js     # Export of App
-│   │   ├── common           # Folder that houses components shared across the application (like custom buttons, charts, etc)
-│   │   └── layouts           # Folder that houses general layouts (ie: HomeLayout), currently two, one for auth and one for non-auth
+├── node_modules            # All related node module packages
+├── public                  # Static public assets (not imported anywhere in source code)
+├── server                  # Express application that provides webpack middleware (development only)
+│   └── server.js           # Server application entry point used for development only
+├── src                     # Application source code directory
+│   ├── index.html          # Main HTML page container for app
+│   ├── main.js             # Entry point for the app
+│   ├── normalize.js        # Browser normalization and polyfills
+│   ├── i18n_en.js          # Internationalization english document
+│   ├── components          # Global Reusable Components
+│   │   ├── App             # Main folder that houses the main App jsx file for the application (Uppercase folder names for Components)
+│   │   │   ├── App.jsx     # Main jsx file
+│   │   │   ├── App.scss    # Scss file that only applies to the App file
+│   │   │   └── index.js    # Export of App
+│   │   ├── common          # Folder that houses components shared across the application (like custom buttons, charts, etc)
+│   │   ├── Entity Page     # Directory that houses all specific entity containers and has a direct route listed in routeTable
+│   │   ├── layouts         # Folder that houses general layouts (ie: HomeLayout), currently two, one for auth and one for non-auth
+│   │   │   ├── HomeAuthLayout.jsx    # Layout that wraps the Route Table and renders appropriate route when user is Authenticated
+│   │   │   └── NonAuthLayout.jsx     # Layout that wraps the Route Table and renders appropriate route when user is NOT Authenticated
 │   ├── routes               # Main route definitions and houses component files mentioned directly in the routeTable.js
 │   │   ├── Home Page        # Directory that houses all of the Home page/summary components for the webiste and has a direct route listed in routeTable
-│   │   ├── Entity           # Directory that houses all specific entity containers and has a direct route listed in routeTable
+│   │   ├── User Account     # Directory that houses all user account specific components
 │   │   ├── index.js         # index for exporting routes
-│   │   ├── routeTable.js   # Route config file
+│   │   ├── routeTable.js     # Route config file
 │   ├── store                # Redux-specific pieces
-│   │   ├── modules          # Houses feature-first redux modules ('ducks'), follows pattern mentioned in Redux section
+│   │   ├── modules          # Houses feature-first redux modules ('ducks'), follows the reducks pattern
 │   │   │   ├── app          # Contains top level global state configs (replaces the config file)
-│   │   │   │     ├── actions.js   # pure actions for top level initial state config
-│   │   │   │     ├── index.js     # export all key pieces so the main reducer file can import them
+│   │   │   │     ├── actions.js      # pure actions for top level initial state config
+│   │   │   │     ├── index.js        # export all key pieces so the main reducer file can import them
 │   │   │   │     ├── operations.js   #  handles any logic the actions need, also this is a wrapper around the actions as we are only exporting operations not actions
-│   │   │   │     ├── selectors.js   #  handles Selector functions take a slice of the application state and return some data based on that. They never introduce any changes to the application state.
-│   │   │   │     ├── reducers.js   # all reducers for the signin feature
-│   │   │   │     ├── tests.js     # tests for all actions, reducers, etc.
-│   │   │   │     └── types.js     # contain all constant types
-│   │   │   ├── sign-in          # Example of a feature-first re-duck folder that is self-contained with actions, reducers, operations, types and tests
-│   │   │   │     ├── actions.js   # pure actions
-│   │   │   │     ├── index.js     # export all key pieces so the main reducer file can import them
+│   │   │   │     ├── selectors.js    #  handles Selector functions take a slice of the application state and return some data based on that. They never introduce any changes to the application state.
+│   │   │   │     ├── reducers.js     # all reducers for the signin feature
+│   │   │   │     ├── tests.js        # tests for all actions, reducers, etc.
+│   │   │   │     └── types.js        # contain all constant types
+│   │   │   ├── sign-in      # Example of a feature-first re-duck folder that is self-contained with actions, reducers, operations, types and tests
+│   │   │   │     ├── actions.js      # pure actions
+│   │   │   │     ├── index.js        # export all key pieces so the main reducer file can import them
 │   │   │   │     ├── operations.js   #  handles any logic the actions need, also this is a wrapper around the actions so we are only exporting operations not actions
 │   │   │   │     ├── selectors.js   #  handles Selector functions take a slice of the application state and return some data based on that. They never introduce any changes to the application state.
 │   │   │   │     ├── reducers.js   # all reducers for the signin feature
-│   │   │   │     ├── tests.js     # tests for all actions, reducers, etc.
+│   │   │   │     ├── tests.js     # tests for all actions, reducers contained within this module.
 │   │   │   │     └── types.js     # contain all constant types
 │   │   ├── createStore.js   # Create and set up redux store
 │   │   └── reducers.js      # Reducer registry and injection
@@ -118,7 +121,7 @@
 
 - All network/api calls should handle for errors
 - Utilize [Error Boundary](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html) from React 16
-- Ultimately utilize either library like Flow  or Typescript for Type enforcement
+- Ultimately utilize either library like Flow or Typescript for Type enforcement
 
 ### CSS Conventions
 
@@ -128,16 +131,9 @@
 
 ### Files to Rename:
 
-- Brand
-- Brands
-- Products (there are at least three). `Hedaers/Products` has very similar functions to `ProductTile`
 - App and app (multiple `app.js` one in types folder and one in utils folder)
-- BaseRoute (Should be Summary)
-- Line (there are at least three)
-- advanced-search (there are three, two lowercase and one uppercase)
-- Multiple `atlas.config.js` and `beacon.config.js` files.
 - index.js files should only be a pure export of other files in the folders. Currently for example `utils/data/index.js` has a lot of logic. It is making an api call!! This should be in Redux
-- Types folder holds export constants and files should be renamed to reflect this ied: `constants`
+
 - `Container` that is used to wrap the Sign_in needs to be moved to layouts folder and renamed (try to re-use it for Beacon)
 
 ### Duplicate Code:
@@ -145,7 +141,7 @@
 - Segments.scss and Brand.scss have quite a few classes that are exactly the same
 - Function: `buildRequestSearchType` exists in both utils/data/index.js and utils/advanced-search.js (both of these files share quite a few duplicate code)
 - Need TO remove all AUTOSUGGEST references in both beacon and atlas
-- `getAppMeduConfig` function is called a lot, figure out why and refactor
+- `getAppMenuConfig` function is called a lot, figure out why and refactor
 - `chart-utils` and `charts` which is inside of utils folder need to be refactored/combined or renamed
 - Segments - There are four uppercase `Segments` and at least two lowercase `segments`
 
