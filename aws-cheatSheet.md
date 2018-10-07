@@ -1,4 +1,4 @@
-# CHEAT SHEET
+# AWS CHEAT SHEET
 1. IAM
     * IAM is Identity and Access Management and can use it ti securely control individual and group access to AWS resources
     * IAM Role is something that another entity can "assume."
