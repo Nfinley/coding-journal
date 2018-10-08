@@ -23,7 +23,7 @@
 ## A pattern is considered good if: 
 * Solves a particular problem: Can't just capture principles they need to capture solutions
 * The solution cannot be obvious
-* Must be prove
+* Must be proven
 * It must describe a relationsip
 
 ## Rule of Three - Pattern to be valid

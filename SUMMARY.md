@@ -3,6 +3,7 @@
 * [Introduction](README.md)
 * [Topics To Research](topics-to-research.md)
 * [Big-O Notation](Big-O_Notation.md)
+* [Build Tools](BuildTools.md)
 * [Data Structures](Data-Structures.md)
 * [JS Design Patterns](Javascript-Design-Patterns.md)
 * [AWS Cheat Sheet](aws-cheatSheet.md)
