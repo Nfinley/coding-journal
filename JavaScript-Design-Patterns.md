@@ -23,7 +23,7 @@
 ## A pattern is considered good if: 
 * Solves a particular problem: Can't just capture principles they need to capture solutions
 * The solution cannot be obvious
-* Must be prove
+* Must be proven
 * It must describe a relationsip
 
 ## Rule of Three - Pattern to be valid
@@ -58,9 +58,9 @@
     3. Behavioral (the idea of ways objects play and work together) - Focus on improving or streamlining communication between contrasting objects in a system
         * EX: __Iterator, Mediator, Observer and Visitor 
 
-## Patterns
+# Patterns
 
-### Constructor Pattern
+## Constructor Pattern
 * Object constructors are used to create specific types of objects - preparing for use and accepting arguments which it can use to set values and methods when object is first created
 * There are three common ways to create new objects: 
 ````
@@ -71,4 +71,74 @@
      varnewObject=Object.create(Object.prototype); 
    //or
      varnewObject=newObject();
-```
+````
+* There are four ways in which keys and values can be assigned to an object: 
+    * Dot syntax
+    * Square bracket syntax
+    * [Object.defineProperty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+    * Object.defineProperties
+* By prefixing `new` to a constructor function it tells JS to behave like a consructor and instantiate a new object with the members defined by that function
+* Inside a constructor, the keyword `this` references the new object being created 
+````
+function Car (model, year, miles) {
+    this.model = model;
+    this.year = year;    
+    this.miles = miles;
+    this.toString = function () {
+	return this.model + "Oh yeah"
+    }
+}
+var civic = new Car("Honda", 2009, 20000)
+console.log(civic.toString())
+````
+* The above suffers from two things: 1. It makes inheritace difficult and 2. the function toString() are redefined for each new object created using the constructor, instead it should be shared between all instances
+* Functions contain a prototype object and when a constructor creates an object all properties of the constructor's prototype are made available to the new object: 
+  * The function above can be removed from the constructor directly and placed as a new method on the prototype: `Car.prototype.toString = function() {} `
+  * This way a single instance of the function is shared across all car objects
+* Helpful blog post about using Objects to order [code](http://rmurphey.com/blog/2009/10/15/using-objects-to-organize-your-code)
+
+## Module Pattern
+* They help keep units of code cleanly separated and organized
+* There are several options for implementing modules: 
+    * Module Pattern
+    * Object Literal notation
+    * AMD Modules
+    * CommonJS modules
+    * ECMAScript Harmony Modules
+* Object Literals: 
+    * described as a set of comma-seperated name/value pairs enclosed in curly braces
+    * Provide was to encapsulate and organize code
+    * They don't require instantiation using the `new` operator
+* MODULE PATTERN: 
+    * Originally defined as way to provide both public and private encapsulation for classes in conventional software engineering
+    * In JS used to *emulate* public/private methods and variables inside single object, shielding from parts of global scope
+    * Results in reduction liklihood of name conflicts
+    * This pattern encapsulates "privacy", state and organization using closures
+    * With this pattern only a public API is returned keeping everything else private
+    * The patter is similar to a IIFE
+    * "Privacy" isn't explicitly privacy becuase unlike other language JS doesn't have access modifiers (like private, public, protected)
+    * Variables can't technically be declared as private or public so we use function scope to simulate the concept
+    * Variables or methods declared only available to the module, but those defined with the returning object are available to everyone
+    * EX: 
+  ````
+    var testModule=(function(){
+        var counter = 0; 
+        
+        return {
+            incrementCounter: function () { return counter++; }     
+    
+            resetCounter: function () {
+            console.log( "counter value prior to reset: " + counter ); 
+            counter = 0;
+            }
+        }
+    })();
+
+    //Usage:
+    //Incrementourcounter
+    testModule.incrementCounter(); 
+    //Checkthecountervalueandreset
+    //Checkthecountervalueandreset
+    //Outputs:countervaluepriortoreset:1
+    testModule.resetCounter();
+````
