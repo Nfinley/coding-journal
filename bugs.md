@@ -394,3 +394,50 @@ or
 `plugins: [require('@babel/plugin-proposal-class-properties').default]`
 
  [Stackoverflow post](https://stackoverflow.com/questions/52109671/babel-default-is-not-a-valid-plugin-property-at-object-keys-foreach-key)
+
+###### 9/4/2018
+
+###### BUG/Issue 23 - When refactoring duplicate code into a function that contains a dispatched function it does not return appropriately
+
+- Issue
+
+- Solution:
+
+Refactored Code:
+
+```
+  componentDidMount() {
+    this.routeUrlPathRequest();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { location } = nextProps;
+    const { pathname } = location;
+    if (!_isEqual(pathname, this.props.location.pathname)) {
+      return this.routeUrlPathRequest();
+    }
+    return null;
+  }
+
+  routeUrlPathRequest = () => {
+    const { fetchUserData, fetchUserTeam, location } = this.props;
+    const { pathname } = location;
+    if (
+      pathname.includes('security') ||
+      pathname.includes('content') ||
+      pathname.includes('products') ||
+      pathname.includes('reviews')
+    )
+      return null;
+    if (pathname === '/account/team') {
+      return fetchUserTeam(apiEndpointSelector(pathname, 'post'));
+    }
+    return fetchUserData(apiEndpointSelector(pathname, 'get'));
+  };
+```
+
+OLD CODE:
+
+```
+
+```
