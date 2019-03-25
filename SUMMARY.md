@@ -5,6 +5,7 @@
 * [Big-O Notation](Big-O_Notation.md)
 * [Build Tools](BuildTools.md)
 * [Data Structures](Data-Structures.md)
+* [Databases](Databases.md)
 * [JS Design Patterns](Javascript-Design-Patterns.md)
 * [AWS Cheat Sheet](aws-cheatSheet.md)
 * [AWS Linux Academy Training Notes](AWS-Training.md)

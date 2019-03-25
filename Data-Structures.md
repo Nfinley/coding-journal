@@ -1,5 +1,11 @@
 # Data Structures
 
+* Index
+   1. [Linked Lists](#linked-lists)
+   2. [Hash Tables](#hash-tables)
+   3. [Trees](#trees)
+   
+
 ## Trees
 
 ### Basics
@@ -46,11 +52,11 @@ __Weaknesses__
 * Binary Search Tree: Sorted tree with a branching factor of two (every node has at most two children). Requires that the left node has a value smaller than its parent and right node larger than its parent  
 
 ## When to Use Trees
-* You have data that is sroted in some way and you want to do a lot of searches on it. 
+* You have data that is sorted in some way and you want to do a lot of searches on it. 
 * You need to manage objects that are clustered of objects that are grouped by some attribute. File systems are a common heirarchy in which nodes are either files or directories. 
 * You are trying to implement a search strategy such as backtracking
 
-## Operations
+### Operations
 [IMAGE OF BASIC OPERATIONS](http://res.cloudinary.com/thefinleycode/image/fetch/http://res.cloudinary.com/thefinleycode/image/upload/v1536156970/Screen_Shot_2018-09-04_at_7.29.04_AM_d9zogw.png)
 
 References: 
@@ -58,3 +64,24 @@ References:
 2. [Binary Search Tree Implementation](https://www.geeksforgeeks.org/implementation-binary-search-tree-javascript/)
 
 
+
+## Hash Tables
+* A data structure that implements an associative array abstract data type, a structure that can map keys to values. 
+* A hash table uses a hash function to compute an index into an array of buckets or slots, from which the desired value can be found.
+* [WIKI](https://en.wikipedia.org/wiki/Hash_table)
+
+## Linked Lists
+[CodeSignal Lists](https://app.codesignal.com/interview-practice/topics/linked-lists/tutorial)
+* A sequential-access data structure used to store ordered elements
+* They prioritize quick and easy data insertion and deletion over item lookup
+* Two types: Singly linked and Doubly linked
+
+**Strengths**
+* Linked lists store ordered lists of data in nodes.
+* Linked lists allow for quick (O(1)) addition and removal of elements (advantage over an array).
+* Linked lists can be resized dynamically.
+* The size of a linked list is only limited by the amount of available memory.
+
+**Weaknesses**
+* Linked lists can require more space in memory than arrays do.
+* Linked lists are sequential-access instead of random-access, meaning that accessing the ith element can be slow because you must iterate over i elements to get there.

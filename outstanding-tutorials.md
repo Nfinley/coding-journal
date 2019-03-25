@@ -1,12 +1,13 @@
 ### Outstanding Tutorials
 
-1. A11Y on Udacity - [Link](https://classroom.udacity.com/courses/ud891)
-2. React Course by Samer Buna (95% done): [Link](https://app.pluralsight.com/paths/skills/react)
-3. Egghead IO Redux: [Link](https://egghead.io/lessons/javascript-redux-avoiding-array-mutations-with-concat-slice-and-spread)
-4. Cory House Course on React on Pluralsight: [Link](https://app.pluralsight.com/paths/skills/react)
-5. Linux Academy Linux Essentials
-6. AWS Software 
-7. Terraform class on Udemy
+1. WES BOS -PAID [Advanced React](https://courses.wesbos.com/account/access/5bbf76217201281e770dfb4d)
+2. A11Y on Udacity - [Link](https://classroom.udacity.com/courses/ud891)
+3. React Course by Samer Buna (95% done): [Link](https://app.pluralsight.com/paths/skills/react)
+4. Egghead IO Redux: [Link](https://egghead.io/lessons/javascript-redux-avoiding-array-mutations-with-concat-slice-and-spread)
+5. Cory House Course on React on Pluralsight: [Link](https://app.pluralsight.com/paths/skills/react)
+6. Linux Academy Linux Essentials
+7. AWS Software 
+8. Terraform class on Udemy
 
 
 #### To Do 
