@@ -43,3 +43,8 @@
 
 - `HTMLSelectElement.namedItem` will return the HTMLOptions Element corresponding to the name or id that matches or null if no options match: [Docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/namedItem)
 - `Document.forms` returns a collection of the `<form>` elements within the current document: [Docs](https://developer.mozilla.org/en-US/docs/Web/API/Document/forms)
+
+
+#### Single Page Application
+* A single-page application (SPA) is a web application or web site that interacts with the user by dynamically rewriting the current page rather than loading entire new pages from a server.
+* [WIKI](https://en.wikipedia.org/wiki/Single-page_application)

@@ -3,7 +3,7 @@
 ### Notes on what a build pipeline is, how it fits into development and examples of build tools
 
 
-## What is a build pipeline AKA Continuous Delivery Pipeline (also CI/CD ipeline)?
+## What is a build pipeline AKA Continuous Delivery Pipeline (also CI/CD pipeline)?
 * At a basic level a build pipeline is an automated manifestation of the process for getting your code into the hands of your users, or from 'check-in' to 'release'.
 * * A CD pipeline delivers, as per business needs, **quality** products **frequently** and **predictably** from test to staging to production in an automated fashion.
 * CDP is a software strategy that enables orgs to deliver new features to users as fast and efficient as possible. 
@@ -47,7 +47,7 @@ Sources:
 
 ## Jenkins
 ### What is it? 
-* Most popular self-Contained open source automation server which can be used to automate all sorts of tasks relating to building, testing and delivering/deploying software. 
+* Most popular self-contained open source automation server which can be used to automate all sorts of tasks relating to building, testing and delivering/deploying software. 
 * Built with Java
 * Similiar to TravisCI
 
@@ -58,15 +58,44 @@ Sources:
 * CI/CD server from Atlassian that allows you to automatically build, integrate and test source code then prepare for deployment
 * Integrates seamlessly with JIRA and Hipchat
 * Tie automated builds, tests, and releases together in a single workflow
-* **[Bamboo DOCS]((https://www.atlassian.com/software/bamboo)
+* **[Bamboo DOCS](https://www.atlassian.com/software/bamboo)**
 
 
 ## Webpack
+*  Is a module bundler for modern javascript applications which can then be read by the browser
+*  It internally builds a dependency graph which maps every module your project needs and generates one or more bundles
+*  Also transforms static assets to build bundles
+*  Main purpose is to bundle Javascript
+*  Core Concepts: 
+  1. Entry: Where it should start to build dependency graph
+  2. Output: where it should emit the bunldes it creates
+  3. Loaders: Allow for processing of other types of files like JPG, PNG, SVG, .txt, jsx into valid modules that can be consumed by application
+  4. Plugins: Can be leveraged to perform wider tasks like bundle optimization, asset management and injection of environment variables
+  5. Mode: setting the mode to either Dev or prod or none, you can enable webpack's built in optimizations that correspond to each environment
+   
+* **[Webpack DOCS](https://webpack.js.org/)**
+
 
 
 ## Docker
-
+* Open Source Tool designed to create deploy and run applications by using containers
+* Containers allow a developer to package up applications with all of the parts it needs
+* It is a bit like a virtual machine but  unlike a VM rather than creating a whole OS, Docker allows applications to use the same Linux kernal as the system their running on on oly requires applications be shipped with things not already running on the host computer. 
+* It gives a significant performace boost and reduces size of app
 
 ## Vagrant
+* A Tool for building and managing virtual machine environments in a single workflow
+* Focused on providing a consistent development environment workflow across multiple operating systems
+* **[Vagrant Docs](https://www.vagrantup.com/)**
 
-## Kupernetes 
+## Kubernetes 
+* An open-source system for automating deployment, scaling, and management of containerized applications.
+
+* **[Kubernetes Docs](https://kubernetes.io/)
+
+## Ansible
+* Ansible is open source software that automates software provisioning, configuration management, and application deployment
+ * **[Ansible Docs](https://www.ansible.com/)** 
+## Puppet
+
+## Chef
