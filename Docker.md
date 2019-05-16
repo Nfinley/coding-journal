@@ -50,11 +50,14 @@ docker container ls -aq
 docker run --name <containerName> -p <yourport>:<dockerPort> <imageName>
 
 ```
+* `-e` to pass in ENV variables 
+
+
 #### Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
 `docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]` 
 
 
-##### Purging All Unused or Dangling Images, Containers, Volumes, and Networks
+#### Purging All Unused or Dangling Images, Containers, Volumes, and Networks
 * Docker provides a single command that will clean up any resources — images, containers, volumes, and networks — that are dangling (not associated with a container):
 ```
 docker system prune
