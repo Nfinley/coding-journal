@@ -31,6 +31,8 @@ docker --version
 docker version
 docker info
 ```
+##### Docker Build
+`docker build .` 
 
 ##### Execute Docker image
 `docker run hello-world`
@@ -94,6 +96,13 @@ RUN npm install ;\
     echo $TZ > /etc/timezone ;\
     dpkg-reconfigure -f noninteractive tzdata
 ```
+
+### To pull an image from Azure
+* Login: `az login`
+* Then login into the registry: `az acr login --name <registryName>`
+* Then pull the image: `docker pull cfchildren.azurecr.io/lms:latest`
+
+
 Sources: 
 * [Medium article](https://medium.com/@ibrahimgunduz34/be-careful-while-playing-docker-about-timezone-configuration-e7a2217e9b76)
 * [Stack Overflow](https://unix.stackexchange.com/questions/140734/configure-localtime-dpkg-reconfigure-tzdata)
