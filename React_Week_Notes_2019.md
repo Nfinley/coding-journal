@@ -165,6 +165,7 @@ To spy on the communication
  Naomi Meyer
  Software Dev at Adobe on the UI team
  
+ 
  * Globalization = T9N + L10N + I18N
  * Libraries for internationalization: 
     * Intl object build into es5 and 6 
@@ -177,6 +178,7 @@ To spy on the communication
 # GraphQL
 * Daniel Zen
 * Zen.digital
+* https://github.com/danielzen
 
 ### What is GrapQL
 * Response to modern Web App
@@ -193,7 +195,7 @@ To spy on the communication
 * Multiple round trips may overload the network
 * Rest Client depends on server - breaking changes
 * Strongly typed
-* you can get full documentation from the server just by asking for it
+* Introspection: you can get full documentation from the server just by asking for it
 
 ### Backend Servers
 * Node Middleware   
@@ -206,4 +208,16 @@ To spy on the communication
     * Scaohold
     * Hasura
 * json-grapghql-server
+
+### Why Use GrapQL
+* Declarative
+* Decoupled from Storage
+* Super Fast
+
+### Don't Versino just Evolve your API
+* Not recommended to version to your API
+
+### Apollo 
+* Look at his repo: https://github.com/danielzen/react-graphql-apollo
+
 
