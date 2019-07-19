@@ -79,4 +79,131 @@ Aucher Serr - @aucher_serr
 * 2n Design consultancy and they customize in data visualization
 * Data viz provides an added layer of meaning for what you are triyng to convey 
 * Amimations to data viz is to puntuation is to english
+* Built a tooltip that follows user and their mouse and they used `requestAnimationFrame` from the window to redraw the path everytime the user moves
+
+### Things to think about - building blocks
+1. Interpolation - what is changing and how we get from a to b
+2. Duration and Delay - how long does it take and when should it start
+3. Timing and Orchestration - how should animation unfold, staggering
+4. Object Lifecycle - elements should behave differently depending on state relative to the app
+
+### Stack
+* Css Transitions
+* React (CSS) transition group
+* D3.js
+* Request Animation Frame
+* Special mention: Tween.js and React-Spring
+
+# React Native Under the Bridge
+Chen Feldman - Freelance dev
+@chenosfeldman
+ranlevi.com/welcome
+
+### Intro Native vs RN vs Webview apps
+* Native-like : Flutter, Xamarin and React-Native
+* Native: Swift, Kotlin (best performance)
+* Hybrid & PWA: Cordova, Ionic, PWA (slightly lower performance)
+
+* In React Native the JS components are mapped to a Native model in the other platforms (ios/android)
+
+### Communication RN
+``
+JS Thread < JSON > Bridge < JSON > Native Threads
+``
+To spy on the communication 
+`import MessageQueue from 'react-native/Libraries/Bridge...'`
+
+
+### Bridge Structure
+* JS Engines
+    * Hermes - New Android engine 0.60.2
+    * JS Core
+    * V8
+
+### Flow Terms
+* UI MANAGER
+* JS THREAD
+* Shadow Node and Yoga (facebook layout system)
+
+### Advantages
+* Native Like
+* Async actions between JS and native
+* Batched Actions
+* No need to write native code
+
+### Disadvantages
+* Only async no syn option between JS and native
+* Unncessary data copying
+* Loading all NativeModels
+* RN library is heavy and harder to contribute
+
+
+### Future Architecture "Project Fabric"
+* New Terms: 
+    * JSI - JS interface, exposes some objects and share memory. They want to mimic what the browser does
+    * Fabris is the the new UI mamanger (no brige)
+    * TurboModules - No need to communicate using batched JSON messages
+    * CodeGen: JS single source of truth, smaller code and faster execution
+    * Lean Core: They would split the large RN repo and split it into much smaller pieces
+    
+ * shared memory
+ * No bridge - JSI is the new glue between native and JS
+ * Developer routine shouldn't change
+ * Static Type - Common Language   
+ 
+ 
+ # Hooked on Context 
+ * @DJWyatt
+ * https://github.com/drewwyatt/hooked-on-context
+ * https://github.com/testing-library/react-hooks-testing-library
+ * Jw player handles videos and everything on top is react components
+ * Context provides a way to pass data through a component without passing down to every level
+ * Went really fast and didn't really talk about context
+ 
+ 
+ # Building React Apps with Internationalization (i18n) in mind
+ Naomi Meyer
+ Software Dev at Adobe on the UI team
+ 
+ * Globalization = T9N + L10N + I18N
+ * Libraries for internationalization: 
+    * Intl object build into es5 and 6 
+    * Moment JS
+    * Format JS - React Intl
+    * Gloablize JS
+    * I18next
+    
+    
+# GraphQL
+* Daniel Zen
+* Zen.digital
+
+### What is GrapQL
+* Response to modern Web App
+* A query language
+
+### What can you do
+* Describe your data
+* Ask for what you want
+* Get predictable results
+
+### Why did facebook create it?
+* Invented during move from HTML5 to native
+* Problems encountered using REST
+* Multiple round trips may overload the network
+* Rest Client depends on server - breaking changes
+* Strongly typed
+* you can get full documentation from the server just by asking for it
+
+### Backend Servers
+* Node Middleware   
+    * Express
+    * Hapi
+    * Koa
+* PostGraphile
+* GraphQL Baas
+    * graphcool/ Prisma
+    * Scaohold
+    * Hasura
+* json-grapghql-server
 
