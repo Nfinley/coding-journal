@@ -2,7 +2,7 @@
 
 
 ## What is a Pattern? 
-### A pattern is a reusable solution that can be applied to commonly occuring problems in software design, also viewed as templates for how we solve problems
+### A pattern is a reusable solution that can be applied to commonly occurring problems in software design, also viewed as templates for how we solve problems
 * Patterns are proven solutions
 * Patterns can be easily reused
 * Patterns can be expressive
@@ -12,7 +12,7 @@
 * Add to devs vocabulary
 * Abstractions using design patterns can offer real-world value
 
-## Christopher Alexander - "Pattern Lanugage"
+## Christopher Alexander - "Pattern Language"
 * He states a pattern should be both a process and a "thing".
 * It is the process that creates the "thing"
 * Patterns generally focus on addressing a visually identifiable structure

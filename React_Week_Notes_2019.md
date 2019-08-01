@@ -214,7 +214,7 @@ To spy on the communication
 * Decoupled from Storage
 * Super Fast
 
-### Don't Versino just Evolve your API
+### Don't Version just Evolve your API
 * Not recommended to version to your API
 
 ### Apollo 
