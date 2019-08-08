@@ -187,3 +187,18 @@ console.log(civic.toString())
   ```
 
 ### Module Pattern Variations (p30)
+#### Import Mixins
+   * You can pass arguments to your annon function, which effectively allows you to import them and locally alias them
+
+### Advantages of the module pattern
+* Mocks the idea of encapsulation (similar to a true object oriented language)
+* Provides private data hiding, where we only expose publicly accessible pieces and any private parts are only accessible within the function not to the outside world
+
+### Disadvantages
+* If we wish to changes to what is visible we have to make changes wherever that is used
+* We can't access private members in methods that are added to the object at a later point
+* Inability to create automated tests for the private members and creates additional complexity when bugs appear
+
+Good Article Reference to [Module Pattern](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html)
+
+## The Revealing Module Pattern
