@@ -47,7 +47,7 @@ Based on Jeff Patton's [article](https://www.jpattonassociates.com/the-new-backl
 
 - Users = a map tells a story of person doing something to reach a goal
 - Activities = Organize tasks bone by similar people at similiar times to reach a goal
-- Backbone = Activities and taska at a higher goal level give story map its structure and arranged in a narrative flow
+- Backbone = Activities and tasks at a higher goal level give story map its structure and arranged in a narrative flow
 - User Tasks (Ribs) = short verb phrases basic build block of a map - IE: "Read an email", "response to a message"
 - Goal-Level = actions users take have a goal level tied to user behavior - Three tiers
   - Summary: lots of tasks done in support of bigger goal
