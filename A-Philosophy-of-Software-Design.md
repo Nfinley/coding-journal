@@ -68,6 +68,7 @@
 # Information Hiding( ch. 5 p.29)
 
 - Information Hiding
+
   - Most important technique for making modules deep is information hiding
   - Basic idea is each module should encapsulate a few piueces of knowledge which represent design decisions, this knowledge only appears in the interface so it is not visible to other modules
   - The details hidden usually consist of details about _how to implement a mechanism_
@@ -75,6 +76,7 @@
     - This could include data structures and algorithms related to the mechanism
     - Information hiding can often be improved by making a class slightly larger
     - It is important to avoid exposing internal data structure as musch as possible
+
 - Information Leakage
   - Opposite of information hidding, when a design decision appears in multiple modules, creates a dependency between modules
   - One of the _biggest red flags_ in software design
@@ -97,4 +99,25 @@
   - Information hiding only makese sense when the information being hidden is not needed outside a module
 - GOAL: Minimize the amount of information needed outside of a module
 
-## General Puerpose Modules are deeper (ch 6, pg 39)
+## General Purpose Modules are deeper (ch 6, pg 39)
+
+- Make classes somewhat general-purpose
+  - Sweet spot is to implement new methods in a somewhat general purpose fashion
+    - This means the functionality should reflect your needs but its interface but its interface should not. The interface should be general enough to support multiple uses
+    - Most important benefit of general-purpose approach is that it results in simpler and deeper interfaces
+  - Generality leads to better information hiding
+    - General purpose interfaces reduce cognitive load
+    - One of the most important elements of software design is determining who needs to know what and when
+- Questions to ask yourself
+  - What is the simplest interaface that will cover all of my cvurrent needs?
+    - Reducing number of methods will make it more general purpose but only as long as each API for each individual method stays simple
+    - If you have to add lots of additional arguments in order to reduce the methods then its not simplifying things
+  - In how many situations will this method be used?
+    - If a method is for one use only it is a red flag, see if you can combine several special-purpose methods with a single general-purpose method
+  - Is this API easy to use for my current needs?
+    - If you have to write a lof additional code to use a class your current purpose that is a red flag that the interface doesn't provide the right functionality
+  - Conclusion
+    - General-purpose interfaces have many advantages over special-purpose function including:
+      - Simpler
+      - Cleaner separation between classes, whereas special-purpose interfaces tend to leak information
+      - One of the best ways to reduce over system complexity
