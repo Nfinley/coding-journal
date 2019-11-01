@@ -121,3 +121,41 @@
       - Simpler
       - Cleaner separation between classes, whereas special-purpose interfaces tend to leak information
       - One of the best ways to reduce over system complexity
+
+## Different Layer, Different Abstraction (ch 7, pg 45)
+
+- Pass-Through Methods
+  - In a well designed system each layer provides a different abstraction from the layers above and below it
+  - If a system contains adjacent layers with similar abstractions, this is a red flag that suggest a problem with class decomposition
+    - Often manifests itself as _pass-through_ methods which is a function that does very little except invoke another method whose signature is similar or identical
+    - They make classes shallower and they increase the interface complexity
+    - They also create dependencies between between classes
+  - The interface to a piece of functionality should be in the same calss that implements the functionality
+  - One way yo avoid pass-throughs is to expose the lower methods directly to the callers, or redistribute the funcitonality or merge them
+- When is interface duplication OK?
+  - Its not always bad, the important thing is each new method should contribute significant functionality
+  - When several methods provide different implementations of the same interface it reduces cognitive load
+- Decorators
+  - Is a design pattern that encourages API duplication across layers
+  - It takes an existin object and extends its functionlality
+  - reduces cognitive load
+  - Motivation for decorators is to separate special-purpose extensions of a class form a more generic core
+  - However, they tend to be shallow and intorduce a large amount of boilerplate for a smallamount of new functionality
+  - Before creating a decorator ask yourself:
+    - Can you add the functionality directly to the underlying class (is it general purpose)?
+    - If functionality is specialized for a particular use case would it make sense to merge it with the use case?
+    - Could you merge it with an existing decorator rather than create a new one
+    - Do you have to create a decorator or could you implement and entirely new class
+  - Sometimes decorators makes sense but usually a better option
+- Interface vs. Implementation
+  - Another application of different layer, different abstraction is that the interface should be different from its implementation
+- Pass-through variables
+  - This is another form of API duplication across layers
+  - They add complexity because they force all of the intermediate methods to be aware of their existence
+  - Removing them can be challenging but some approaches include:
+    - See if there is an object shared by topmost and bottom most methods
+    - Store the information as a global variable (these almost always create other issues)
+    - Recommended solution: Context object which contains applications global state, there should only be one
+      - There are still drawbacks (p.53) and present similar downsides like global variables, these objects can also get huge without discipline
+- Conclusion
+  - In order for an element to provide a net gain against complexity, it must eliminate some complexity that would be present in the absense of the design element
