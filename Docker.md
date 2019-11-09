@@ -31,6 +31,8 @@ docker --version
 docker version
 docker info
 ```
+##### Docker Build
+`docker build .` 
 
 ##### Execute Docker image
 `docker run hello-world`
@@ -45,8 +47,41 @@ docker container ls --all
 docker container ls -aq
 ```
 
+#### Run an image using a specific port 
+```
+docker run --name <containerName> -p <yourport>:<dockerPort> <imageName>
+
+```
+* `-e` to pass in ENV variables 
+
+
 #### Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
 `docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]` 
+
+
+#### Purging All Unused or Dangling Images, Containers, Volumes, and Networks
+* Docker provides a single command that will clean up any resources — images, containers, volumes, and networks — that are dangling (not associated with a container):
+```
+docker system prune
+```
+
+* To additionally remove any stopped containers and all unused images (not just dangling images), add the -a flag to the command:
+
+```
+docker system prune -a
+```
+
+##### Removing Docker Images
+##### Remove one or more specific images
+* Use the docker images command with the -a flag to locate the ID of the images you want to remove. This will show you every image, including intermediate image layers. When you've located the images you want to delete, you can pass their ID or tag to docker rmi:
+
+``` 
+List:
+docker images -a
+
+Remove:
+docker rmi Image Image
+```
 
 ### To update the timezone on a container
 
@@ -61,6 +96,13 @@ RUN npm install ;\
     echo $TZ > /etc/timezone ;\
     dpkg-reconfigure -f noninteractive tzdata
 ```
+
+### To pull an image from Azure
+* Login: `az login`
+* Then login into the registry: `az acr login --name <registryName>`
+* Then pull the image: `docker pull cfchildren.azurecr.io/lms:latest`
+
+
 Sources: 
 * [Medium article](https://medium.com/@ibrahimgunduz34/be-careful-while-playing-docker-about-timezone-configuration-e7a2217e9b76)
 * [Stack Overflow](https://unix.stackexchange.com/questions/140734/configure-localtime-dpkg-reconfigure-tzdata)

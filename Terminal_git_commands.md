@@ -23,3 +23,9 @@ https://blog.carbonfive.com/2017/08/28/always-squash-and-rebase-your-git-commits
 
 
 git rebase -i [SHA]
+
+### Stash
+* To create a stash with a message: 
+`git stash save "<MESSAGE>"`
+* To apply a stash:
+`git stash apply stash@{NUMBER}`
