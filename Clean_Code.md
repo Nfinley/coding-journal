@@ -1,6 +1,6 @@
 # Clean Code
 
-Notes from book club and reading
+Notes from book club and reading (started 11/1/2019)
 
 ## Ch 1: Clean Code
 
@@ -29,4 +29,117 @@ Notes from book club and reading
     - He focuses on readability but also asserts clean code makes it easy for other people to enhance it
     - He also ties cleaniness to tests
   - Michael Feathers (author of Working Effectively with Legacy Code)
-    - Clean code looks like it was written by someone who cares
+    - Clean code looks like it was written by someone who cares about the code they write
+    - Clean code is code that has been taken care of
+  - Ron Jeffries (author of extreme programming Installed and adventures in C#)
+    - Run all tests
+    - Contains no duplication
+    - Expresses all the esign ideas that are in the system
+    - He focuses on Duplication and expressiveness
+    - Also functions should do one thing, tiny abstractions
+  - Ward Cunningham (inventor of Wiki, godfather of all those who care about code)
+    - He expects that when you read clean code you won't be suprised at all, you won't expend much effort
+    - Makes the language look like it was made for the problem
+- We are Authors
+  - Because we spend about 10:1 ratio of reading to writing code making it easier to read makes it easier to write
+- The Boy Scout Rule
+
+  - Code must be kept clean over time
+  - Leave the campground cleaner than you found it
+
+## Ch 2: Meaningful Names
+
+- Use Intention-Revealing Names
+  - If a name requires a comment then it does not reveal intent
+  - Name with intention
+- Avoid Disinformation
+  - We must avoid levaing false queus that obscure the meaning of the code
+  - Spelling similiar concepts similarily is information, using inconsistent spellins is disinformation
+- Make Meaningful Distinctions
+  - Number-series name is the opposite of intentional naming
+  - Don't use language reserved words in naming like `variable` or `table`
+- Use Pronounceable Names
+  - ie: use `generationTimeStamp` instead of `genymdhms`
+- Use Searchable Names
+  - Single letter names are not advised
+- Avoid Encodings
+  - They are seldom pronounceable and are easy to mis-type
+- Hungarian Notation
+- Member Prefixes
+  - you don't need to prefix member vairables
+- Interfaces and Implementations
+  - Don't code for the interface (ie: `IShapeFactory`)
+- Avoid Mental Mapping
+  - Clarity is King
+- Class Names
+  - They should have noun or noun phrare names like `Customer` or `AddressParser`
+  - Should not be a verb
+- Method Names
+  - Should have verb or verb phrase names like `postPayment`, `deletePage`
+- Don't be Cute
+  - Say what you mean, mean what you say
+- Pick One Word per Concept
+  - Ie pick one from `fetch, get and retrieve` when naming things of this type
+- Don't Pun
+- Use Solution Domain Names
+  - Its not wise to draw all names from the problem domain because we don't want to ask the customer they mean
+  - Use computer science terms where applicable
+- Use Problem Domain Names
+  - When no "programmer-eese" is available use the problem domain name
+- Add Meaningful Context
+  - see listing 2-2 pg. 28 and 29
+- Don't Add Gratuitous Context
+  - If you app is Gas Station Deluxe don't add `GSD` to every class or function
+  - Shorter Names are generally better than longer name so long as they are clear
+
+## Ch 3: Functions
+
+- Small!
+  - They should be small and the second rule is that they should be smaller than that
+  - No more than 20 lines long
+  - Indent level should not be greater than one or two
+  - functions should not be large enough to hold nested structures
+- Do One Thing
+  - They should do one thing and do it well and they should do it only
+  - The reason we write functions is to decompose a larger concept into a set of steps at the next level of abstraction
+- One level of abstraction per function
+  - Mixing levels of abstractions within a function is always confusing
+- Reading Code from Top to Bottom: The Stepdown Rule
+  - We want to be able to read the program as though it were a set of `TO` paragraphs each of which is descrbing the current level of abstraction and referencing subsequent `TO` paragraphs at the next level down
+- Switch Statements
+  - Its hard to make a switch statement that does one thing because their nature is to do `N` things.
+  - But we can make sure each switch statement is buried in a low-level class and never repeated: through [**POLYMORPHISM**](<https://en.wikipedia.org/wiki/Polymorphism_(computer_science)>)
+    - Polymorphism describes a pattern in object oriented programming in which classes have different functionality while sharing a common interface
+    - The example in the book p. 39 they turn a function into a class that has an interface that is a factory and then an implementation class that implements the factory to create new instances
+  - Use Descriptive Names
+    - Desribe what the function does
+    - Don't be afraid to make a name long and don't be afraid to spend time finding a name
+  - Function Argumentss
+    - The ideal number of arguments for a function zero (niladic)
+    - Next is one (monadic)
+    - Next is two (dyadic) and then three (triadic) and three should be avoided whenever possible
+    - More than three (polyadic) requires very special justiciation and shouldn't be used
+    - Arguments are even harder from a testing point of view
+- Common Monadic Forms
+  - Two common reasons:
+    - You may be asking a question about that argument or;
+    - You may be transforming it into somthing else and `returning it`
+- Flag Arguments
+  - They are UGLY!!!
+  - Passing a boolean into a function is truly terrible practice
+  - Refactor into multiple functions instead
+- Dyadic Functions
+  - Harder to understand than a function with one argument
+  - Cartesian points naturally have two values however they are ordered components of a single value
+  - They are not evil but they come at a cost and you should try to re write them to use only one argument by pulling down complexity or creating multiple functions within a class
+- Triads
+  - These are significantly harder to understand then dyadic and should be thought about carefully before creating
+- Argument Objects
+  - Reducing the number of arguments by creating objects out of them is a good thing
+- Argument Lists
+  - Same idea as objects and used when you want to pass a variable number of arguments
+- Verbs and KEywords
+  - The function and argument should be a nice verb/noun pair ie: `writeField(name)`
+  - Or use a `keyword` form of a function name ie: `assertExpectedEqualsActual(expected, actual)`, this mitigates the problem of having to remember the ordering of the arguments
+- Have No Side Effects
+  - Side effects are lies
