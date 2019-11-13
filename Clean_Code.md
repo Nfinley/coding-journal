@@ -138,8 +138,42 @@ Notes from book club and reading (started 11/1/2019)
   - Reducing the number of arguments by creating objects out of them is a good thing
 - Argument Lists
   - Same idea as objects and used when you want to pass a variable number of arguments
-- Verbs and KEywords
-  - The function and argument should be a nice verb/noun pair ie: `writeField(name)`
+- Verbs and Keywords
+  - **The function and argument should be a nice verb/noun pair ie: `writeField(name)`**
   - Or use a `keyword` form of a function name ie: `assertExpectedEqualsActual(expected, actual)`, this mitigates the problem of having to remember the ordering of the arguments
 - Have No Side Effects
   - Side effects are lies
+  - They often result in strange temporal couplings and order dependencies
+  - See p. 44 for function example
+- Output Arguments
+  - In general they should be avoided
+  - Output arguments disappears in OO leanguages because `this` is intended to act as an output argument
+- Command Query Separation
+  - Functions should either do something or answer something not both
+  - Either your function should change the state of an object or it should return some information about that object
+- Prefer Exceptions to Returning Error Codes
+  - When you return an error code you create the problem that the caller must deal with the error immediately
+  - If you use execptions instead of returned error codes, then the error processing code can be separated from the happy path code and can be simplified
+- Extract Try/Catch Blocks
+  - He argues they are ugly and they confuse the structure of the code and mix error processing with normal processing
+  - Better to extract the bodies of the try/catch out into functions of their own (p.47)
+- Error handling is one thing
+  - Just as functions should do one thing error handling is one thing
+- The Error.java Dependency Magnet
+  - Many other classes must import and use them
+  - This puts a negative pressure on the Error class
+- DON'T REPEAT YOURSELF
+  - Duplication may be at the root of all evil in software
+  - It appears that since the invention of the subroutine innovations in software dev have been an ongoing attempt to eliminate duplication from our source code
+- Structured Programming
+  - Edsger Dijkstra (structured programming) said that every function and every block within a function should have one entry and one exit, by this logic should only be one return, no `break` or `continue` and never any `goto` statements
+  - However, if you keep your functions small this rule serves little benefit
+  - So in a small function the occasional `return`, `break` or `continue` does no harm and can sometimes be more expressive
+- How Do You Write Functions Like This?
+  - Write down your thoughts, then massage it and restructure it, refine it until it reads the way you want it to read
+  - Shrink methods, re order them, change names and eliminate duplication
+  - In the end you end up with functions that follow the rules laid out in this chapter
+- Conclusion
+  - Functions are verbs and classes are the nouns (way to describe a system)
+  - The art of programming is, and has always been, the art of language design
+  - Never forget your real goal is to tell the story of the system
