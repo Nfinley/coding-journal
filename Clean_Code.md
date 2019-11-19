@@ -177,3 +177,131 @@ Notes from book club and reading (started 11/1/2019)
   - Functions are verbs and classes are the nouns (way to describe a system)
   - The art of programming is, and has always been, the art of language design
   - Never forget your real goal is to tell the story of the system
+
+## Ch. 4 - Comments
+
+- Comments
+  - Comments are like Schindler's list not "pure good"
+  - At best comments are a necessary evil
+  - Don't comment bad code - rewrite it
+  - He feels comments are always failures, failure to not express ourself in code
+  - He says they lie not always and not intentionally, reason being programmers can't realistically maintain them
+  - Truth can only be found in one place: code
+- Comments Do Not Make up for bad code
+  - Don't write a mess, spend time to clean it up instead of writing comments
+- Explain Yourself in Code
+  - A lot of times you can simplify code that would otherwise need a comment by creating a function with a descriptive name that says the same thing as the comment you would write
+- Good Comments
+  - Some comments are necessary or beneficial but the only truly good comment is the one you found a way not to write
+  - Legal Comment
+    - Copyright and authorship
+  - Informative Comments
+    - Sometimes useful to provide basic information with a comment ie regex
+  - Explanation of Intent
+    - Sometimes a comment goes beyond just useful information about the implementation and provides the intent behind a decision
+  - Clarification
+    - Sometimes its helpful to translate the meaning of some obscure argument or return value into something readable
+    - When its part of a standard library or in code you can't alter it might be helpful
+  - Warning of consequences
+    - Sometimes it is useful to wanr other programmers about certain consequences
+  - TODO Comments
+    - Jobs that programmers thing should be done and myabe cannot be done right now
+    - It is not an excuse to leave bad code in the system
+  - Amplification
+    - A commment may be used to amplify the importance of something that otherwise seem inconsequential
+  - Javadocs in Public APIs
+    - Extremly important and useful but be careful because they can be just as misleading and dishonest
+- Bad Comments
+  - Most comments fall into this category as htey are cruthes or excuses for poor code
+  - Mumbling
+    - Putting a comment because you feel you should is a hack
+    - Any comment that forces you to look in another module for the menaing it has failed to communicate to you
+  - Redundant Comments
+    - Don't do it
+  - Misleading Comments
+    - Sometimes comments aren't precise or quite accurate and cause more trouble than harm
+  - Mandated Comments
+    - It is silly to have a rule that every variable or function needs to have a comment, it is just clutter and lead to disorganization and confusion
+  - Journal Comments
+    - People used to log every change that was made to a file before version control, don't do this
+  - Noise Comments
+    - these resonate the obvious and provide no new information
+    - They are so noisy we learn to ignore them
+    - Replace the temptation to create noise with determination to clean your code
+  - Scary Noise
+    - Just don't add noise
+  - Don't use a comment when you can use a function or a variable
+    - Rewrite code to leverage a variable or function
+  - Position Markers
+    - They clutter and should be eliminated
+  - Closing Brace Comments
+    - People will comment the end of their braces to remind them what it is the end of, instead shorten that piece of code
+  - Attributions and bylines
+    - Because source control exists don't add attributions
+  - Commented-Out Code
+    - DON'T DO THIS!!!
+  - HTML Comments
+    - Html in source code comments is an abonmination
+  - Nonlocal Information
+    - Make sure your comment appears next to the code it is meant to comment on
+  - Too Much Information
+    - Don't put interesting historical discussions or irrelevant descriptions
+  - Inobvious connection
+    - The connection between a comment and the code it describes should be obvious
+  - Function Headers
+    - A well chosen name for a small function that does one thins is usally better than a comment header
+
+## Ch. 5 Formatting
+
+- The Purpose of Formatting
+  - Code forammtting is about communication and communication is the professsional developer;s first order of business
+  - Perhaps you thought that "getting it working" was the first order of business but he says he hope by now after reading the book you no longer think that
+  - Your style and discipline survives, even though your code does not
+- Vertical Formatting
+  - The size of the files themselves
+  - Small files are usually easier to understand than large files are
+- The Newspaper Metaphor
+  - A file should be like a newspaper article, starting with a headline then a paragraph summarizing and then as you go down the details increase
+  - So as a code file the top most parts of the source file should provide the high-level comcepts and algorithms. Details should increase as we move downward
+  - If a newspaper were just one long story containing a dis organized agglomeration of facts, dates and name then we simply would not read it
+- Vertical Openness Between Concepts
+  - Keep blank space between new concepts, as it gives a visual cue and it has a profound impact on the visual layout of the code
+- Vertical Density
+  - If openness separates concepts, then vertical density implies close association
+  - Associate lines of code that are tightly related vertically dense
+- Vertical Distance
+  - Concepts that are closely related should be kept verticaly close to each other
+  - Also closely related concepts should not be separated into different files unless you have a very good reason
+  - We want to avoid forcing our readers to hop around thorugh our source code
+  - _Variable Declarations_
+    - They should be declared as close to their usage as possible
+    - Because our functions are short, variables should appear at the top of each function
+    - Control variables should be usually declared within the loop statement
+  - _Instance Variables_
+    - Shoould be declared at the top of the class
+  - _Dependent Functions_
+    - They should be vertically close and the topmost function calls those below it and then in turn those below call those even further below
+  - _Conceptual Affinity_
+    - Certain bits of code want to be near other bits
+    - The stronger the affinity the less vertical distance there shoiuld be between them
+- Vertical Ordering
+  - In general we want function call dependencies to point in the downward direction
+- Horizontal Formatting
+  - The Hollerith limit is 80 but he says edging out at 100 or 120 but no longer
+- Horizontal Openness and Density
+  - Surround assignment operatos with white space to accentuate them
+  - Accentuate the precendence of operators
+- Horizontal Alignment
+  - He prefers unaligned declarations and assignments as shown below
+  - _Indentation_
+    - A source file is a hierarchy like an outline
+    - To make the hierarchy visable we indent
+    - Without indentation, programs would be virtaully unreadable by humans
+  - _Breaking Indentation_
+    - He prefers to always expand and intent the scopes and not to have if statements or things on the same line
+  - _Dummy Scopes_
+    - Sometimes the body of a while or for loop is a dummy, avoid them or properly intent the body and put them in brackets
+- Team Rules
+  - The team should agree on a set of formatting rules and everyone abides by those rules
+  - A good software system is composed of a set of documents that read nicely
+  -
