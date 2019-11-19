@@ -304,4 +304,3 @@ Notes from book club and reading (started 11/1/2019)
 - Team Rules
   - The team should agree on a set of formatting rules and everyone abides by those rules
   - A good software system is composed of a set of documents that read nicely
-  -
