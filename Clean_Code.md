@@ -304,3 +304,38 @@ Notes from book club and reading (started 11/1/2019)
 - Team Rules
   - The team should agree on a set of formatting rules and everyone abides by those rules
   - A good software system is composed of a set of documents that read nicely
+
+## Ch 6 Objects and Data Structures
+
+- Data Abstraction
+  - Hiding implementation is not just a matter of putting a layer of functions between the variables, it is about abstractions
+  - A class exposes abstract interfaces that allow its users to manipulate the _essense_ of the data, without having to know its implementation
+  - We do not want to expose the details of our data but rather express our data in abstract terms
+- Data/ Object Anti-Symmetry
+  - Objects hide their data behind abstractions and expose functions that operate on that data
+  - Data structures expose their data and have no meaningful functions
+  - **Procedural code (6-5 p.96) (code using data structures) makes it easy to add new functions without changing the existing data structures. OO code, makes it easy to add new classes without changing existing functions**
+  - The compliment is true: **Procedural code makes it hard to add new data structures because all the functions must change. OO code makes it hard to add new functions because all the classes must change**
+- The Law of Demeter
+  - It says a module should not know about the innards of the objects it manipulates
+  - This means it should not expose its internal structure
+  - A function f, on class C should not invoke any methods on objects that are returned by any of the allowed functions, only talk to its friends not strangers
+- Train Wrecks
+  - Chains of calls like: `final Strings outputDir = ctxt.getOptions().getScratch().getAbsolutePath()` is a train wreck because it looks like a bunch of coupled traing cards
+  - They are considered slpppy style and should be avoided
+  - The above would be fixed by each being set to a variable of the other
+- Hybrids
+  - When structures exist that are half objecst and half data structure
+  - Don't do them
+- Data Transfer Objects
+  - Quintessential form of a data strcuture is a class with public variables and no functions called a data transfer object
+  - More common is the "BEAN" form, they have private variables manipulated by getters and setters. The quasi-encapsulation of beans seems to make some OO purists feel better but usually provides no other benefit
+- Active Record
+  - These are a special form of a DTO. They are data structures with public (or bean accessed) variables
+  - They also typically have methods like `save` and `find`
+  - Unfortunately we often find devs treat these data structures as objects and try to put business logic in them making them awkward and a hybrid
+- Conclusion
+  - Objects expose behavior and hide data.
+    - Easy to add new kinds of objects without changing behaviors but hard to add new behaviors to existing objects
+  - Data structures expose data and have no significant behavior
+    - Easy to add new behaviors to existing data structures but makes it hard to add new data structures to existing functions
