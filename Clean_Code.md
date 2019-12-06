@@ -311,7 +311,7 @@ Notes from book club and reading (started 11/1/2019)
   - Hiding implementation is not just a matter of putting a layer of functions between the variables, it is about abstractions
   - A class exposes abstract interfaces that allow its users to manipulate the _essense_ of the data, without having to know its implementation
   - We do not want to expose the details of our data but rather express our data in abstract terms
-- Data/ Object Anti-Symmetry
+- Data/Object Anti-Symmetry
   - Objects hide their data behind abstractions and expose functions that operate on that data
   - Data structures expose their data and have no meaningful functions
   - **Procedural code (6-5 p.96) (code using data structures) makes it easy to add new functions without changing the existing data structures. OO code, makes it easy to add new classes without changing existing functions**
@@ -339,3 +339,63 @@ Notes from book club and reading (started 11/1/2019)
     - Easy to add new kinds of objects without changing behaviors but hard to add new behaviors to existing objects
   - Data structures expose data and have no significant behavior
     - Easy to add new behaviors to existing data structures but makes it hard to add new data structures to existing functions
+
+## Ch 7 Error Handling (p103)
+
+- Error handling is important but if it obscures logic it is wrong
+- Use Exceptions Rather than Return Codes
+  - It is better to throw an exception when you encounter an error
+- Write your Try-Catch-Finally Statement first
+  - Try to write tests that force exceptions, and then add behavior to your handler to satisfy your tests
+  - Stresses to start by writing the try catch blocks that coulc throw exceptions
+- Use Unchecked Exceptions
+  - The price of a checked exception is an Open/Closed Principle Violation
+  - If you throw a checked exception from a method in your code and the catch is three levels above, you must declare that exception in the signature of each method between you and the catch
+- Provide Context With Exceptions
+  - Each error you throw should provide enough context to determine the source and location of the error
+  - Create information error messages and pass them along with your exceptions
+- Define Exception Classes in Terms of a Caller's Needs
+  - There are amany ways to define errors, the most important should be how they are caught
+  - His example had a call with a bunch of catch blocks in which he abstracted out to its own class that took in a more generic error and then handled it, pulled complexity downward
+  - Create a wrapper around third party APIs, this is best practice
+  - Doing this minimizes the dependencies on that API
+  - Often a single exception class is fine for a particular piece of code
+- Define the Normal FLow
+  - Sometimes you don't need to abort and in this case you may not need to write a catch block, instead the example he gives is to have your class return a default object that handles the special case for you, he calls this a SPECIAL CASE OBJECT
+- Don't return null
+  - Just don't do it, find a way to return a special case object or consider throwing an exception
+- Don't Pass Null
+  - Returning null is base but passing null into a function is even worse
+  - Not a whole lot of elegant options to handle so instead forbid `null` from being passed at all
+- Conclusion
+  - Code is readable but must also be robust
+  - We can do this if we view error handling as a separate concern something that is independent of our main logic
+
+## Ch 8 Boundaries (p.113)
+
+- Using Third-Party Code
+  - Third-party packages strive for braod applicability so they can work in many environments and appeal to wide base
+  - Users on the other hand want an interface that is focused on their needs
+  - This causes a tension between providers and users and can cause problems at the boundaries of our systems
+  - The example he gives is the use of a util.Map library in Java and instead of exposing all of the functionality to all of the callers he creates a call where the interface at the boundary(Map) is hidden
+  - He is not suggesting encapsulating every user of Map, but advising not to pass any interface at a boundary around
+  - Instead if you use a boundary interface keep it inside the class, or close family of class. Avoid returning from it or accpeting it as an argument
+- Exploring and Learning Boundaries
+  - Instead of trying out the new third party library in production code, He suggests writing "learning tests" to explore our understanding of third-party code
+  - Essentially doing controlled experiments that check out understanding of that API
+- Learning log4j
+  - He uses an example library page 117 to go through how to write tests to discover how to use a library
+- Learning Tests are Better Than Free
+  - The learning tests end up costing nothing. We had to learn the API anyway and writing tests isolated the way to get that knowledge
+  - They were precise experiments that helped increase our understanding
+  - Also helps when the library puts out new releases to run and see if there are behavorial differences
+- Using Code That Does not Yet Exist
+  - They were working on a system that had a boundary at a Transmitter, so they created their own interface with a fake transmitter api until they had the specs for the real one.
+  - They encapsulated the interaction with the API using the Adapter pattern, which allows for a single place to change when the API evolves
+  - This design also gives very convenient "SEAM" in code for testing, and you can create boundary tests from the real API to make sure the correct usage is occuring
+- Clean Boundaries
+  - Good software designs accocmodate change without huge investment and sure future change it not too closely
+  - Code at boundaries need clear separation and test that define expectations.
+  - Avoid letting too much of our code know about third-party particulars
+  - We manage thrid-party boundaries by having very few places in the code that refer to them
+    - We may wrap them, use an ADAPTER to convert from perfect interface to provided interface
