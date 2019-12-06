@@ -399,3 +399,65 @@ Notes from book club and reading (started 11/1/2019)
   - Avoid letting too much of our code know about third-party particulars
   - We manage thrid-party boundaries by having very few places in the code that refer to them
     - We may wrap them, use an ADAPTER to convert from perfect interface to provided interface
+
+## Ch 9 Unit Tests
+
+- The Three Laws of TDD
+  - First Law: You may not write production code until you have written failing unit test
+  - Second Law: You may not write more of a unit test than is sufficient to fail, and not compiling is failing
+  - Third Law: You may not write more production code than is sufficient to pass the currently failing test
+- Keeping tests clean
+  - Having dirty tests is worse than having no tests
+  - Test code is just as important as test code and must be kept clean
+- Tests Enable the -ilities
+  - If you have tests you do not fear making changes to the code
+- Clean Tests
+  - Three things: Readability, Readability, Readability!!!!
+  - What makes them readable: Clarity, simplicity, and density of expression
+  - Sometimes you can use the BUILD_OPERATE_CHECK pattern to construct your tests
+- Domain-Specific Testing Language
+  - Write a set of utility functions that allow you to obscucate the other APIS, this allows higher readability and you create a set of tools explicitly for testing
+- A Dual Standard
+  - It must be simple, succinct and expressice but it not need to ne as efficient as production code
+  - Things like performance, memory utilization might differ between test and prod but never involve issues of cleanliness
+- One Assert Per Test
+  - Assert one thing per test
+  - You can use the TEMPLATE METHOD patter and putting the given/when parts in a base class and the then parts in different derivatives
+  - But if the work of breaking it out seems like too much for what you are trying to accomplish you can use multiple asserts
+  - It is a good guideline
+- Single Concept Per Test
+  - Perhaps a better rule than single assert is to not have multiple concepts per test
+  - It is better to minimize the numbern of assertions and just test one concept
+- F.I.R.S.T
+  - Clean tests follow five rules:
+    - FAST: They should be fast
+    - INDEPENDENT: Tests should not depend on each other
+    - REPEATABLE: Tests should be repeatable in any environment
+    - SELF-VALIDATING: Tests should have a boolean output, they pass or fail
+    - TIMELY: Test need to written in a timely fashion, they should be written just before the production code that makes them pass
+- Conclusion
+  - Tests must be clean because they preserve and enhance the flexibility, maintainability and reusability of the production code
+
+## Ch 10 Classes
+
+- Class Organization
+  - Classes should start with a list of variables, then private static variables, then private instance variables,
+  - Encapsulation
+    - Loosening encapsulation should always be a last resort
+- Class Should be Small!
+  - First rule, classes should be small
+  - Second rule, classes is they should be smaller than that
+  - We count responsibilities when measuring size of classes
+  - Name of the class should describe what responsibility it fulfills
+- The Single Responsibility Principle
+  - Classes should have one and only one reason to change
+  - They should have one reponsibility and one reason to change
+  - Identifying responsbilities often helps us recognize and create better abstractions
+  - One of the most important concept in OO design
+  - The primary goal in managing complexity is to organize it so a developer knows where to look and to only understand the directly affected complexity
+- Cohesion
+  - Classes should have a small number on instance variables
+  - When Cohesion is high, it means that the methods and variables of the class are co-dependent and hang together as a logical whole
+- Maintaining Cohesion Results in Many Small Classes
+- Organizing for Change
+- Isolating From Change
