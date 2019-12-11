@@ -457,7 +457,21 @@ Notes from book club and reading (started 11/1/2019)
   - The primary goal in managing complexity is to organize it so a developer knows where to look and to only understand the directly affected complexity
 - Cohesion
   - Classes should have a small number on instance variables
+  - A class in which each variable is used by each method is maximally cohesive
   - When Cohesion is high, it means that the methods and variables of the class are co-dependent and hang together as a logical whole
 - Maintaining Cohesion Results in Many Small Classes
+  - When classes lose cohesion split them up, break them down into more classes
 - Organizing for Change
+  - For most systems, change is continual
+  - The problem with "opening up" a class is that it introduces risk
+  - Private method behavior that applies only to a small subset of a class can be a useful heuristic for spotting potential areas of improvement
+  - **OPEN-CLOSED PRINCIPLE:** Classes should be open for extension but closed for modification
+  - We want to structure our systems so that we muck with as little as possible when we update them with new or changed features
+  - In ideal system we mae new features by extending the system, not by making modifications to existing code
 - Isolating From Change
+  - In OOP there are concrete class, which contain implementation details (Code) and abstract class which represent concepts only
+  - When a client classes that depend on concrete class is at risk we can introduce using interfaces and abstract classes to help isolate the impact of the changes
+  - If a system is decouple enough to be tested like on p. 150 it will be more flexible and promote more reuse
+  - Lack of coupling means that the elements of our system are better isolated from each other and from change
+  - **DEPENDENCY INVERSION PRINCIPLE:** Basically says that our class should depend on abstractions, not on concrete details
+  - Abstractions can isolate all of the specific details of obtaining certing data like where a stock price is obtained
