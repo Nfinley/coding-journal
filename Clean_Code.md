@@ -475,3 +475,73 @@ Notes from book club and reading (started 11/1/2019)
   - Lack of coupling means that the elements of our system are better isolated from each other and from change
   - **DEPENDENCY INVERSION PRINCIPLE:** Basically says that our class should depend on abstractions, not on concrete details
   - Abstractions can isolate all of the specific details of obtaining certing data like where a stock price is obtained
+
+## Ch 12 Emergence (p.171)
+
+- Four simple rules by Kent Beck:
+  - Runs all the tests
+  - Contains no duplication
+  - Expresses the intent of the programmer
+  - Minimizs the number the classes and methods
+- Simple Design Rule 1: Runs All The Tests
+  - A system that is comprehensively tested and passes all of its tests all of the time is a testable system
+  - Systems that aren't testable aren't verifiable and arguably should never be deployed
+  - Writing tests leads to better designs
+  - It also leads to OO goals of low coupling and high cohesion
+- Simple Design Rules 2-4: Refactoring
+
+  - NO DUPLICATION:
+
+    - Lines of code that look alike and duplicate implementation are both examples
+    - You can use **THE TEMPLATE METHOD** : a pattern used for removing higher-level duplication
+
+  - EXPRESSIVE:
+
+    - Majority of cost of saftware project is long-term maintenance
+    - Code should clearly express the intent of the author; this will reduce defects and shrink cost of maintenence
+    - Express yourself via: choosing good names, writing small functions and classes, using standard nomenclature and well written unit tests
+    - Take pride in your workmanship, care is a precious resource
+
+  - MINIMAL CLASSES AND METHODS
+    - It is important to keep methods and functions small, however we should be pragmatic and not go overboard
+    - Goal it to keep the system small while we are also keeping out functions and classes small
+
+## Ch 13 Concurrency (light on notes because not as crucial, p. 177)
+
+- Why Concurrency?
+  - Is a decoupling strategy
+  - Helps decouple what gets done from when it gets done
+  - This decoupling can dramtically improve the throughput and structure
+- Myths and Misconceptions
+  - Concurrency always improves performance: it can sometimes improve performance only when wait time is shared
+  - Design does not change when writing concurrent programs: It can be remarkably different
+  - Among others p.179
+- Concurrency Defense Principles
+  - SRP
+    - Concurrency code should be separated from non-concurrent code
+    - Recommendation: Keep your concurent code separate from other code
+  - Corollary: Limit the scope of data
+    - Recommendation: take encapsulation to heart, severly limit the access of any data that may be shared
+  - Corollary: Use Copies of Data
+    - When possible and if its not to memory intensive use copies of objects so as not to share code (merge back and end in single thread if needed)
+  - Corollary: Threads should be as independent as possible
+    - Isolate each thread as much as possible
+    - Recomendation: Attempt to partition data into independent subsets than can be operated on by independent threads, possibly in different processors
+- Know Your Library
+  - Reviews classes/methods available to you
+- Know Your Execution Models
+  - Producer - Consumer (184)
+  - Readers - Writers (184)
+  - Dining Philosophers
+- Beware Dependencies Between Synchoronized Methods
+  - Avoid using more than one method on a shared object
+- Keep synchornized sections small
+- Testing Threaded Code
+  - Write tests that have the potential to expose problems and then run them frequently under different configs and load
+- Get your nonthreaded code working first
+  - Recomendation: Do not try to chase down nonthreading bugs and threading bugs all the same time. Make sure your code works outside of threads
+- Make your threaderd code pluggable
+  - make it work with many configurations
+- Run on Different Platforms
+- Automated
+  - Use jiggling strategies to ferret our errors
