@@ -2,6 +2,14 @@
 
 Notes from book club and reading (started 11/1/2019)
 
+## Important Concepts/Terms
+
+- Depency Injection (DI)
+- Inversion of Control
+- Abstract Factory
+- Open-Closed Principle
+- Single Responsibility Principle
+
 ## Ch 1: Clean Code
 
 - Total Cost of Owning a Mess
@@ -400,7 +408,7 @@ Notes from book club and reading (started 11/1/2019)
   - We manage thrid-party boundaries by having very few places in the code that refer to them
     - We may wrap them, use an ADAPTER to convert from perfect interface to provided interface
 
-## Ch 9 Unit Tests
+## Ch 9 Unit Tests (p 121)
 
 - The Three Laws of TDD
   - First Law: You may not write production code until you have written failing unit test
@@ -438,7 +446,7 @@ Notes from book club and reading (started 11/1/2019)
 - Conclusion
   - Tests must be clean because they preserve and enhance the flexibility, maintainability and reusability of the production code
 
-## Ch 10 Classes
+## Ch 10 Classes (p 135)
 
 - Class Organization
   - Classes should start with a list of variables, then private static variables, then private instance variables,
@@ -475,6 +483,66 @@ Notes from book club and reading (started 11/1/2019)
   - Lack of coupling means that the elements of our system are better isolated from each other and from change
   - **DEPENDENCY INVERSION PRINCIPLE:** Basically says that our class should depend on abstractions, not on concrete details
   - Abstractions can isolate all of the specific details of obtaining certing data like where a stock price is obtained
+
+## Ch 11 Systems (p 153)
+
+- How would you build a city?
+  - Have a team that manages certain parts, some focus on big picture others the details
+  - They also work because they have evolved apprpropriate leces of abstractoin and modularity that make it possible for individuals and "components" they manage to work effectively
+- Separate Constructing a System from Using It
+  - _Construction_ is a very different process than _USE_
+  - > Software systems should separate the startup process, when the application objects are constructed and depenendcies are "wired" together; from the runtime logic that takes over after startup
+  - _Separation of Concerns_ is one of the oldest and most important design techniques in our craft and the startup process is the first concern
+  - We should neve let little convientient idioms lead to modularity breakdown
+  - We should modularize the startup process from normal runtime logic and we should make sure we have a glabl consistent strategy for resolving our major dependencies
+- Separation of Main
+  - One way to separate construction from use is simply to move all aspects of construction to `main`
+  - The `main` function builds the objects necessary for the system and passes them to the application, which simply uses them
+  - The one way direction of dependency is away from main which means the application has no knowledge of `main` or the construction process
+- Factories
+  - Sometimes however we need to make the application responsible for `when` an object is created
+  - **ABSTRACT FACTORY** pattern to give the application control of `when` to build something, but it keeps the details of that construction separate
+  - See figure 11-2 (p 156) all dependencies point away from `main`, which means the application is decoupled from the details fo how to build X.
+- Dependency Injection
+  - This is a powerful mechanism for separating concstruction from use
+  - **Inversion of Control**: moves secondary responsibilities from an object to other objects that are dedicated to the purpose, thereby supporting the SRP
+  - An object should not take responsponsibility for instantiating its dependencies, instead it should pass it to an "authoritative" mechanism thereby inverting control
+  - In true dependcy injection, the class takes no direct steps to resolve its dependencies it is completely passive
+- Scaling Up
+  - It is a myth that we can get systems "right the first time"
+  - Instead we should implement only today's stories then refactor and expand the system to implement new stories tomorrow: This is the essence of iterative and incremental agility.
+  - "Software systems are unique compared to physical systems. Their architectures can grow incrementallym **if** we maintain the proper separation of concerns"
+- Cross-Cutting Concerns
+  - Concerns like persistence tend to cut across the natural object boundaries of a domain
+  - For concerns where you have to spread the code that implements for example a persistence strategy across many objects, it is called a _cross-cutting concern_
+  - **AOP - Aspect Oriented Programming**: a general purpose approach to restoring modulatiry for cross-cutting concerns
+- Java Proxies (Aspect-like mechanism)
+  - p. 161-162
+  - Code volume and complixity are two drawbacks of proxies
+- Pure Java AOP Frameworks
+  - Spring AOP model follows declaritively supporting cross-cutting concerns using XML config files or Java annotations
+- AspectJ Aspects
+  - The most fully fetured tool for separating concerns
+  - Drawback of AspectJ is the need to adopt several new tools and to learn new language constructs
+- Test Drive the System Architecture
+  - **Big Design Up Front**: The practice of designing everything up front before implementing anything at all
+  - Software construction has its own physics: a lot of iterative exploration and discussion of details, even after construction starts
+  - A Physical structure has to be BDUF, but software doesn't
+  - If designed properly it is possible to make radical changes **if** the structure of the separates its concern effectively
+  - Minimally coupled designs are appropriately simple at each level of abstraction and scope
+  - We cannot go in "rudderless" but we must maintain the abality to change course
+  - A good API should mostly disappear from view
+  - > An optimal system architecure consists of modularized domains of concern, each of which is implemented with Plain Old Java Objects. The different domains are integrated together with minimally invasive Aspects of Aspect-Like tools. This architecture can be test-driven, just like code
+- Optimize Decision Making
+  - No one person can make all of the decisions
+  - Postpone deicssions until the last possible moment
+- Use Standards Wisely, When They Add Demonstrable Value
+  - > Standards make it easier to reuse ideas and components, recruite people with relevant experience, encapsulate good ideas, and write components together. Howver, the process of creating standards can sometimes take too long for industry to wait, and some standards lose tocuh with the real needs of the adopters they are intended to serve.
+- Systems Need Domain-Specific Languages
+  - A Good DSL mimimizes the communications gap between a domain comcept and the code that implements it
+- Conclusion
+  - Systems must be clean too
+  - Whether you are writing systems or individual modules, never forget to _use the simplest thing that can possibly work_
 
 ## Ch 12 Emergence (p.171)
 
