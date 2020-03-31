@@ -613,3 +613,8 @@ Notes from book club and reading (started 11/1/2019)
 - Run on Different Platforms
 - Automated
   - Use jiggling strategies to ferret our errors
+
+## Ch 14 Successive Refinement (p 193)
+
+ - A case study in refactor of a command-line tool that started well but did not scale
+ - 
