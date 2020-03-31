@@ -116,7 +116,7 @@ Keep up in more of the grand vision or strategy personally
 
 - Personal Project
 
-**I'm working on writing up my thoughts on teaching engineers to remain focused on design (why, what and who) instead of jumping so quickly to infrastructure, technology and implementation (how).**
+**I'm working on writing up my thoughts on teaching engineers to remain focused on design (why, what and who) instead of jumping so quickly to infrastructure, technology and implementation (how).** \*_Why --> what --> who --> when --> how much --> where --> THEN how_
 
 - He tries to avoid infrastructre for as long as possible
 - Software devs want to jump to the where and how way to quickly
