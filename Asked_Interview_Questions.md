@@ -29,11 +29,6 @@
    * [Helpful link](https://toddmotto.com/understanding-the-this-keyword-in-javascript/)
 
 
-## Nordstrom PriceDevOps 10/11
-
-
-
-
 
 ## LivePerson (Joey Jiron) 10/12
 
