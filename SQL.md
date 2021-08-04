@@ -5,7 +5,7 @@
 - Relational db is a collection of tables 
 
 ## Commands
-### QUERYING
+### QUERYING - SELECT operator
 To query a table you can use the keyword `SELECT` to select for example a column from a table: 
 ```
 SELECT name // select the column name
@@ -34,3 +34,32 @@ In SQL, the `WHERE` keyword allows you to filter based on both text and numeric 
 <= less than or equal to
 >= greater than or equal to
 ```
+### FILTERING AND WHERE
+* `WHERE` keyword can be used to filter 
+
+e.g.: 
+```
+SELECT *
+FROM films
+WHERE budget > 10000;
+```
+* You can use the `AND` keyword to add to the filtering like so: 
+```
+SELECT title
+FROM films
+WHERE release_year > 1994
+AND release_year < 2000;
+```  
+
+## OR operator
+* For selecting ros based on multiple conditions where some but not all conditions need to be met use the `OR` operator
+* When combining AND and OR, be sure to enclose the individual clauses in parentheses, like so:
+
+```
+SELECT title
+FROM films
+WHERE (release_year = 1994 OR release_year = 1995)
+AND (certification = 'PG' OR certification = 'R');
+```
+
+## BETWEEN operator
