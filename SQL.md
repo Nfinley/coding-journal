@@ -5,7 +5,7 @@
 - Relational db is a collection of tables 
 
 ## Commands
-### QUERYING - SELECT operator
+## QUERYING - SELECT operator
 To query a table you can use the keyword `SELECT` to select for example a column from a table: 
 ```
 SELECT name // select the column name
@@ -34,7 +34,8 @@ In SQL, the `WHERE` keyword allows you to filter based on both text and numeric 
 <= less than or equal to
 >= greater than or equal to
 ```
-### FILTERING AND WHERE
+## FILTERING 
+### WHERE operator
 * `WHERE` keyword can be used to filter 
 
 e.g.: 
@@ -51,7 +52,7 @@ WHERE release_year > 1994
 AND release_year < 2000;
 ```  
 
-## OR operator
+### OR operator
 * For selecting ros based on multiple conditions where some but not all conditions need to be met use the `OR` operator
 * When combining AND and OR, be sure to enclose the individual clauses in parentheses, like so:
 
@@ -62,4 +63,71 @@ WHERE (release_year = 1994 OR release_year = 1995)
 AND (certification = 'PG' OR certification = 'R');
 ```
 
-## BETWEEN operator
+### BETWEEN operator
+* The `BETWEEN` keyword provides a useful shorthand for filtering values within a specified range.
+  
+```
+SELECT title
+FROM films
+WHERE release_year
+BETWEEN 1994 AND 2000;
+``` 
+
+### NULL and NOT NULL 
+* In SQL, `NULL` represents a missing or unknown value. You can check for `NULL` values using the expression `IS NULL`
+* Check for `NULL`
+
+```
+SELECT COUNT(*)
+FROM people
+WHERE birthdate IS NULL;
+```
+
+* Check for not null
+```
+SELECT name
+FROM people
+WHERE birthdate IS NOT NULL;
+```
+
+## Aggregate Function 
+
+### Avg, Min, Max and SUM
+* AVG() function calculates the average of a specified column
+* MIN() calculates the min
+* MAX() calclulates the max
+* SUM() function calculates the sum of a specified column
+
+
+## Sorting and Grouping
+
+### ORDER BY 
+* In SQL, the ORDER BY keyword is used to sort results in ascending or descending order according to the values of one or more columns.
+* By default ORDER BY will sort in ascending order. If you want to sort the results in descending order, you can use the DESC keyword.
+
+```
+SELECT title
+FROM films
+ORDER BY release_year DESC; //sorts Z-A
+```
+
+### GROUP BY
+* In SQL, GROUP BY allows you to group a result by one or more columns
+* Commonly, GROUP BY is used with aggregate functions like COUNT() or MAX(). Note that GROUP BY always goes after the FROM clause!
+* Note that you must always list the column in the GROUP BY that is listed in the SELECT statement, otherwise SQL will throw an error
+
+```
+SELECT sex, count(*)
+FROM employees
+GROUP BY sex;
+```
+### HAVING
+* HAVING allows you to filter based on the result of an aggregate function
+* Using a WHERE operator is invalid
+
+```
+SELECT release_year
+FROM films
+GROUP BY release_year
+HAVING COUNT(title) > 10;
+```
