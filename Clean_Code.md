@@ -616,5 +616,138 @@ Notes from book club and reading (started 11/1/2019)
 
 ## Ch 14 Successive Refinement (p 193)
 
- - A case study in refactor of a command-line tool that started well but did not scale
- - 
+- To write clean code you must first write dirty code and then clean it up
+- Writing clean compositions is a matter of successive refinement
+- On Incrementalism (p 212)
+  - One of the best ways to ruin a program is to make massive changes to its structure in name of improvement
+  - Its very hard to get the program working the same weay after the improvement
+  - To avoid this use TDD as one of the central ideas is you must keep the system running at all times, I am not allowed to make a change that breaks that system
+  - In order to achive this you must a hefty testing suite
+- Much of software design is simply about partioning - creating appropriate places to put different kind of code
+- It is not enough for code to work
+- Never let code rot start
+
+## Ch 15 JUnit Internals
+
+- Review of the JUnit testing framework and breaking down of the ComparisonCompactor class (starting at p. 251)
+- No module is immune from improvement and each of us has the responsisbility to leave the code a little better than we found it
+- Refactoring is an iterative process full of trial and error, inevitably converging on something we feel is worthy of a professional.
+
+## Ch 16 Refactoring SerialDate
+
+- First Make It Work
+
+## Ch 17 Smells and Heuristics
+
+- Comments
+  - C1: Inappropriate Information
+    - Comments should be reserved for technical notes about code and design
+  - C2: Obsolete comment
+    - If it will be obsolete don't write it and get rid of them
+  - C3: Redudant Comment
+  - C4: Poorly Written Comment
+  - C5: Commented-Out Code
+    - When you see it, delete it! And don't do it
+- Environment
+  - E1: Build Requires More than one Step
+  - E2: Tests Require more than one step
+    - All tests should be able to be run with just one command
+- Functions
+  - F1: Too Many Arguments
+    - should have a small number of arguments
+  - F2: Output Arguments
+    - They are counterintuitive
+  - F3: Flag Arguments
+    - Boolean arguments loudly declare that the function does more than one thing
+  - F4: Dead Function
+    - Methods that are never called should be discarded
+- General
+
+  - G1: Multiple Languages in One Source File
+    - One file one language
+  - G2: Obvious Behavior is unimplemented
+    - Any function or class should implement the behaviors that another programmer could reasonably expect
+  - G3: Incorrect Behavior at the Boundaries
+    - Don't rely on intuition look for every boundary condition and write a test for it
+  - G4: Overriden Safeties
+    - Turning off failing tests and getting back to them later is as bad as pretending your credit cards are free money
+  - G5: Duplication
+    - DRY principle
+    - Once and only one
+  - G6: Code at Wrong Level of Abstraction
+    - Constants, Variables or utility functions that pertain only to the detailed implementation should not be present in the base class
+    - We don't want higher and lower level concepts mixed together
+    - Isolating abstractions is one of the hardest things for software devs and no quick fix when you get it wrong
+  - G7: Base Classes Depending on Their Derivatives
+  - G8: Too Much Information
+    - Well defined modules have very small interfaces that allow you do a lot with a little
+    - Help keep coupling low by limiting information
+    - Hide your data, hide your util functions, hide your contants and your temporaries
+  - G9: Dead code
+    - You find it in if/then, catch blocks or switch cases for cases that never fire
+    - Remove it
+  - G10: Vertical Separation
+    - Variables and functions shoule be defined closely to where they are used
+  - G11: Inconsistency
+    - Once you choose a pattern stick with it
+  - G12: Clutter
+    - Keep your code clean, well organized and free of clutter
+  - G13: Artifical Coupling
+    - In general it is a coupling between two modules that serves no direct purpose
+  - G14: Feature Envy
+    - The methods of a class should be interested in the variables and functions of the classes they belong to, not the variables and functions of other classes
+  - G15: Selector Arguments:
+    - In general it is better to have many functions than to pass some code into a function to select a behavior
+  - G16:Obscured Content
+    - Code should be expressive
+  - G17: Misplaced Responsibility
+    - Most important decision a dev can make is where to put code
+    - Principle of least surprise
+  - G18: Inappropriate Static
+  - G19: Use Explanatory Variables
+  - G20: Function Names Should Say What They Do
+  - G21: Understand the Algorithm
+    - Its one thing to get it to "work", make sure you understand how it works
+  - G22: Make Logical Dependencies Physical
+  - G23: Prefer PolyMorhpism to If/Else or Switch/Case
+  - G24: Follow Standard Conventions
+  - G25: Replace Magic Numbers with Named Constants
+  - G26: Be Precise
+  - G27: Structure over convention
+  - G28: Encapsulate conditionals
+  - G29: Avoid Negative Conditionals
+  - G30: Functions Should Do One Thing
+  - G31: Hidden Temporal Coupling
+  - G32: Don't Be Arbitrary
+  - G33: Encapsulate Boundary Conditions
+  - G34: Functions Should Descend Only One Level of Abstraction
+    - May be on of the hardest heuristics to interpret and follow
+  - G35: Keep Configurable data at high levels
+  - G36:Avoid Transitive Navigation
+
+- Java
+
+  - J1: Avoid Long Import Lists by Using WildCards
+  - J2: Don't Inherit Constants
+  - J3: Constants vs Enums
+
+- Names
+
+  - N1: Choose Descriptive Names
+  - N2: Choose Names at appropriate level of abstraction
+  - N3: Use standard Nomenclature Where Possible
+  - N4: Unambiguous Names
+  - N5: Use Long Names for Long Scpres
+  - N6: Avoid Encodingss
+  - N7: Names Should describe Side-Effects
+
+- Tests
+  - T1: Insufficient Tests
+  - T2: Use a Coverage Tool!
+  - T3: Don't Skip Trivial Tests
+  - T4: An ignored Test is a question about an ambiguity
+  - T5: Test boundary Conditions
+  - T6: Exhaustively Test Near Bugs
+  - T7: Patterns of Failure Are Revealing
+  - T8: Test Coverage Patterns can be revealing
+  - T9: Tests Should be Fast
