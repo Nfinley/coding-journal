@@ -145,7 +145,7 @@ Three Concepts learn from course:
 * Keys
 * Referentia Integrity
 
-### Information Schema
+## Information Schema
 * Information schema is a schema that gives you information about your tables: `information_schema.tables` or `information_schema.columns`
 * `information_schema` has multiple tables you can query with the known SELECT * FROM syntax:
 
@@ -157,7 +157,8 @@ columns: information about all columns in all of the tables in your current data
 
 ![Entity Diagram](assets/EntityDiagram.png)
 
-## CREATE TABLE command
+## LIST OF USEFUL COMMANDS
+### CREATE TABLE command
 * Include the table name, column name and data type for each column 
 
 ```
@@ -167,14 +168,22 @@ CREATE TABLE table_name (
  column_c data_type
 );
 ```
-## ALTER TABLE command
+### ALTER TABLE command
 * To add columns to a db you can use `ALTER TABLE` command
 ```
 ALTER TABLE table_name
 ADD COLUMN column_name data_type;
 ```
 
-## INSERT DISTINCT INTO command
+### ALTER COLUMN 
+* You can change the types of your column data using the `ALTER COLUMN` command
+```
+ALTER TABLE table_name
+ALTER COLUMN column_name
+TYPE varchar(10)
+```
+
+### INSERT DISTINCT INTO command
 * Used to migrate data from one db to another and only copying distinct records
 * Use the `DISTINCT` keyword to only mirgrate distinct values from one table to another ensuring no duplicates
 ```
@@ -183,21 +192,21 @@ SELECT DISTINCT column_name
 FROM old_table_name
 ```
 
-## INSERT INTO command
+### INSERT INTO command
 * The normal `INSERT` command used to insert data into a table 
 ```
 INSERT INTO table_name (column1, column2, column3, ...)
 VALUES (value1, value2, value3, ...);
 ```
 
-## RENAME COLUMN
+### RENAME COLUMN
 * Allowing you to rename a column name
 ```
 ALTER TABLE table_name
 RENAME COLUMN old_name TO new_name;
 ```
 
-## DROP command
+### DROP command
 * Straight forward when there is no data 
 * Can be used to drop columns or entire tables (USE WITH CAUTION)
 
@@ -211,6 +220,9 @@ Table:
 DROP TABLE table_name;
 ```
 
+### USING command 
+* You can use the `USING` command to perform operations like rounding down or truncating a string
+---
 ## Integrity Contraints
 There are three types of contraints:
 1. Attribut contstraints, eg. data types on columns
@@ -229,9 +241,147 @@ There are three types of contraints:
   ![Example of Postgres data types](assets/Postgres_dataTypes.png)
 
 ### Casting 
-* If you want to do calculation for two columns with different types you can do CASTING on the fly
+* If you want to do calculation for two columns with different types you can do CASTING on the fly. Do this if you know a certain columns stores numbers as text
 ![Example of Casting](assets/CastingTypes.png)
 
+### Not-null contraint
+* Disallow `NULL` valuesn in a certain column 
+* Must hold true for current state and any future state
+  ![Not Null Constraint](assets/NotNullConstraint.png)
+* What does null mean? 
+  * unkonwn
+  * does not exist yet
+  * does not apply to the column
+
+
+### Unique contstraint
+* Disallow duplicate values in a column 
+* Must hold true for current state and future state
+![UniqueConstraint](assets/UniqueConstraint.png)  
+
+## Keys and Superkeys
+### What is a KEY? 
+* Attributes that identity a record uniquely
+* As long as attributes can be removed: superkey
+* If no more attributes can be removed: minimal superkey or key
+  
+### Identify your keys with SELECT COUNT DISTINCT
+One basic approach to finding the key for your table is to: 
+1. Count the distinct records for all possible combinations of columns. If the resulting number x equals the number of all rows in the table for a combination, you have discovered a superkey.
+
+2. Then remove one column after another until you can no longer remove columns without seeing the number x decrease. If that is the case, you have discovered a (candidate) key.
+```
+SELECT COUNT(DISTINCT(column_a, column_b, ...))
+FROM professors;
+```
+### PRIMARY KEYS
+* One primary key per database table, chosen from candidate keys
+* Uniquely identifies records for referencing in other tables
+* Unique and not-null constraints both apply
+* Primary Keys are time-invariant: choose columns wisely
+* Ideally primary keys exist with as few columns as possible
+
+  ![Adding Primary Keys](assets/AddingPrimaryKeys.png)
+* Add primary key to an existing table: 
+  ```
+  ALTER TABLE table_name
+  ADD CONSTRAINT some_name PRIMARY KEY (column_name)
+  ```
+
+### SURROGATE KEYS
+* A surrogate key on a table is a column with a unique identifier for each row. The key is not generated from the table data
+* Primary keys should be built from as few columns as possivle
+* Primary keys should never change over time
+* `SERIAL` tpye is used for primary key and sets new data to  auto-increment
+  ```
+  -- Add the new column to the table
+  ALTER TABLE professors 
+  ADD COLUMN id serial;
+
+  -- Make id a primary key
+  ALTER TABLE professors 
+  ADD CONSTRAINT professors_pkey PRIMARY KEY (id);
+  ```
+* Another strategy to add a surrogate key is using `CONCAT()` function
+  ```
+  -- Update id with make + model
+  UPDATE cars
+  SET id = CONCAT(make, model);
+
+  -- Make id a primary key
+  ALTER TABLE cars
+  ADD CONSTRAINT id_pk PRIMARY KEY(id);
+  ```
+## Foreign Keys
+
+* A foreign key (FK) points to the primary key of another table
+* domain of FK must be equal to domain of PK
+* Each value of FK must exist in PK of the other table (FK constraint or "referential integrity")
+* FK are not actual keys - because duplicates and null values are allowed 
+
+Specifying foreign keys
+* Use the `REFERENCES` keyword 
+* When using foreign keys it allows you to ensure entries inserted into the the table with the foreign key exist in table b - the "foreign key contraint" 
+* You use a foreign key when you model a 1:n relationship 
+
+![Specify a foreign key](assets/CreateForeignKey.png)
+OR: 
+```
+ALTER TABLE a
+ADD COLUMN b_id integer REFERENCES b (id);
+```
+
+### N:M relationships
+* When you have a relationship where entities can have many to many like professors with organizations you establish a n:m relationship
+* Create a table that contains two foreign keys that point to two connected entities
+* Add foreign keys for every connected table
+* Add additional attributes could be included 
+* No primary key is defined 
+
+You can use the `UPDATE` command to update columns in a table based on values in another table
+```
+UPDATE table_a
+SET column_to_update = table_b.column_to_update_from
+FROM table_b
+WHERE condition1 AND condition2 AND ...;
+```
+
+## Referential Integrity
+* A record referencing another table must refer to an existing record in that table 
+* Contraint that always concerns two tables and is enforced through foreign keys 
+* Can be violated in two ways: 
+  * if a record in table B that is referenced from a record in table A is deleted 
+  * if a record in table A referencing a non-existing record from table B is instered
+* That is the main reason for Foreign Keys
+
+### Dealing with violations
+* No Action: Throw an error
+* Cascade: Delete all referencing records
+* RESTRICT: Throw an error
+* SET NULL: set the referencing column to NULL 
+* SET DEFAULT: Set the referencing column to its defaul value
+![DealingwithViolations](assets/DealingwithViolations.png)
+
+* You can query your DB for table_constraints by running: 
+  ```
+  SELECT constraint_name, table_name, constraint_type
+  FROM information_schema.table_constraints
+  WHERE constraint_type = 'FOREIGN KEY';
+  ```
+* TO update a foreign key contraint you first have to `DROP` the contraint and then add a new one like so: 
+  ```
+  -- Drop the foreign key constraint
+  ALTER TABLE affiliations
+  DROP CONSTRAINT affiliations_organization_id_fkey;
+
+  -- Add a new foreign key constraint from affiliations to organizations which cascades deletion
+  ALTER TABLE affiliations
+  ADD CONSTRAINT affiliations_organization_id_fkey FOREIGN KEY (organization_id) REFERENCES organizations (id) ON DELETE CASCADE;
+  ```
+
+## WRAP UP
+* In the beginning of the course we started with one table with redundant data and added primary keys, foreign keys and data types
+  ![NewDBModel](assets/TransformedDBs.png)
 ---
 # Databse Design
 * Notes from [DataCamp Databse Design](https://campus.datacamp.com/courses/database-design) course
