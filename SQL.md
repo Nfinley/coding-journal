@@ -498,7 +498,7 @@ It is the adaptation of the relational model for data warehouse design
 ## Star and Snowflake Schema 
 * Star is simmplest dimensional modeling type and is often called 'dimensional modeling'
 * Snowflake schema is an extension of the star schema 
-* 1[Star vs. Snow](assets/Star_vs_Snow.png)
+  ![Star vs. Snow](assets/Star_vs_Snow.png)
 
 ### Data nomalization
 * Database design technique
