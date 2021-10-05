@@ -499,10 +499,66 @@ It is the adaptation of the relational model for data warehouse design
 * Star is simmplest dimensional modeling type and is often called 'dimensional modeling'
 * Snowflake schema is an extension of the star schema 
   ![Star vs. Snow](assets/Star_vs_Snow.png)
+    * The snowflake schema is typically faster to extend while ensuring data consistency
 
 ### Data nomalization
 * Database design technique
 * Divides tables into smaller tables and connects them via relationships
 * Goal: Reduce redundnacy and increase data integrity
 * It happens via identify repeating groups of data and create new tables for them
-* 
+
+### Adding Foreign Keys
+* Correctly setting up the foreign keys, in Star and Snowflake schema is vital because they connect dimensions to the fact table. They also enforce a one-to-many relationship, because unless otherwise specified, a foreign key can appear more than once in a table and primary key can appear only once.
+ ![Foreign Keys Star Schema](assets/ForeignKeys_StarSchema.png)
+ E.g: Adding a foreign key: 
+ ```
+ ALTER TABLE <table_name> ADD CONSTRAINT <constraint_name>
+    FOREIGN KEY (<id_name>) REFERENCES <dim_table> (<id_name>);
+  
+  ALTER TABLE fact_booksales ADD CONSTRAINT sales_book
+  FOREIGN KEY (book_id) REFERENCES dim_book_star (book_id);
+```
+
+## Normalized and denormalized DBs
+* Star schemas can be denormalized while Snowflake schemas are considered to be Normalized 
+* Normalized schemas are more complicated
+  * Have more tables and more joins which means slower queries 
+* Pros: Normalization saves space and eliminates data redundancy
+![Normal vs demormalized](assets/NormalizedvsDenormalized.png)
+### Normalization  
+1. Ensures better data integrity 
+2. Enforces data consistency 
+     * Must resepect naming convention because of referential integrity
+3. Safer updating, removing and inserting 
+     * Less data redundancy = less records to alter 
+4. Easier to redesign by extending 
+     * Smaller tables are easier to extend  
+
+Pros vs. Cons of Normalization
+![Pros and cons of normalization](assets/prosconsNormalization.png)
+* Also another disadvantage is that indexing and reading of data slower
+* Deciding whether to use normalization comes down to how read/write intensive your data is going to be 
+
+OLTP vs. OLAP and what type of schema should be used
+![OLTP and OLAP normalized and denormalized](assets/OLTPvOLAPandNormalDenormal.png)
+
+
+## Normal Forms
+* Simple def: Identify repeating groups of data and create new tables for them
+* More formal definition, goals are to: 
+  * Be able to characterize the level of redundancy in a relational schema 
+  * Provide mechanisms for tansforming schemas in order to remove redundancy
+
+### List of Normal Forms
+![list of normal forms](assets/ListOfNormalForms.png)
+
+### 1NF Rules
+* Each record must be unique - no duplicate rows 
+* Each cell must hold one value    
+
+### 2NF Rules
+* Must satisfy 1NF AND
+  * If primary key is one column 
+    * then automatically satisfies 2NF
+  * If there is a composite primary key
+    * then each non-key column must be dependent on all the keys
