@@ -562,3 +562,14 @@ OLTP vs. OLAP and what type of schema should be used
     * then automatically satisfies 2NF
   * If there is a composite primary key
     * then each non-key column must be dependent on all the keys
+
+### 3NF 
+  * Satifies 2NF
+  * No transitive dependencies: non-key columns can't depend on other non-key columns
+
+### Data anomolies 
+What is risked if we don't normalize enough? 
+1. Update anomaly
+2. Insertion anomaly
+3. Deletion anomaly
+
