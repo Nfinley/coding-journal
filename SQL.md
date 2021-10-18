@@ -573,3 +573,37 @@ What is risked if we don't normalize enough?
 2. Insertion anomaly
 3. Deletion anomaly
 
+The more normalized a db the less prone it will be to data anomolies 
+#### Update Anomoly
+* Data inconsistency caused by data redundancy when updating
+
+#### Insertion Anomoly
+* Unable to add a record due to missing attributes
+  
+#### Deletion Anomaly  
+* Delete of record(s) causes unintential loss of data
+
+
+## Database Views 
+* In a DB, a view is the result set of a stored query on the data, which the db users can query just as they would in a persistent database collection object
+* They are a virtual table that is not part of the physical schema 
+* The query, not the data is stored in memory
+* Data is aggregated from data in tables
+* Can be queried like a regular db table
+* No need to retype common queries or alter schemas
+
+### Create a view 
+![Create a view](assets/CreateView.png)
+
+To view all views in your DB you can run: 
+`SELECT * FROM INFORMATION_SCHEMA.views;` // specific to PostgreSQL
+
+### Benefits of views
+* Doens't take up storage
+* A form of access control 
+  * hide sensitive columns and retrict what user can see
+* Masks complexity of queries
+  * Useful for highly normalized schemas 
+
+
+  
