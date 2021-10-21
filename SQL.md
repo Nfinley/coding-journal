@@ -605,5 +605,7 @@ To view all views in your DB you can run:
 * Masks complexity of queries
   * Useful for highly normalized schemas 
 
+## Managing Views
+* 
 
   
