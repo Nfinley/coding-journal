@@ -606,6 +606,50 @@ To view all views in your DB you can run:
   * Useful for highly normalized schemas 
 
 ## Managing Views
-* 
+* Need to be aware of long running queries 
+* `PUBLIC` is a SQL term to includes all users 
+* A user can update a view if they have the privledge
+* Use Views for READ-ONLY
+* Best not to update or insert based on views
+### Granting and revoking access to a view 
+![grantingrevokingviews](assets/GrantingRevokingViews.png)
 
+### How to update a view
+* When you run an update to a view you are updating the tables behind the view 
+* Only certain kinds of views can be updated 
+  * View has to be made up of one table
+  * And it doesn't use a window or aggregate function
+
+### Dropping a view 
+`DROP VIEW view_name [CASCADE | RESTRICT]`
+
+### Redefining a view
+* `CREATE OR REPLACE VIEW view_name AS new_query`
+* If a view with `view_name` exists, it is replaced
+* `new_query` must generate the same column names, order, and data types as the old query
+* The column output may different
+* New columns may be added at the end
+
+## Materialized Views
+* Two types of views  - materialized and non materialized
+* Materialized views are physically materialized
+* Stores the query results not the query
+* Pre computed via the view 
+* Refreshed or rematerialized when prompted or scheduled
+
+
+### When to use materialized views
+* Long running queries 
+* Data is only up to date as the last time they are run 
+* Data warehouses becaulse OLAY is not write-intensive
+  
+### Implementing materialized views 
+![MaterializedViews](assets/MaterializedViews.png)  
+
+### Managing dependencies
+* Materialied views often depend on other materialized views
+* Creates a dependency chain when refreshing views
+* Not the most efficient to refresh all views at the same time
+* DAGS (directed acyclic graph) are used to keep track of views
+  * Finite directed graph with no cycles 
   
