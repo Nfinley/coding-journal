@@ -690,6 +690,14 @@ Why partition?
 * Beecause: e.g. indices don't fit memory
 * Solution: split table into smaller parts (= partitioning)
   
+### Vertical Partitioning
+* You can break up a normalized tables with columns that may not be needed very often
+* Splitting tables up over columns
 
+### Horizontal partitioning 
+* Split up by rows
+* Could create partitions by timestamp
+
+ ![HorizontalPartitioning](assets/HorizontalPartitioning.png)
 
 
