@@ -652,4 +652,44 @@ To view all views in your DB you can run:
 * Not the most efficient to refresh all views at the same time
 * DAGS (directed acyclic graph) are used to keep track of views
   * Finite directed graph with no cycles 
+
+
+## Database roles
+* Manage database access permissions
+* A database role is an entity that contains information that: 
+  * Define the role's privlieges
+    * Can you login? 
+    * Can you create databases? 
+    * Can you write to tables? 
+  * Interact with client authentication systems
+* Roles can be assigned to one or more users
+* Roles are global across a datase cluster installation
+
+### Creating a role
+![CreateRole](assets/CreateRoleDB.png)
+
+### Users and groups 
+* A role is an entity that can function as a user and/or a group
+  * User roles
+  * Group roles
+
+### Benefits and pitfalls of roles
+Benefits
+* Roles live on after users are deleted 
+* Roles can be created before user accounts
+* Save DBAs time
+
+Pitfalls
+* Sometimes a role give a specific user too much access
+  * Pay attention to roles to make sure folks have the right access levels
+
+## Table partitioning 
+Why partition? 
+* Tables grow (100s gb/tb)
+* Problem: queries/updates become slower
+* Beecause: e.g. indices don't fit memory
+* Solution: split table into smaller parts (= partitioning)
   
+
+
+
