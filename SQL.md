@@ -501,7 +501,7 @@ It is the adaptation of the relational model for data warehouse design
   ![Star vs. Snow](assets/Star_vs_Snow.png)
     * The snowflake schema is typically faster to extend while ensuring data consistency
 
-### Data nomalization
+### Data normalization
 * Database design technique
 * Divides tables into smaller tables and connects them via relationships
 * Goal: Reduce redundnacy and increase data integrity
@@ -701,3 +701,8 @@ Why partition?
  ![HorizontalPartitioning](assets/HorizontalPartitioning.png)
 
 
+
+# Joining Data in SQL
+
+## Inner Join
+* Joining two tables on shared fields 
