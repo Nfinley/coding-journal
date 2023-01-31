@@ -54,4 +54,30 @@
 * Anyone who makes decisions about shape and placement of engineering teams is strongly influencing the software systems architecture 
 * We need to involve technical peopole in organization design they understand key software design concepts
 * Allan Kelly's view of an architect: Architects needs both technical and social skills. They need to understand people and work within the social framework
-* 
+
+#### Restrict Unnecessary Communication 
+* One key implication of conway's law is not all communication and colaboration is good
+* Important to define "team interfaces"  
+* Focused communication is what is needed
+* Questions to asses health of inter-team communicationL 
+  * Does the structure minimize the number of communication paths between teams?
+  * Does the structure encourage teams to commuication who wouldn't otherwise do so?
+* Logically if two teams shouldn't need to communicat based on the software arch design, then something must be wrong if the teams are communicating
+
+#### Everyone Does Not Need To Communicate with Everyone
+* Conway's law suggests that the thinking of "everyone should see every message" or "everyone needs to be present in meetings to approve decisions", this many-to-many communication will tend to produce monolithic, tangled, highly coupled, interdependent systems that do not support fast flow
+* More communication is not always a good thing
+
+#### Beware: Naive Uses of Conway's Law
+##### Tool Choices Drive Comm Patterns
+* Sometimes an org has multiple tools when a single tool would suffice - proividing a common, shared view
+* Other times a single tool used and problems arise because teams need separate instances of the same toool 
+* Have separate tools for independent teams  and use shared tools for Collaborative teams
+##### Repeated Reorgs that Create Fiefdoms or Reduce headcount 
+* Structure should anticipate product architecture
+* combined with team-first approach regular reorgs for management reasons should become a thing of the past
+  
+#### Summary: Conway's Law is critical for efficient Team Design in Tech 
+* You cannot design software withough considering the design of the teams themselves
+* Fast flow requires restricting communication between teams
+* One key approach to achieving software arch is to apply reverse Conway maneuver: designing teams to match the desired architecture
