@@ -81,3 +81,98 @@
 * You cannot design software withough considering the design of the teams themselves
 * Fast flow requires restricting communication between teams
 * One key approach to achieving software arch is to apply reverse Conway maneuver: designing teams to match the desired architecture
+
+### Chapter 3: Team-First Thinking 
+* "Disbanding high-performing teams is worse than vandalism: it is corporate psychopathy" - Allan Kelly, Project Myopia
+* Google found that who is on the team matters less than the team dynamics and when it comes to measuring performance, teams matter more than individuals
+* Multiple things to consider for a team: size, lifespace, relationships and cognition
+
+#### Use Small, Long-Lived Teams as te Standard
+* Most orgs have a max team of 7 to 9 people
+* Dunbar's number says that 15 people to be the limit of people one person can trust deeply and five people can be known and trusted closely
+* Organizations need to maximize trust between people on the team which means limiting the number of the team members
+
+##### Smaller Size Fosters Trust
+* Dunbar's limits help achieve predictable behavior and interactions: 
+  * Single team => around 5-8 people
+  * Families ("tribes"): groupings of teams of no more than 50 people
+  * Divisiongs/streams/profit&loss lines: groupings of no more than 150 or 500
+* When number of people in department exceeds 50 (or 150, 500) -> this means the software architevture needs to be realigned with the new team grouping and this is "team-first" architecture
+* Amazon has proved this effective with the two pizza rule
+* Approaches like microservers can help if applied with a team-first approach
+  
+##### Wofk Flows to Long-Lived Teams
+* Best approach to team lifespans is to keep the team stable and "flow the work to the team" 
+* Stable not static and only change occassionally and when necessary
+
+##### The Team Owns the Software 
+* With small long-lived teams we can begin to improve the ownership of software
+* Team ownership provides the vital "continuity of care" that modern systems need
+* Teams can think about care on multiple horizons: 
+  * 1 -> immediate future with products and services that deliver results the same year
+  * 2 -> the next few periods with expanding the reach and services
+  * 3 - many months ahead where experimentaion is needed to asses market fit and suitability of new services 
+* **The danger of allowing multipled teams to change the same system or subsystem is that no one wons either the changes made or the resulting mess.**    
+* Awareness and ownership over these diff time horizons helps a team care for the code more effectively 
+* **Every part of the software system needs to be owned by exactly one team**
+  * This means there should be no shared ownership of components, librarie or code
+  * Teams may use shared services at runtime but every service, application is owned by only one team
+  * Outside teams may submit pull requests or suggestions for change to the owning team but they cannot make the change themselves
+* Ownership of code should not be a territorial thing
+* Think of code as gardening, not policing 
+##### Team Members Need a Team-First Mindset
+* Team members should put needs of the team above their own, they should: 
+  * Arrive for meetings on time
+  * Keep discussions on track 
+  * Encourage a focus on team goals
+  * Help unblock other team members before starting own work
+  * Mentor other team members
+  * Avoid "winning" arugments and instead agree to explore options
+##### Embrace Diversity in Teams
+  * Research suggests that teams with more diverse backgrounds tend to produce more creative solutions more rapidly and tend to be better at empathizing with other teams' needs
+##### Rewared the whole team, not individuals
+* W. Edwards Deming suggested the "abolishment of the annual or merit rating and of management by objective"
+* Rewarding individual performance tends to drive poor results and damanges staff behavior
+* With team-first approach, the whole team is rewarded for their combined effort
+* Even training budgets should be set on a team basis
+
+
+#### Good Boundaries Minimize Cognitive Load
+* It is important to limit cognitive load
+  
+#####  Restrict Team Responsibilities to Match Cognitive Load
+* Teams can suffer from load in terms of domains of resonsibility, number of applications they need to operate and tools they need to manage
+* With team-first approach teams responsiblities are matched to the cognitive load that team can handle
+* Limit the size of the software system that a team is expected to work with
+* Cognitive load as defined by John Sweller in 1988 as "the total amount of mental effort being used in the working memory"
+* **There are three kinds of cognitive load**: 
+  * Intrinsic - relates to aspects of the task fundamental to the problem space ("How do I create a new method?")
+  * Extraneous - relates to the environment in which the task is being done ("How do I deploy this component again?")
+  * Germane -  relates to the aspects of the task that need special attention for learning or high performance ("How should this service interact with the ABC service?")
+* Organizations should mininize *intrinsic* load through training, good tech choices, hiring or pairing. They should eliminate *extraneous* load altogether - the boring or superfluous tasks or commands that add little value to retain in working memory and can often be automated. This leaves more space for the *germane* load which is where the "value add" thinking lies
+* Most orgs add more teams to the problem hoping the cognitive load will be shared across the teams, instead the teams will suffer from communication and interaction strains ([Brook's law](https://en.wikipedia.org/wiki/Brooks%27s_law))
+
+##### Measure the Cognitive Load Using Relative Domain Complewxity 
+* Quick way yo asses cognitive load ask: "Do you feel like you're effective and able to respond in a timely fashion to the work you are asked to do?"
+* Trying to determine the cognitive load using measures like lines of code, number of modules, etc is misguided
+* We really care about domain complexity
+* While no formuala, we can asses the number and realative complexity of the domains for which a given team is responsible
+
+##### Limit the Number and Type of Domains per Team *******
+* There is no final and for "Is this the right number and type of domains for this team?"
+* Domains are not static and neither is the team's cognitiv capacity
+* When in doubt about the complexity of a domain, always prioritize how responsible the team feels about it.
+* Downplaying the complexity will only lead to failure
+* To get started, identify distinct domains that each team has to deal with and classify them into: 
+  * Simple - most of the work has a clear path
+  * Complicated - changes need to be analyzed and might require a few iterations
+  * Complex - solutsion require a lot of experimentation and sicovery
+* First heuristic is to assign each domain to a single team
+  * If the Domain is too large for a team instead of splitting responsibilities, first split the domain into subdomains and then assign each new subdomain to a single team
+* Second heruistic is that a single team should be able to accomodate 2-3 "simple" domains
+* Third heuristic is that a team responsible for a complex domain should not have any more domains assigned to them - not even a simple on
+* The last heuristic is to avoid a single team responsible for two complicated domains
+  * might seem feasable but in practice the team will behave as two subteams
+* these are only recommendations and use these guidelines as a starting point
+##### Match Software Boundary Size to Team Cognitive Load
+
