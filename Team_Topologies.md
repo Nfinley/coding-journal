@@ -217,3 +217,90 @@
 * Teams need to own the system or subsystems that are responsible for -> teams working on multiple codebases lack ownership and the mental space to understand and keep the corresponding systems healthy
 * People in a team-first org have the space and suppport to develop their skills and practices within the context of a team
 
+
+## Part II : Team Topologies that Work for Flow 
+### Chapter 1 - Static Team Topologies
+
+* Focus on putting together team-first approach with long lived teams in a way that maximizes flow and respects the cognitive load of teams
+* Consiously design team structures are "Team Topologies" - teams should be deliberately "placed" into orgs
+
+#### Team Anti-Patterns
+* **First pattern**: Ad hoc team design 
+  * inclues teams that have grown too large
+  * or in response to some outage or issues
+*  **Second pattern**: Shuffling of team members
+   *  Context switching is high
+   *  Leads to extremly volatile teams assembled on project basis then dissband
+*  Questions to ask include: 
+   *  How can we reduce or avoid handovers between teams in main flow of change? 
+   *  Where should the boundaries be in the software system in order to preseve system viability and encourage rapid flow?
+
+#### Design for Flow of Change
+* Spotify provides a good example of explicity organizational design
+* Staff are organized into cross-functional "squads" each with a long term mission and with 5-9 people 
+* Several squads that work on similar areas are collected into "tribes" - affinity grouping of squads
+* Engineers with similar skills share practices through chapters
+* Uses a "Guild" akin to COP that includes people from squads, tribes and chapters
+
+##### Shape Team Intercommunication to Enable Flow and Sensing
+* Traditional flow of change in an org not optimized for change sees groups owning different activities and handing over work to the next team. No info flows back to the original team
+* We must ensure delivery teams are cross-functional, with all the skills necessary to design, develop, test, deploy and operate the system on the same team
+  
+#### DevOps and the DevOps Topologies
+* Key contirbution of DevOps was to raise awareness of the problems lingering in how the teams interacted across the deliver chain
+##### DevOps Topologies
+* Created by Matthew Skelton in 2013
+* Two key ideas
+  * 1. There is no one-size fits all approach to structuring teams for DevOps success
+  * 2. Several known topologies detrimental to DevOps success, in short no "right" way but several "bad" topologies
+
+#### Successful Team Patterns
+* A teams success lies in the surrounding environment, teams and interactions
+  
+##### Feature Teams Require High-Engineering Maturity and Trust
+* Feature team is cross-functional, cross-component that can take a customer facing feature from idea all the way to production
+* This team can only be successfull if they are self-sufficient and don't have to wait on other teams
+* This team typcially touches multiple code bases which might be owned by different component teams
+* If they don't have high-engineering maturity they might take shortcuts like not automating tests for the new user workflow. Overtime this leads to a breakdown of trust between teams as technical debt increases and slows down delivery speed
+  
+##### Product Teams Need a Support System
+* Like a Feature Team but owns entire set of features for one or more products and they depend on infrastructure, platform, test envs, build systems and delivery pipelines
+* Key for success with this team is external dependencies must be non-blocking meaning new features don't sit idle waiting for something to happen
+* Non-blocking dependencies often take the form of self-service capabilities developed and maintained by other teams and can be consumed by product team when needed
+* Creating a product team without a compatible support system creates more bottlenecks
+
+##### Cloud Teams Don't Create Application Infrastructure
+* Focus should be in providing high-quality self-services that match both the needs of product teams and the need for adequate risk and compliance management
+* Split of responsibility between designing the cloud infra process (which is the cloud team) and the actual provisioning (the product teams)
+
+##### SRE Makes Sense at Scale
+* Site reliability engineering is an approach to the operation and improvement of software apps to deal with gloabl, multi-milliion-user systems
+* Focuses on "error budget" - defining what is acceptable amount of downtime
+* These folks need excellent coding skills and a strong drive to automate reptivie Ops tasks using code
+* SRE teams are not essential they are optional
+
+#### Considerations When Choosing a Topologies
+##### Technical and Cultural Maturity
+* Important to understand your teams capabilities to handle end to end delivery
+
+##### Organization Size, Software Scale, and Engineering Maturity
+* Choosing the most effective topology depends on situational context
+* Low maturity teams will need time to acquire the engineering and product development catabilities required for autonomous end to end teams
+* In this case more specialized teams are acceptable AS LONG AS they collaborate closely
+* As size of org grows or software scales providing the underlying infra as platform as a service is 
+
+##### Splitting Responsibilities to Break Down Silos
+* One operation breakdown  is separating database dev from database admin
+* All examples mentioned highlight the importance of thinking about teams' capabilities (or lack of) and how that causes dependencies between teams
+
+##### Dependencies and Wait Times between Teams
+* To optimize teams for flow you must track and detect wait times between teams
+* Dominica DeGrandis of *Making Work visible* suggests using a Physical Dependency Matrix or dependncy tags
+* There are three different types of dependencies: 
+  * Knowledge
+  * Task
+  * Resource
+* Alerts and thresholds in the tool used to track dependencies should be setup and when threshold is too high adjustments in the team design should be made
+
+#### Using DevOps Topologies to Evolve
+

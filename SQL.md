@@ -222,6 +222,7 @@ DROP TABLE table_name;
 
 ### USING command 
 * You can use the `USING` command to perform operations like rounding down or truncating a string
+* You can also use it when joining a table
 ---
 ## Integrity Contraints
 There are three types of contraints:
@@ -292,7 +293,7 @@ FROM professors;
 * A surrogate key on a table is a column with a unique identifier for each row. The key is not generated from the table data
 * Primary keys should be built from as few columns as possivle
 * Primary keys should never change over time
-* `SERIAL` tpye is used for primary key and sets new data to  auto-increment
+* `SERIAL` type is used for primary key and sets new data to  auto-increment
   ```
   -- Add the new column to the table
   ALTER TABLE professors 
@@ -689,20 +690,64 @@ Why partition?
 * Problem: queries/updates become slower
 * Beecause: e.g. indices don't fit memory
 * Solution: split table into smaller parts (= partitioning)
-  
+ * Partitioning is releated to the physical data model, it does not change the logical data model while normalization does 
 ### Vertical Partitioning
 * You can break up a normalized tables with columns that may not be needed very often
 * Splitting tables up over columns
 
 ### Horizontal partitioning 
 * Split up by rows
-* Could create partitions by timestamp
+* Could create partitions by timestamp (Range partition)
+* You can also have a list partition
 
  ![HorizontalPartitioning](assets/HorizontalPartitioning.png)
 
+Another example partitioned by `LIST`: 
+```
+CREATE TABLE film_partitioned (
+  film_id INT,
+  title TEXT NOT NULL,
+  release_year TEXT
+)
+PARTITION BY LIST (release_year);
 
+CREATE TABLE film_2019
+	PARTITION OF film_partitioned FOR VALUES IN ('2019');
+```
+ Pros
+ * Indices of heavily-used partitions fit in memeory 
+ * Move to specific medium: slower vs. faster
+ * User for both OLAP and OLTP
 
-# Joining Data in SQL
+Cons
+* Partitioning existing table can be a hassle
+* Some constrainsts can not be set
 
-## Inner Join
-* Joining two tables on shared fields 
+### Sharding
+* Distribute partition over several machines = sharding 
+* Relates to massively parallel processing 
+
+## Data integration
+* Combines data from different sources, formats, technologies to provide users with a translated and unified view of that data
+* When choosing a data integration tool it must be: 
+  * Flexibile
+  * Reliable
+  * Scalable
+* Make sure you have testing and alerting around transformation to ensure you know when things fail
+* Anonymize any sensitive data during translation 
+* For governance you need to make sure you know where the data comes from at all times 
+
+## DB Management Systems
+* SDBMS: DB Management System
+* Create and maintain databases 
+  * Data 
+  * Database schema 
+  * Database engine 
+* Interface between database and end users
+
+![DBMS](assets/DBMS.png)
+
+* Choice of DBMS depends largly on the kind of data  you are dealing with 
+* Choose a SQL DBMS when you are concerned with data consistency and 100% data integrity is your top goal
+* Choose a NoSQL DBMS when you have many different formats, lots of real time data or track millions of shopping carts. Or data warehousing on big data
+  
