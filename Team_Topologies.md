@@ -175,4 +175,45 @@
   * might seem feasable but in practice the team will behave as two subteams
 * these are only recommendations and use these guidelines as a starting point
 ##### Match Software Boundary Size to Team Cognitive Load
+* Provide a team-first working environment
+* Minimize team distractions during the workweek by limiting meetings, reducing emails, assigning dedicated team or person to suppport queries and so forth
+* Communicate goals and outcomes rather than how
+* Increase quality of DX for other teams using your team's code and APIs through good documentation, good UX and other DX practices
+* Use a platform that is explcitly designed to reduce cognitive load for teams building software on top of it
+* Minimize cognitive load for others is one of the most useful heuristics for good software development
+  
+#### Design "Team Apis" and facilitate Team Interactions
+##### Define "Team Apis" that include Code, Documentation and User Experience
+* Building a Team API on how to interact with the team itself
+* The Team API includes: 
+  * Code
+  * Versioning
+  * Wiki and documentation: especially how-to- guides for the software owned by the team
+  * Practices and Principles: the teams preferred ways of working
+  * Communication
+  * Work information 
+* It shold explicity consider will other teams find it easy to interact with us
+* How easy will it be for a new team to get on board with our code and working practices?
+
+##### Facilitate Team Interactions for Trust, Awareness and Learning
+* Must set aside time, space and money for people to learn from each other and develop professional competencies
+* TWo ways to build trust: 
+  * Consiously designed physical and virtual environment
+  * Time away from the desk learning, at COPs, conferences etc. 
+* Goves team a freer space to rehearse their interactions and communication methods
+
+##### Explicitly Design the Physical and Virtual Environments to Help Team Interactions
+* Office design should accomodate all of the following modes: Focused individual work, collaborative intra-team work and collaborative inter-team work
+* Having spaces that clearly idicate the type of work going on helps to reduce interuptions
+* Interesting case studies 51-57
+  
+#### Warning: Engineering Practices are Foundational 
+* Teams must invest in CI/CD, Test first development and a focus on software operability and releasability
+
+#### Summary: Limit Teams' Cognitive Load and Facilitate Team Interactions to Go faster
+* Teams are more effective than groups of indiviudals
+* Teams are small, stable and long lived
+* Due to Dunbar's number there is an effecive upper limit on the cognitive load that single team can bear
+* Teams need to own the system or subsystems that are responsible for -> teams working on multiple codebases lack ownership and the mental space to understand and keep the corresponding systems healthy
+* People in a team-first org have the space and suppport to develop their skills and practices within the context of a team
 
