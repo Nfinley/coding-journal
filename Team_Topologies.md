@@ -454,3 +454,88 @@
 ##### Converting Architecture and Architects
 * Effective pattern for arch team is part-time enabling team 
 * Architects should collaborate closely with users and engineers
+
+### Chapter 6: Choose Team-First Boundaries
+#### A Team First Approach to Software Responsibiliteis and Boundaries
+* You must design your systems to be loosley coupled
+* Use arch approaches that enable full owernship from design through to deployment
+
+#### Hidden Monoliths and Coupling
+* Need to be fully aware of how you break up a  monolith so it doesn't create a monolith somewhere else in the chain
+
+##### Application Monolith (CFC HAS THIS)
+* A Single large aplication with many dependencies and responsibilities that exposes many services and/or different user journeys
+
+##### Joined-at-theDatabase Monolith
+* Composed of several applications or services all coupled to the same database schmea making them difficult to chagen, test, and deploy separately
+* Often arises when the business sees the database not the services as the core business engine
+  
+##### Monolithic Builds (rebuild everything)
+* Uses one gigantic CI build to get a new version of a component. 
+
+##### Monolithic (Coupled) Releases
+* Set of smaller components bundled together into a "release"
+* Sometimes this is a result of having a separate QA team
+
+##### Monolithic Model (single view of the world)
+* forces a single domain language and representation across many different contexts 
+* Can be fine for small orgs but imposes contraints on arch and implementation when org grows
+
+##### Monolithic Thinking (Standardization)
+* One size fits all mentality
+* Enforcing standardization upon teams actually reduces learning and experimentation, leading to poorer soluition choices
+
+##### Monolithic Worksplace (Open-Place Office)
+* The idea that offices should have a standard layout if prevelany, it can have a recurring negative effect on individuals
+
+#### Software Boundaries or "Fracture Planes"
+* Splitting software can reduce consistency between different parts and can lead to accidental data duplication 
+* UX can be degraded 
+* A *Fracture Plane* is a natural seam in the software system that allows the system to be slit easily into two or more parts
+* Best to try to align software boundaries with the differnt business domain areas
+* We can and should break down a monolith by combining different types of fracture planes
+
+##### Fracture Plane: Business Domain Bounded Context 
+* Most should map to business domain context 
+* *Bounded Context* is a unit for partitioning a larger domain model into smaller parts each which represents an internally consistent business domain area
+* Advantage of DDD include focusing on core complexity
+* Business domain fracture plans aligns tech with business and reduces mismatches in terminology
+
+##### Fracture Plane: Regulatory Compliance
+* In highly regulated industries like finance and healthcare the regulatory requirements of provide hard borders
+
+##### Fracture Plane: Change Cadence
+* A fracture plane where different parts of the system need to change a different frequency
+
+##### Fracture Plane: Team Location
+* They'd argue for a team to communicate efficiently the options are full colocation or a true remote-first approach
+* When neither are available you must split off the monolith into separate subsystems for teams in differnt locations
+
+##### Fracture Plane: Risk
+* Regulatory compliance is a specific type of risk
+* Number of users might drive risk
+* Splitting off subsystems with clearly different risk profiles allows mapping with technology changes to business appetite
+
+##### Fracture Plane: Performance Isolation
+* Splitting off such a subsystem based on particular performance demands help to ensure it can scale autonomously
+
+##### Fracture Plane: Technology
+* Tech is often (historically) the only type of boundary when splitting up teams
+* Usually bad as they introduce more constraints and reduce flow rather than improve it
+* That is because the separate teams are less autonomous 
+* If splitting by tech first investigate whether alternative approaches could help increase pace of change
+
+##### Fracture Plane: User Personas
+* Products with tiered pricing, the subest is built in by design (high paying customers have access to more features)
+* Sometimes Admins have more access
+
+##### Natural "Fracture Planes" for your specific org or tech
+* The litmus test for the applicability of a fracture plane: 
+  * **Does the resulting architecture support more autonomous teams with reduced cognitive load?**
+* Simple heuristic: 
+  * **Could we as a team, effectively consume or provide this subsystem as a service?**
+
+#### Summary: Choose Software Boundaries to Match Team Cognitive Load
+* Stream-aligned teams should be responsible for a single domain
+* We need to look for natural ways to break down the system that allow resulting parts to evolve as independently as possible
+* Essential to make teams sized so that they can effectively own and evolve their software in a sustainable way
