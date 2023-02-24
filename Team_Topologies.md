@@ -303,4 +303,154 @@
 * Alerts and thresholds in the tool used to track dependencies should be setup and when threshold is too high adjustments in the team design should be made
 
 #### Using DevOps Topologies to Evolve
+* Anti-pattern is a separate isolated DevOps team without any collaboration
 
+#### Summary: Adpopt and Evolve Team Topologies that Match Your Current Context
+* Creating new team reactively is near sighted
+* You must take into consideration technical and cultural maturity, org size, scale of software, engineering disciple or inter-team dependencies
+  
+
+### Chapter 5: The Four Fundamental Team Topologies
+* Stream Aligned, Enabling team, Complicated sub-system team and Platform team
+* When used with care these are the only for team needed to build and run modern software
+* When combined with effective boundaries and team interactions these team types are a powerl template  
+* These type should act as magnets and teams should move toward one of these four poles
+* A large or mid-sized org might have one ormore teams of each fundamental topology - multiple stream aligned teams are the starting point
+
+#### Stream-Aligned Teams
+* A stream is a continuous flow of work aligned to a business domain or organizational capability
+* Aligned to a single valuavle stream of work; single product or service, set of features a single user journey or a single user persona. 
+* They are empowered to build and deliver customer value quickly and independently as possible without requiring hand-offs to other teams
+* Primary TEAM type in an org and the purpose of the other teams is to reduce the burden of the stream-aligned team
+* Enabling team assist and unblock
+* Platform team reduces cognitive load for stream-aligned team by off-loading lower level detailed knowledge like provisioning, monitoring etc
+* Stream-aligned team is closer to the customer and able to quickly incorporate feedback
+* Different streams can co-exist in an org
+  * Customer streams, business streams, geography streams
+* Team is funded as a long term team
+* This idea is in stark contrast with traditional work allocation
+* You build it you run it
+* Amazon two pizza people rule is an example of stream-aligned teams - substantially independent, have ownership over service and responsibility for runtime
+
+##### Capabilities within a Stream-Aligned Team
+* Inlude: Design and arch, dev and coding, infra and operability, metrics and monitoring, product management and ownership, testing and QA and user experience
+
+##### Why Stream-Aligned Team, Not "Product" or "feature" team? 
+* Aligning  with a stream helps to reinforce a focus on flow at the org level
+
+##### Expected Behaviors
+* Produce steady flow of feature delivery
+* quick to course correct based on feedback 
+* experimental approach to product evolution
+* minimal (ideally zero) hand-offs of work to other teams
+* must have time and space to address code quality changes
+* proactively reaches out to supporting teams
+* members in team feel they are on the path to acheiving autonomy, mastery and purpose
+
+#### Enabling Teams
+* Contains specialists in a given tech domain and help bridge the capability gap
+* These teams cross cut into stream teams and have required bandwidth to research, try out options and make informed suggestions
+* Have strongly collaborative nature
+* Thrive to understand the problems and shortcomings of stream-aliogned teams
+* Actively avoid becoming "ivory towers" of knowledge
+* Servant leadership
+* End goal is to increase the autonomy of stream-aligned teams by growing their capabilities
+* Oftan focus more on buid engineering, CI/CD, deployments or test automation
+
+##### Expected Behaviors
+* enabling team stays ahead of the curve in keeping abreast of new approaches, tooling and practices 
+* Acts as a messanger of both good news and bad which helps with management of the tech lifecycle
+* Promotes learning not only inside the enabling team but across stream-aligned teams as curators that faciliates appropriate knowledge sharing
+* Should only be expected to work with stream-aligned teams for a few weeks or months sharing the knowledge and then moving on to another team
+* Small long lived team of group of specialists focused on building awareness and capability for a single team
+
+##### Enabingteam vs COP
+* They exist for different purposes, COP is a diffuse group of people across several teams coming together to learn 
+
+#### Complicated Subsystem Teams 
+* Reponsible for building and maintaining a part of the system that depends heavily on specialist knowledge, to the extent most team members must be specialists in that area of knowledge
+* Goal of team is to reduce cognitive load of stream-aligned team working on systems that include complicated subsystems
+* Examples of complicated subsystem might be: 
+  * mathematical modelm video codec, real time trade reconciliation algorithm
+* This team should only be created only when a subsystem needs mostly specialized knowledge - decision is driven by cognitive load not perceived opportunity
+* Should only have a few complicated subsystem teams per org compared to number of component teams
+
+##### Expected Behaviors
+* Off-load work from stream-aligned teams on complicated subsystems
+* They prioritize work based on needs of stream-algined team work needs
+
+
+#### Platform Teams
+* Purpose is to enable stream-aligned teams to deliver work with substantial autonomy
+* Provides internal services to reduce cognitive load that would be required from stream-aligned teams
+* Knowledge best made available via self-service tools or programmable API that stream-aligned teams can easily consume
+* "Ease of Use" is fundamental
+* They should always regard themselves as pure service providers for the domain teams
+* Examples could be provisioning a new server instance to providing tools for access mangement and security enforcement
+
+##### Expected Behaviors
+* Uses strong collaboration with stream-aligned teams
+* Relies on fast prototyping techniques
+* Strong focus on usability and realiability for their services
+* Leads by example
+* Understands that adoption of internal new services like new technologies is not immediate but evolves
+
+##### Compose the Platform from Groups of Other Fundamental Teams 
+* In large orgs a platform will need more than one team to build and run it
+
+#### Avoid Team Siles in the Flow of Change
+* Team with only one area of expertise should be avoided
+* Work is never handed off to another team for a later stage in the flow
+
+#### A good platform is "Just Big Enough"
+* Platform must always serve the needs of consuming applications and services
+* It provides standards, templates, APIs and well-proven best practices to allow dev teams to innovate rapidly
+
+##### The Thinnest Viable Platform
+* Simplest platform is a list on a wiki page
+* Always make sure we have TVP 
+  * It is a careful balance of keeping the platform small and ensuring the platform is helping to accelerate ans simplify software delivery
+
+#### Cognitive Load Reduction and Accelerated Product Development
+* "Simplify the developer's life" and reduce cognitive load is an essnential part of a good platform
+* Most important part of the platform is that it is built for the developers
+
+##### Compelling, Consistent, Well-Chosen Contraints 
+* Must have a focus on Developer Experience 
+* Should be a way for stream-aligned teams to give feedback to platform teams
+* How-to-guides should be comprehensive but not verbose, up to date and focus on achieving specific tasks not documentating every last corner
+* A good test for DevEx is how easy it is to onboard a new developer to the platform
+
+##### Built on an Underlying Platform 
+* Each platform is built on another platform even if the other platform is hidden or implied
+
+#### Manage as a Live Product or Service 
+* treat the platform as a live/production system and 2 use software-product-management and service-management techniques
+* Need a product roadmap and user journeys of the developers 
+
+
+#### Convert Common Team Types to the Fundamental Team Topoligies
+* Companies would see huge benefit to mapping their teams to one of the four team types
+* Change the teams agreement to adopt the purpose and behavior patterns of the topology
+  
+##### Move to Mostly Stream-Aligned teams for Longevity and Flexibility 
+* These teams take ownership of slices of functionality or certain user outcomes
+* Stream-aligned teams can expect to have cognitive load matched to their capcbilities
+
+##### Infra teams to Platform teams
+* Converting infra teams to platform teams enables rapid safe flow of change
+* Not a simpole shift because the platform is managed as a product
+
+##### Component Teams to Platform or Other Team Types 
+* Dissolve or move to other team types
+
+##### Tooling Teams to Enabling Teams or Part of the Platform
+* Typically run better as enabling teams or as a platform team with clear well-informed roadmap
+
+##### Converting Support Teams
+* Support teams aligned to the flow of change and paired with one ore more stream-aligned Dev teams. Incidents are handled with dynamic "swarming"
+* If dedicated support teams are needed they are aligned to the stream of change alongside a team or squad build the software
+
+##### Converting Architecture and Architects
+* Effective pattern for arch team is part-time enabling team 
+* Architects should collaborate closely with users and engineers
