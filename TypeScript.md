@@ -34,8 +34,8 @@
     type Robin = { nocturnal: false } & BirdInterface;
 
     interface Peacock extends BirdType {
-    colourful: true;
-    flies: false;
+        colourful: true;
+        flies: false;
     }
     ```
 * You can use an interface declaration with classes
@@ -46,9 +46,9 @@
     }
 
     class UserAccount {
-    name: string;
-    id: number;
-    
+        name: string;
+        id: number;
+        
     constructor(name: string, id: number) {
         this.name = name;
         this.id = id;
@@ -94,4 +94,32 @@
 
 
 
-## Enums 
+## Structural Type System
+* One core principles is that type checking focues on the *shape* that values have which is called "duck typing" or "structural typing"
+
+
+
+
+# React and TypeScript 
+- Includes a few helpful ideas 
+
+* When typing a component you can use 
+```
+    const Button : React.FC<Props> = (props) => { }
+```
+
+* For typing react children use `children: React.ReactNode` this includes all of the possible types that it could be passed
+
+* Leverage the typing files and hover over definitions to identify what the typings should be 
+* You can also use `control + space` for autocomplete while in an element 
+
+* When you want to create a component that has all of the native props on an HTML element you can use `ComponentProps<"button">`. You can also pass it a type like: `ComponentProps<typeof NavBar>`
+
+* To omit or remove a prop from a type you can use `Omit` like: `Omit<ComponentProps<"input">, "onChange">`
+* You can also create Type helpers using Generics: `type OverrideProps<T, TOverridden> = Omit<T, keyof TOverridden> & TOverridden;`
+* `useState`: You can set the type of what useState expects : `useState<Type>()`
+* UseRef: It can be passed `null`, an object, a string or a function. For a div you would type `useRef<HTMLDivElement>()` - There are three function overlaods that you can pass to `useRef`
+  * `useRef<string>('1234')` and this returns a MutableRefObject
+  * `useRef<string>(null)` - if you pass null here you are telling React to manage the ref for you and it becomes readonly and immutable - when uou set the initial value to null because that is now React under the hood initially sets it 
+  * `useRef<string>()` - When you don't iniitialize with anything it is the third option 
+
